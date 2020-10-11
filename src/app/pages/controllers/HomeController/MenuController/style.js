@@ -24,12 +24,12 @@ export const SairStyle = Styled.label`
   }
 `
 export const LinkStyle = Styled.a`
-  font-weight: bold;
+  font-weight:bold;
   color: rgb(0,0,0);
   padding: 0 20px 0 20px;
   font-size:28px;
   text-decoration:none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   &:hover{
     color:#fff;
     border-radius:10px;

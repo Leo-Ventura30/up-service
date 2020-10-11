@@ -10,7 +10,4 @@ const Home = ()=> (
     <Body />
   </Fragment>
 )
-  
-
-
 export default Home;

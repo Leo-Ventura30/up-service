@@ -18,6 +18,7 @@ export const ListContentStyle = Styled.div`
 export const ItemStyle = Styled.div`
   padding:2%;
   border-radius:25px;
+  font-family: 'Roboto', sans-serif;
   max-height:max-content;
   width: 19%;
   border: 6px double #fff4;
@@ -29,34 +30,46 @@ export const ItemStyle = Styled.div`
   }
   img{
     padding-top:3%;
-    width:50px;
+    width:50%;
   }
   div{
-    font-size:24px;
-    font-weight: bold;
+    font-weight:bold;
+    font-size:20px;
     text-transform:uppercase;
     padding-top:5%;
   }
   ul{
-    font-size:20px;
+    font-size:18px;
     padding-top:5%;
-    padding-bottom:20%;
+    padding-bottom:15%;
     li{
-      padding-top:1%;
+      padding-top:5%;
+      border-bottom:1px solid #fff2;
+      color:#fff9;
     }
   }
   button{
+    font-weight:bold;
     width:100%;
     height:30px;
     font-size:16px;
     color:#fff;
-    font-weigth:bold;
     background:#2B9348;
     border:0;
-    border-radius:5px;
+    border-radius:20px;
     &:hover{
       transform:scale(1.1);
       background:#F94144;
+      cursor:pointer;
+    }
+  }
+`;
+export const ContentIconStyle = Styled.div`
+  img{
+    margin:3px 20px 3px 20px;
+    width:18%;
+    &:hover{
+      transform:scale(1.3);
       cursor:pointer;
     }
   }

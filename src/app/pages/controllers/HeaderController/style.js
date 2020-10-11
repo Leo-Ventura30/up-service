@@ -3,6 +3,7 @@ import Styled from 'styled-components'
 export const HeaderTextStyle = Styled.div`
   padding-top:10px;
   background:#1A1916;
+  font-family: 'Chilanka', cursive;
   opacity:0.9;
   height:120px;
   text-align:center;
