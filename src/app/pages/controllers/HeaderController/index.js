@@ -9,10 +9,12 @@ import {
 
 const Header = ()=> (
     <HeaderTextStyle>
+      <div>
       <ImageStyle></ImageStyle> 
         <InitImageStyle src={logo}></InitImageStyle>
           Barber Shop
         <EndImageStyle src={logo}></EndImageStyle>
+        </div>
     </HeaderTextStyle>
 )
   

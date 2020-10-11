@@ -8,12 +8,14 @@ export const HeaderTextStyle = Styled.div`
   text-align:center;
   font-size:72px;
   color:white;
-
-  &:hover{
-    cursor:pointer;
-    transform:scale(1.1);
-    font-size:76px;
-    color:#fffa;
+  div{
+    background:black;
+    &:hover{
+      cursor:pointer;
+      transform:scale(1.1);
+      font-size:76px;
+      color:#fffa;
+    }
   }
 `;
 export const InitImageStyle = Styled.img`

@@ -6,7 +6,7 @@ const BodyStyle = Styled.div`
   width:100%;
   opacity:0.9;
   background:#1A1916;
-  height:700px;
+  height:800px;
   max-height:max-content;
   padding-bottom:5px;
 `;

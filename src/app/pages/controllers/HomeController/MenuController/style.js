@@ -34,7 +34,7 @@ export const LinkStyle = Styled.a`
     color:#fff;
     border-radius:10px;
     transform:scale(1.2);
-    background:#CBC8C3;
+    background:#78716D;
     padding:2%;
   }
 `

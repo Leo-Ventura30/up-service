@@ -1,6 +1,7 @@
 import React from 'react';
 import Styled from 'styled-components';
-import Content from './ContentController'
+import Content from './ContentController';
+
 const SectionStyle = Styled.section` 
   position:absolute;
   background:#555;

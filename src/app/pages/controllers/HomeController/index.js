@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import Menu from '../MenuController';
+import Menu from './MenuController';
 import Header from '../HeaderController';
 import Body from '../BodyController'
 

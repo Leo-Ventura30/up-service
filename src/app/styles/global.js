@@ -13,6 +13,9 @@ const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
   }
+  ul{
+    list-style-type: none;
+  }
 `;
 
 export default GlobalStyle;
