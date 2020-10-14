@@ -19,4 +19,5 @@ export const LinkBarStyle = Styled.img`
     transform:scale(1.2);
     opacity:0.3;
   }
+  
 `;
