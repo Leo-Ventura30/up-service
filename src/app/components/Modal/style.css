@@ -56,6 +56,6 @@ select {
   color: #fff;
   box-shadow: 2px 5px rgba(21, 21, 21, 0.7);
   cursor: pointer;
-  background-color: rgb(75, 155, 230);
+  background-color: rgb(74, 155, 230);
   transform: scale(1.05);
 }
