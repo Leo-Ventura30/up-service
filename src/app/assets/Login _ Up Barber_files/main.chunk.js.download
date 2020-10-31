@@ -1,0 +1,830 @@
+(this["webpackJsonpupbarber"] = this["webpackJsonpupbarber"] || []).push([["main"],{
+
+/***/ "./src/app/App.js":
+/*!************************!*\
+  !*** ./src/app/App.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _styles_global__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/global */ "./src/app/styles/global.js");
+/* harmony import */ var _pages_routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/routes */ "./src/app/pages/routes/index.js");
+var _jsxFileName = "C:\\Users\\Leo\\devs\\myexchange\\src\\app\\App.js";
+
+
+
+
+const App = () => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 6,
+    columnNumber: 3
+  }
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_global__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 7,
+    columnNumber: 5
+  }
+}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_routes__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 8,
+    columnNumber: 5
+  }
+}));
+
+/* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./src/app/assets/barbearia.svg":
+/*!**************************************!*\
+  !*** ./src/app/assets/barbearia.svg ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/media/barbearia.0bfce66b.svg";
+
+/***/ }),
+
+/***/ "./src/app/assets/barber.jpg":
+/*!***********************************!*\
+  !*** ./src/app/assets/barber.jpg ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/media/barber.5d441492.jpg";
+
+/***/ }),
+
+/***/ "./src/app/assets/barber2.jpg":
+/*!************************************!*\
+  !*** ./src/app/assets/barber2.jpg ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/media/barber2.709e14a2.jpg";
+
+/***/ }),
+
+/***/ "./src/app/assets/poste.svg":
+/*!**********************************!*\
+  !*** ./src/app/assets/poste.svg ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/media/poste.84a1cb65.svg";
+
+/***/ }),
+
+/***/ "./src/app/pages/controllers/LoginController/index.js":
+/*!************************************************************!*\
+  !*** ./src/app/pages/controllers/LoginController/index.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _assets_barber_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/barber.jpg */ "./src/app/assets/barber.jpg");
+/* harmony import */ var _assets_barber_jpg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_barber_jpg__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _assets_barber2_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../assets/barber2.jpg */ "./src/app/assets/barber2.jpg");
+/* harmony import */ var _assets_barber2_jpg__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_barber2_jpg__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _signin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./signin */ "./src/app/pages/controllers/LoginController/signin/index.js");
+/* harmony import */ var _signout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./signout */ "./src/app/pages/controllers/LoginController/signout/index.js");
+var _jsxFileName = "C:\\Users\\Leo\\devs\\myexchange\\src\\app\\pages\\controllers\\LoginController\\index.js";
+
+
+
+
+
+
+
+var imgs = [_assets_barber_jpg__WEBPACK_IMPORTED_MODULE_2___default.a, _assets_barber2_jpg__WEBPACK_IMPORTED_MODULE_3___default.a];
+const Content = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div`
+  width:100%;
+  max-height:max-content;
+  background:linear-gradient(to bottom right ,rgba(0,105,245,0.3),rgba(0,0,0,0.9));
+`;
+const Container = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].div`
+  width:100%;
+  min-height>max-content;
+  height:110vh;
+`;
+const Image = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].img`
+  max-height:max-content;
+  height:110vh;
+  width:60%;
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  opacity:0.6;
+`;
+const Imageout = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].img`
+  float:right;
+  max-height:max-content;
+  height:110vh;
+  width:60%;
+  clip-path:polygon(30% 0, 100% 0%, 100% 100%, 0 100%);
+  opacity:0.6;
+`;
+const Fot = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].footer`
+  max-height:max-content;
+  font-family:roboto;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:3%;
+  background:rgba(0,0,0,1);
+`;
+
+const LoginController = () => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Content, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 11
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54,
+      columnNumber: 15
+    }
+  }, "Login | Up Barber"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Image, {
+    src: imgs[0],
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_signin__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56,
+      columnNumber: 15
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/criar/conta",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59,
+      columnNumber: 15
+    }
+  }, "Cadastro | Up Barber"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Imageout, {
+    src: imgs[1],
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_signout__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61,
+      columnNumber: 15
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/esqueci/senha",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 63,
+      columnNumber: 13
+    }
+  }, "config")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Fot, {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67,
+      columnNumber: 7
+    }
+  }, "Copyright 2020-2020 by Up comercial softwares. All Rights Reserved."));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (LoginController);
+
+/***/ }),
+
+/***/ "./src/app/pages/controllers/LoginController/signin/index.js":
+/*!*******************************************************************!*\
+  !*** ./src/app/pages/controllers/LoginController/signin/index.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _assets_poste_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../assets/poste.svg */ "./src/app/assets/poste.svg");
+/* harmony import */ var _assets_poste_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_poste_svg__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "C:\\Users\\Leo\\devs\\myexchange\\src\\app\\pages\\controllers\\LoginController\\signin\\index.js";
+
+
+
+const Title = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+  display:flex;
+  align-items:center;
+  text-transform:uppercase;
+  font-family: 'Chilanka', cursive;
+  font-size:42px;
+  font-weight:bold;
+  max-width:max-content;
+  max-height:max-content;
+  margin-bottom:5%;
+`;
+const Content = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:5%;
+  background:rgba(0,150,255,0.3);
+  border-radius:10px;
+  top:10%;
+  right:8%;
+  height:max-content;
+  border:3px outset rgba(230,230,230,0.5);
+  position:absolute;
+  form{
+    height:max-content;
+    width:100%;
+    display:flex;
+    background:rgba(5,5,5,0.4);
+    border-radius:10px;
+    input{
+      font-family:roboto;
+      font-size:14px;
+      color:rgb(55,55,55);
+      padding-left:2%;
+      margin-top:5%;
+      height:35px;
+      width:90%;
+      border-radius:5px;
+      &:focus{
+        border:2px solid rgba(0,120,255,0.9);
+      }
+    }
+    button{
+      font-family:roboto;
+      font-size:20px;
+      min-height:max-content;
+      width:90%;
+      margin-top:15%;
+      height:max-content;
+      padding:4%;
+      text-transform:uppercase;
+      border:0;
+      border-radius:3px;
+      background:rgba(0,120,255,0.9);
+      cursor:pointer;
+      &:hover{
+        color:#fff;
+        background:rgba(0,200,255,0.9);
+      }
+    }
+    div{
+      width:100%;
+      display:flex;
+      flex-direction:column;  
+      align-items:center;
+      margin-top:10%;
+    }
+  }
+  
+`;
+const ContentLink = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+  margin-bottom:6%;
+  a{
+    min-height:5px;
+    margin-bottom:6%;
+    text-decoration:none;
+    color:#fff;
+    &:hover{
+      color:#888;
+    }
+}
+`;
+
+function signin() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Content, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 92,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    width: "80px",
+    src: _assets_poste_svg__WEBPACK_IMPORTED_MODULE_2___default.a,
+    alt: "pic",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 93,
+      columnNumber: 9
+    }
+  }), " | Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    placeholder: "Insira seu email ou usu\xE1rio",
+    type: "text",
+    max: "50",
+    min: "1",
+    name: "user",
+    required: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97,
+      columnNumber: 11
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    placeholder: "Insira sua senha",
+    type: "password",
+    min: "8",
+    max: "50",
+    name: "pass",
+    required: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105,
+      columnNumber: 11
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "submit",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113,
+      columnNumber: 11
+    }
+  }, "entrar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ContentLink, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 11
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "/criar/conta",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115,
+      columnNumber: 13
+    }
+  }, "Criar uma conta"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "/esqueci/senha",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 116,
+      columnNumber: 13
+    }
+  }, "Esqueceu a senha?")))));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (signin);
+
+/***/ }),
+
+/***/ "./src/app/pages/controllers/LoginController/signout/index.js":
+/*!********************************************************************!*\
+  !*** ./src/app/pages/controllers/LoginController/signout/index.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _assets_barbearia_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../assets/barbearia.svg */ "./src/app/assets/barbearia.svg");
+/* harmony import */ var _assets_barbearia_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_barbearia_svg__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "C:\\Users\\Leo\\devs\\myexchange\\src\\app\\pages\\controllers\\LoginController\\signout\\index.js";
+
+
+
+const Title = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+  display:flex;
+  align-items:center;
+  text-transform:uppercase;
+  font-family: 'Chilanka', cursive;
+  font-size:40px;
+  font-weight:bold;
+  max-width:max-content;
+  margin-bottom:5%;
+`;
+const Content = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,150,255,0.3);
+  border-radius:10px;
+  height:530px;
+  top:10%;
+  left:8%;
+  border:3px outset rgba(230,230,230,0.5);
+  position:absolute;
+  padding:15% 5% 15% 5%;
+  form{
+    height:370px;
+    width:100%;
+    display:flex;
+    background:rgba(5,5,5,0.4);
+    padding:2%;
+    border-radius:10px;
+    div{
+      width:100%;
+      display:flex;
+      flex-direction:column;  
+      align-items:center;
+      margin-top:5%;
+      button{
+        font-family:roboto;
+        font-size:20px;
+        min-height:max-content;
+        width:90%;
+        margin-top:10%;
+        padding:3%;
+        text-transform:uppercase;
+        border:0;
+        border-radius:3px;
+        background:rgba(0,120,255,0.9);
+        cursor:pointer;
+        &:hover{
+          color:#fff;
+          background:rgba(0,200,255,0.9);
+        }
+      }
+      input{
+        font-family:roboto;
+        font-size:14px;
+        color:rgb(55,55,55);
+        padding-left:2%;
+        margin-top:3%;
+        height:35px;
+        width:90%;
+        border-radius:5px;
+        &:focus{
+          border:2px solid rgba(0,120,255,0.9);
+        }    
+      }
+    }
+  }
+  
+`;
+const ContentLink = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+  a{
+    min-height:5px;
+    text-decoration:none;
+    color:#fff;
+    &:hover{
+      color:#888;
+    }
+}
+`;
+
+function signout() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Content, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 88,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 89,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    width: "70px",
+    src: _assets_barbearia_svg__WEBPACK_IMPORTED_MODULE_2___default.a,
+    alt: "pic",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 90,
+      columnNumber: 9
+    }
+  }), " | Cadastro"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 92,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 93,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    placeholder: "Nome do seu com\xE9rcio",
+    type: "text",
+    max: "50",
+    min: "1",
+    required: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 94,
+      columnNumber: 11
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    placeholder: "Insira seu nome",
+    type: "text",
+    max: "50",
+    min: "1",
+    required: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 101,
+      columnNumber: 11
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    placeholder: "Insira um email",
+    type: "text",
+    min: "8",
+    max: "50",
+    required: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 108,
+      columnNumber: 11
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    placeholder: "Insira um usu\xE1rio",
+    type: "text",
+    max: "50",
+    min: "1",
+    required: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115,
+      columnNumber: 11
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    placeholder: "Insira sua senha",
+    type: "password",
+    max: "50",
+    min: "1",
+    required: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 122,
+      columnNumber: 11
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "submit",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 129,
+      columnNumber: 11
+    }
+  }, "cadastrar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ContentLink, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 130,
+      columnNumber: 11
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "/",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 131,
+      columnNumber: 13
+    }
+  }, "Ja possuo uma conta")))));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (signout);
+
+/***/ }),
+
+/***/ "./src/app/pages/routes/index.js":
+/*!***************************************!*\
+  !*** ./src/app/pages/routes/index.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NestingExample; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _controllers_LoginController__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../controllers/LoginController */ "./src/app/pages/controllers/LoginController/index.js");
+var _jsxFileName = "C:\\Users\\Leo\\devs\\myexchange\\src\\app\\pages\\routes\\index.js";
+
+
+
+function NestingExample() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_controllers_LoginController__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 11
+    }
+  }))));
+}
+
+/***/ }),
+
+/***/ "./src/app/styles/global.js":
+/*!**********************************!*\
+  !*** ./src/app/styles/global.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+
+const GlobalStyle = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGlobalStyle"]`
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    outline:0;
+  }
+
+  body{
+    background: #CCCCCC;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+  }
+  ul{
+    list-style-type: none;
+  }
+`;
+/* harmony default export */ __webpack_exports__["default"] = (GlobalStyle);
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _app_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/App */ "./src/app/App.js");
+var _jsxFileName = "C:\\Users\\Leo\\devs\\myexchange\\src\\index.js";
+
+
+
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_app_App__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 5,
+    columnNumber: 17
+  }
+}), document.getElementById("root"));
+
+/***/ }),
+
+/***/ 1:
+/*!**************************************************************************************************************!*\
+  !*** multi (webpack)/hot/dev-server.js ./node_modules/react-dev-utils/webpackHotDevClient.js ./src/index.js ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! C:\Users\Leo\devs\myexchange\node_modules\webpack\hot\dev-server.js */"./node_modules/webpack/hot/dev-server.js");
+__webpack_require__(/*! C:\Users\Leo\devs\myexchange\node_modules\react-dev-utils\webpackHotDevClient.js */"./node_modules/react-dev-utils/webpackHotDevClient.js");
+module.exports = __webpack_require__(/*! C:\Users\Leo\devs\myexchange\src\index.js */"./src/index.js");
+
+
+/***/ })
+
+},[[1,"runtime-main",0]]]);
+//# sourceMappingURL=main.chunk.js.map

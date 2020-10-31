@@ -1,7 +1,7 @@
-import React from 'react';
-import Styled from 'styled-components';
-import Bar from './VerticalBarController';
-import Section from './SectionController';
+import React from "react";
+import Styled from "styled-components";
+import Bar from "./VerticalBarController";
+import Section from "./SectionController";
 const BodyStyle = Styled.div`
   width:100%;
   opacity:0.9;
@@ -13,14 +13,13 @@ const BodyStyle = Styled.div`
 const DivSectionStyle = Styled.div`
   padding: 1% 1% 1% 6%;
 `;
-const Body = ()=> (
-    <BodyStyle>
-      <DivSectionStyle>
-        <Section>
-        </Section>
-      </DivSectionStyle>
-        <Bar></Bar>
-    </BodyStyle>
-)
-  
+const Body = () => (
+  <BodyStyle>
+    <DivSectionStyle>
+      <Section></Section>
+    </DivSectionStyle>
+    <Bar></Bar>
+  </BodyStyle>
+);
+
 export default Body;

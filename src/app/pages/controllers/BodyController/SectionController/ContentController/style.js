@@ -1,11 +1,12 @@
-import Styled from 'styled-components';
+import Styled from "styled-components";
 
 export const ContentStyle = Styled.div` 
   position:relative;
   margin:3% 3% 3% 3%;
   background:#9B9791;
   border-radius:10px;
-  width:100%
+  width:90%;
+  min-height:200px;
   max-height:max-content;
 `;
 export const FormSearchStyle = Styled.form`

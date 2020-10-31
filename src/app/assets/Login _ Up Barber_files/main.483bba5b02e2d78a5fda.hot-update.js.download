@@ -1,0 +1,209 @@
+webpackHotUpdate("main",{
+
+/***/ "./src/app/pages/controllers/LoginController/signin/index.js":
+/*!*******************************************************************!*\
+  !*** ./src/app/pages/controllers/LoginController/signin/index.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _assets_poste_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../assets/poste.svg */ "./src/app/assets/poste.svg");
+/* harmony import */ var _assets_poste_svg__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_poste_svg__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "C:\\Users\\Leo\\devs\\myexchange\\src\\app\\pages\\controllers\\LoginController\\signin\\index.js";
+
+
+
+const Title = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+  display:flex;
+  align-items:center;
+  text-transform:uppercase;
+  font-family: 'Chilanka', cursive;
+  font-size:42px;
+  font-weight:bold;
+  max-width:max-content;
+  max-height:max-content;
+  margin-bottom:5%;
+`;
+const Content = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:5%;
+  background:rgba(0,150,255,0.3);
+  border-radius:10px;
+  top:10%;
+  right:8%;
+  height:max-content;
+  border:3px outset rgba(230,230,230,0.5);
+  position:absolute;
+  form{
+    height:max-content;
+    width:100%;
+    display:flex;
+    background:rgba(5,5,5,0.4);
+    border-radius:10px;
+    input{
+      font-family:roboto;
+      font-size:14px;
+      color:rgb(55,55,55);
+      padding-left:2%;
+      margin-top:5%;
+      height:35px;
+      width:90%;
+      border-radius:5px;
+      &:focus{
+        border:2px solid rgba(0,120,255,0.9);
+      }
+    }
+    button{
+      font-family:roboto;
+      font-size:20px;
+      min-height:max-content;
+      width:90%;
+      margin-top:15%;
+      height:max-content;
+      padding:4%;
+      text-transform:uppercase;
+      border:0;
+      border-radius:3px;
+      background:rgba(0,120,255,0.9);
+      cursor:pointer;
+      &:hover{
+        color:#fff;
+        background:rgba(0,200,255,0.9);
+      }
+    }
+    div{
+      width:100%;
+      display:flex;
+      flex-direction:column;  
+      align-items:center;
+      margin-top:10%;
+    }
+  }
+  
+`;
+const ContentLink = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div`
+  margin-bottom:6%;
+  a{
+    min-height:5px;
+    margin-bottom:6%;
+    text-decoration:none;
+    color:#fff;
+    &:hover{
+      color:#888;
+    }
+}
+`;
+
+function signin() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Content, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 91,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 92,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    width: "80px",
+    src: _assets_poste_svg__WEBPACK_IMPORTED_MODULE_2___default.a,
+    alt: "pic",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 93,
+      columnNumber: 9
+    }
+  }), " | Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 95,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 96,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    placeholder: "Insira seu email ou usu\xE1rio",
+    type: "text",
+    max: "50",
+    min: "1",
+    name: "user",
+    required: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 97,
+      columnNumber: 11
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    placeholder: "Insira sua senha",
+    type: "password",
+    min: "8",
+    max: "50",
+    name: "pass",
+    required: true,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 105,
+      columnNumber: 11
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "submit",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113,
+      columnNumber: 11
+    }
+  }, "entrar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ContentLink, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 114,
+      columnNumber: 11
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "/criar/conta",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 115,
+      columnNumber: 13
+    }
+  }, "Criar uma conta"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "/esqueci/senha",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 116,
+      columnNumber: 13
+    }
+  }, "Esqueceu a senha?")))));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (signin);
+
+/***/ })
+
+})
+//# sourceMappingURL=main.483bba5b02e2d78a5fda.hot-update.js.map

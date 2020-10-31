@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled from "styled-components";
 export const ComponentStyle = Styled.div`
   display:flex;
   align-items:center;
@@ -16,6 +16,9 @@ export const ListContentStyle = Styled.div`
   padding:4%;
 `;
 export const ItemStyle = Styled.div`
+  display:flex;
+  flex-direction:column;
+  align-items:center;
   padding:2%;
   border-radius:25px;
   font-family: 'Roboto', sans-serif;
