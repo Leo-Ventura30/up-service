@@ -1,18 +1,19 @@
-import Styled from 'styled-components'
+import Styled from "styled-components";
 
 export const BarStyle = Styled.div` 
   position: fixed;
-  display: block;
+  display:flex;
+  flex-direction:column;
   text-align: center; 
-  width:5%;
+  width:max-content;
   background:#555;
   border-radius: 0 10px 10px 0;
   padding:13px;
 `;
 export const LinkBarStyle = Styled.img`
   opacity:0.8;
-  max-width:100%;
-  height:60px;
+
+  height:50px;
 
   &:hover{
     cursor:pointer;

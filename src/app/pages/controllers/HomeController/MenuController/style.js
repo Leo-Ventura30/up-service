@@ -1,4 +1,4 @@
-import Styled from 'styled-components'
+import Styled from "styled-components";
 
 export const Container = Styled.div`
   position:relative;
@@ -8,7 +8,7 @@ export const Content = Styled.div`
   display:flex;
   flex-direction: column;
   align-items:center;
-  width:100%;
+  width:max-content;
 `;
 export const ContentImage = Styled.div`
   position:absolute;
@@ -22,7 +22,7 @@ export const SairStyle = Styled.label`
   &:hover{
     opacity:0.5;
   }
-`
+`;
 export const LinkStyle = Styled.a`
   font-weight:bold;
   color: rgb(0,0,0);
@@ -37,7 +37,7 @@ export const LinkStyle = Styled.a`
     background:#78716D;
     padding:2%;
   }
-`
+`;
 export const NavStyle = Styled.nav`
   padding: 40px 20px 40px 20px;
   max-width: max-content;

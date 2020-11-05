@@ -9,7 +9,7 @@ const Content = () => {
   return (
     <ContentStyle>
       <Switch>
-        <Route path="/dashboard">
+        <Route exact path="/dashboard">
           <UserComponent />
         </Route>
         <Route path="/dashboard/calendar">calendar</Route>

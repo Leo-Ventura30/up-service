@@ -19,15 +19,16 @@ const Content = Styled.div`
   align-items:center;
   background:rgba(0,150,255,0.3);
   border-radius:10px;
+  width:max-content;
   height:530px;
   top:10%;
-  left:8%;
+  left:4%;
   border:3px outset rgba(230,230,230,0.5);
   position:absolute;
   padding:15% 5% 15% 5%;
   form{
     height:370px;
-    width:100%;
+    width:90%;
     display:flex;
     background:rgba(5,5,5,0.4);
     padding:2%;
