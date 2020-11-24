@@ -3,6 +3,8 @@ import { Component } from "react";
 import { Content, ContentLink, Title } from "./style";
 import poste from "../../../../assets/poste.svg";
 import api from "../../../../services/api";
+import user from "../../../../assets/user.svg";
+import key from "../../../../assets/key.svg";
 
 export default class signin extends Component {
   state = {
@@ -32,20 +34,27 @@ export default class signin extends Component {
   render() {
     return (
       <Content>
+        <title>Login | Up Barber</title>
         <Title>
-          <img width="80px" src={poste} alt="pic"></img> | Login
+          <img src={poste} alt="pic"></img> | Login
         </Title>
         <form onSubmit={this.handleSubmit} method="POST">
-          <div>
+          <div className="content-input">
+            <img width="45px" height="45px" src={user} alt="icon" />
+
             <input
-              placeholder="Insira seu email ou usuário"
+              placeholder="E-mail ou usuário"
               type="text"
               max="50"
               min="1"
               value={this.state.user}
               onChange={this.handleChangeUser}
               required
-            ></input>
+            />
+          </div>
+          <div className="content-input">
+            <img width="45px" height="45px" src={key} alt="icon" />
+
             <input
               placeholder="Insira sua senha"
               type="password"
@@ -54,14 +63,15 @@ export default class signin extends Component {
               value={this.state.password}
               onChange={this.handleChangePassword}
               required
-            ></input>
-            <button type="submit">entrar</button>
-            <ContentLink>
-              <a href="/criar/conta">Criar uma conta</a>
-              <a href="/esqueci/senha">Esqueceu a senha?</a>
-            </ContentLink>
-            <span>{this.state.error}</span>
+            />
           </div>
+
+          <button type="submit">entrar</button>
+          <ContentLink>
+            <a href="/criar/conta">Criar uma conta</a>
+            <a href="/esqueci/senha">Esqueceu a senha?</a>
+          </ContentLink>
+          <span>{this.state.error}</span>
         </form>
       </Content>
     );

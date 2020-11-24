@@ -71,7 +71,8 @@ const Content = Styled.div`
       }
     }
   }
-  
+
+ 
 `;
 const ContentLink = Styled.div`
   a{
@@ -87,6 +88,7 @@ const ContentLink = Styled.div`
 function signout() {
   return (
     <Content>
+      <title>Cadastro | Up Barber</title>
       <Title>
         <img width="70px" src={barber} alt="pic"></img> | Cadastro
       </Title>
