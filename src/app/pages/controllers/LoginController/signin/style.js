@@ -33,17 +33,18 @@ export const Content = Styled.div`
     max-width:max-content;
     max-height:max-content;
     button{
+        color:#000;
         margin-top:5%;
         font-size:2vw;
         width:100%;
         height:max-content;
-        background:#61B2Df;
+        background:#C2EAF7;
         padding:2%;
         border:0;
         border-radius:10px;
         cursor:pointer;
         &:hover{
-            background:#15B2Df;
+            background:#61B2Df;
             color:#fff;
         }
     }
@@ -51,12 +52,12 @@ export const Content = Styled.div`
         &{
             width:100%;
             height:max-content;
-            padding:10% 5% 20% 5%;
+            padding:10% 5% 15% 5%;
             img{
                 width:10vh;
             }
             button{
-                margin-top:2%;
+                margin-top:5%;
                 font-size:4vw;
                 width:100%;
                 height:max-content;
@@ -123,7 +124,20 @@ export const ContentLink = Styled.div`
     margin-top:10%;
     max-height:10px;
     display:flex;
-    flex-direction:column;
+    flex-direction:row;
     align-items:center;
     justify-content:center;
+    a{  
+        color:#61B2Df;
+        text-decoration:none;
+        border: 1px solid #61B2Df;
+        border-radius: 5px;
+        padding:2%;
+        font-size:1vw;
+        margin:5%;
+        &:hover{
+            background:#61B2Df;
+            color:#fff;
+        }
+    }
 `;
