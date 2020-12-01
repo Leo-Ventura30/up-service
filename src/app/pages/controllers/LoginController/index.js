@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
 // import img from "../../../assets/barber.jpg";
-// import img2 from "../../../assets/barber2.jpg";
+import img2 from "../../../assets/barber2.jpg";
 import Styled from "styled-components";
 import Signin from "./signin";
 import Signout from "./signout";
@@ -9,18 +9,18 @@ import Signout from "./signout";
 // var imgs = [img, img2];
 
 const Content = Styled.div`
+  *{
+    font-family:roboto;
+  }
   min-height:45vw;
   max-height:max-content;
   width:100%;
   background:linear-gradient(to bottom right ,rgba(0,105,245,0.3),rgba(0,0,0,0.9));
-
 `;
 
 const DivImage = Styled.div`
   position:absolute;
-  height:max-content;
-  width:50%;
-  
+  width:100%;
 `;
 const ContainerLogin = Styled.div`
   border-radius: 5% 0 0 5%;
@@ -34,7 +34,7 @@ const ContainerLogin = Styled.div`
   display:flex;
   align-items:center;
   justify-content:center;
-  @media screen and (max-width:767px) {
+  @media screen and (max-width:768px) {
     &{
       border-radius:0%;
       width:100%;
@@ -44,7 +44,6 @@ const ContainerLogin = Styled.div`
   @media screen and (max-width:1000px) {
     &{
       border-radius:0%;
-
       width:100%;
       transform:translateX(0%);
     }
@@ -65,18 +64,28 @@ const Fot = Styled.footer`
   justify-content:center;
   padding:3%;
   background:rgba(0,0,0,1);
-  @media screen and (max-width:767px) {
+  @media screen and (max-width:768px) {
     &{
       font-size:2.5vw;
     }
   }
 `;
-
+const ImageContent = Styled.img`
+  width:100%;
+  height:99vh;
+  opacity:0.4;
+  @media screen and (max-width:1000px){
+    width:100%;
+    opacity:0;
+  }
+`;
 const LoginController = () => {
   return (
     <Fragment>
       <Content>
-        <DivImage></DivImage>
+        <DivImage>
+          <ImageContent src={img2} alt="pic"></ImageContent>
+        </DivImage>
         <ContainerLogin>
           <Switch>
             <Route exact path="/">
@@ -89,9 +98,7 @@ const LoginController = () => {
           </Switch>
         </ContainerLogin>
       </Content>
-      <Fot>
-        Copyright 2020-2020 by Up comercial softwares. All Rights Reserved.
-      </Fot>
+      <Fot>Copyright © 2020 by Up digital services. All Rights Reserved.</Fot>
     </Fragment>
   );
 };

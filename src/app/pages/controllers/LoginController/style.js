@@ -5,8 +5,9 @@ export const Title = Styled.div`
     justify-content:center;
     align-items:center;
     flex-direction:row;
-    font-size:3vw; 
-    @media screen and (max-width:767px) {
+    font-size:3vw;
+    color:#fff; 
+    @media screen and (max-width:768px) {
         &{
             font-size:10vw;
         }
@@ -29,26 +30,38 @@ export const Content = Styled.div`
     border-right:3px solid #FF6B6B;
     border-top:3px solid #61B2D9;
     padding:10%;
-    background:#fff;
+    background:rgba(255,255,255,0.1);
     max-width:max-content;
     max-height:max-content;
+    span{
+        color:#fff;
+        margin-bottom:10px;
+        width:100%;
+        background:rgba(230,0,0,0.5);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:1.6vh;
+        padding:4%;
+        border-radius:10px;
+    }
     button{
+        text-transform:uppercase;
         color:#000;
         margin-top:5%;
-        font-size:2vw;
+        font-size:1.5vw;
         width:100%;
         height:max-content;
-        background:#C2EAF7;
+        background:#61B2Df;
         padding:2%;
-        border:0;
         border-radius:10px;
+        border:0;
         cursor:pointer;
         &:hover{
-            background:#61B2Df;
-            color:#fff;
+            transform:scale(1.1);
         }
     }
-    @media screen and (max-width:767px) {
+    @media screen and (max-width:768px) {
         &{
             width:100%;
             height:max-content;
@@ -64,14 +77,39 @@ export const Content = Styled.div`
                 padding:4%;
             }
             a{
-                font-size:4vw;
                 display:flex;
                 flex-direction:column;
                 justify-content:center;
                 align-items:center;
                 margin-top:5px;
             }
-
+        }
+    }
+    .content-select{
+        display:flex;
+        flex-direction:row;
+        #uf{
+            margin-right:7.5px;
+        }
+        #municipio{
+            margin-left:7.5px;
+        }
+        #uf,#municipio{
+            border:0;
+            background:#ddd;
+            padding: 4% 2%;
+            border-radius:10px;
+            width:50%;
+            margin-top:15px;
+            font-size:1.1vw;
+            color:#777;
+            
+            @media screen and (max-width:768px) {
+                &{
+                    margin-top:5px;
+                    font-size:3vw;
+                }
+            }
         }
     }
     .content-input{
@@ -87,22 +125,25 @@ export const Content = Styled.div`
             background:none;
             padding: 3% 2%;
             font-size:1.5vw;
+            visibility:0;   
         }
         img{
-            width:7vh;
+            width:3vh;
+            margin:5px;
         }
         @media screen and (max-width:1000px) {
             &{
               width:100%;
               input{
-                padding: 5% 2%;  
+                padding:5% 2%;  
               }
               img{
-                  margin:1%;
+                width:5vh;
+                margin:3px;
               }
             }
         }
-        @media screen and (max-width:767px) {
+        @media screen and (max-width:768px) {
             &{  
                 height:max-content;
                 width:100%;
@@ -113,8 +154,8 @@ export const Content = Styled.div`
                     background:none;
                 }
                 img{
-                    width:10vh;
-                    padding:2%;
+                    width:30px;
+                    margin:3px;
                 }
             }
         }
@@ -133,11 +174,26 @@ export const ContentLink = Styled.div`
         border: 1px solid #61B2Df;
         border-radius: 5px;
         padding:2%;
-        font-size:1vw;
+        font-size:0.9vw;
         margin:5%;
+        text-align:center;
         &:hover{
             background:#61B2Df;
             color:#fff;
         }
+        @media screen and (max-width:1000px) {
+            &{
+                font-size:1.3vw;
+                padding:1%;
+                margin-top:15%;
+            }
+        }
+        @media screen and (max-width:768px) {
+            &{
+                font-size:3vw;
+            }
+        }
+        
+
     }
 `;

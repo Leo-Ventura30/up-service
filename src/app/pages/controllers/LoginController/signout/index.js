@@ -1,142 +1,153 @@
 import React from "react";
-import Styled from "styled-components";
-import barber from "../../../../assets/barbearia.svg";
+import { Component } from "react";
+import { Content, ContentLink, Title } from "../style";
+import poste from "../../../../assets/barbearia.svg";
+import api from "../../../../services/api";
 
-const Title = Styled.div`
-  display:flex;
-  align-items:center;
-  text-transform:uppercase;
-  font-family: 'Chilanka', cursive;
-  font-size:40px;
-  font-weight:bold;
-  max-width:max-content;
-  margin-bottom:5%;
-`;
-const Content = Styled.div`
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background:rgba(0,150,255,0.3);
-  border-radius:10px;
-  width:max-content;
-  height:530px;
-  top:10%;
-  left:4%;
-  border:3px outset rgba(230,230,230,0.5);
-  position:absolute;
-  padding:15% 5% 15% 5%;
-  form{
-    height:370px;
-    width:90%;
-    display:flex;
-    background:rgba(5,5,5,0.4);
-    padding:2%;
-    border-radius:10px;
-    div{
-      width:100%;
-      display:flex;
-      flex-direction:column;  
-      align-items:center;
-      margin-top:5%;
-      button{
-        font-family:roboto;
-        font-size:20px;
-        min-height:max-content;
-        width:90%;
-        margin-top:10%;
-        padding:2%;
-        text-transform:uppercase;
-        border:0;
-        border-radius:3px;
-        background:rgba(0,120,255,0.9);
-        cursor:pointer;
-        &:hover{
-          color:#fff;
-          background:rgba(0,200,255,0.9);
-        }
-      }
-      input{
-        font-family:roboto;
-        font-size:14px;
-        color:rgb(55,55,55);
-        padding-left:2%;
-        margin-top:3%;
-        height:35px;
-        width:90%;
-        border-radius:5px;
-        &:focus{
-          border:2px solid rgba(0,120,255,0.9);
-        }    
-      }
+export default class signin extends Component {
+  state = {
+    commerce: "",
+    category: "",
+    uf: "",
+    city: "",
+    email: "",
+    user: "",
+    password: "",
+    error: "",
+  };
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    this.setState({ error: "" });
+    const response = await api.post("/register", {
+      commerce: this.state.commerce,
+      category: this.state.category,
+      uf: this.state.uf,
+      city: this.state.city,
+      email: this.state.email,
+      user: this.state.user,
+      password: this.state.password,
+    });
+    if (response.data !== true) {
+      this.setState({ error: response.data });
     }
-  }
+  };
 
- 
-`;
-const ContentLink = Styled.div`
-  a{
-    min-height:5px;
-    text-decoration:none;
-    color:#fff;
-    &:hover{
-      color:#888;
-    }
-}
-`;
+  handleChangeCommerce = (e) => {
+    this.setState({ commerce: e.target.value });
+  };
+  handleChangeCategory = (e) => {
+    this.setState({ category: e.target.value });
+  };
+  handleChangeUf = (e) => {
+    this.setState({ uf: e.target.value });
+  };
+  handleChangeCity = (e) => {
+    this.setState({ city: e.target.value });
+  };
+  handleChangeEmail = (e) => {
+    this.setState({ email: e.target.value });
+  };
+  handleChangeUser = (e) => {
+    this.setState({ user: e.target.value });
+  };
+  handleChangePassword = (e) => {
+    this.setState({ password: e.target.value });
+  };
+  render() {
+    return (
+      <Content>
+        <title>Cadastro | Up Barber</title>
+        {this.state.error && <span>{this.state.error}</span>}
 
-function signout() {
-  return (
-    <Content>
-      <title>Cadastro | Up Barber</title>
-      <Title>
-        <img width="70px" src={barber} alt="pic"></img> | Cadastro
-      </Title>
-      <form>
-        <div>
-          <input
-            placeholder="Nome do seu comércio"
-            type="text"
-            max="50"
-            min="1"
-            required
-          ></input>
-          <input
-            placeholder="Insira seu nome"
-            type="text"
-            max="50"
-            min="1"
-            required
-          ></input>
-          <input
-            placeholder="Insira um email"
-            type="text"
-            min="8"
-            max="50"
-            required
-          ></input>
-          <input
-            placeholder="Insira um usuário"
-            type="text"
-            max="50"
-            min="1"
-            required
-          ></input>
-          <input
-            placeholder="Insira sua senha"
-            type="password"
-            max="50"
-            min="1"
-            required
-          ></input>
-          <button type="submit">cadastrar</button>
+        <Title>
+          <img src={poste} alt="pic"></img> | Cadastro
+        </Title>
+        <form onSubmit={this.handleSubmit} method="POST">
+          <div className="content-input">
+            <input
+              placeholder="Nome do comércio"
+              type="text"
+              max="50"
+              min="1"
+              value={this.state.commerce}
+              onChange={this.handleChangeCommerce}
+              required
+            />
+          </div>
+          <div className="content-input">
+            <input
+              placeholder="Categoria"
+              type="text"
+              max="50"
+              min="2"
+              value={this.state.category}
+              onChange={this.handleChangeCategory}
+              required
+            />
+          </div>
+          <div className="content-select">
+            <select
+              onChange={this.handleChangeUf}
+              value={this.state.uf}
+              id="uf"
+              type="select"
+              required
+            >
+              <option value="null">UF</option>
+              <option value="SP">SP</option>
+            </select>
+            <select
+              onChange={this.handleChangeCity}
+              value={this.state.city}
+              id="municipio"
+              type="select"
+              required
+            >
+              <option value="null">Município</option>
+              <option value="Santo André">Santo André</option>
+            </select>
+          </div>
+          <div className="content-input">
+            <input
+              placeholder="E-mail"
+              type="text"
+              max="50"
+              min="10"
+              value={this.state.email}
+              onChange={this.handleChangeEmail}
+              required
+            />
+          </div>
+          <div className="content-input">
+            <input
+              placeholder="Usuário"
+              type="text"
+              max="50"
+              min="5"
+              value={this.state.user}
+              onChange={this.handleChangeUser}
+              required
+            />
+          </div>
+          <div className="content-input">
+            <input
+              placeholder="Senha"
+              type="password"
+              min="8"
+              max="50"
+              value={this.state.password}
+              onChange={this.handleChangePassword}
+              required
+            />
+          </div>
+
+          <button type="submit">criar</button>
           <ContentLink>
-            <a href="/">Ja possuo uma conta</a>
+            <a href="/">Ja possui uma conta?</a>
           </ContentLink>
-        </div>
-      </form>
-    </Content>
-  );
+        </form>
+      </Content>
+    );
+  }
 }
-
-export default signout;

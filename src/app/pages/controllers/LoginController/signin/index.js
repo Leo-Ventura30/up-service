@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import { Content, ContentLink, Title } from "./style";
+import { Content, ContentLink, Title } from "../style";
 import poste from "../../../../assets/poste.svg";
 import api from "../../../../services/api";
 import user from "../../../../assets/user.svg";
@@ -23,6 +23,7 @@ export default class signin extends Component {
     if (response.data !== true) {
       this.setState({ error: response.data });
     }
+    console.log(response.data);
   };
 
   handleChangeUser = (e) => {
@@ -34,6 +35,8 @@ export default class signin extends Component {
   render() {
     return (
       <Content>
+        {this.state.error && <span>{this.state.error}</span>}
+
         <title>Login | Up Barber</title>
         <Title>
           <img src={poste} alt="pic"></img> | Login
@@ -41,7 +44,6 @@ export default class signin extends Component {
         <form onSubmit={this.handleSubmit} method="POST">
           <div className="content-input">
             <img width="45px" height="45px" src={user} alt="icon" />
-
             <input
               placeholder="E-mail ou usuário"
               type="text"
@@ -54,9 +56,8 @@ export default class signin extends Component {
           </div>
           <div className="content-input">
             <img width="45px" height="45px" src={key} alt="icon" />
-
             <input
-              placeholder="Insira sua senha"
+              placeholder="Senha"
               type="password"
               min="8"
               max="50"
@@ -71,7 +72,6 @@ export default class signin extends Component {
             <a href="/criar/conta">Criar uma conta</a>
             <a href="/esqueci/senha">Esqueceu a senha?</a>
           </ContentLink>
-          <span>{this.state.error}</span>
         </form>
       </Content>
     );
