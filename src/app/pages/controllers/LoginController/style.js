@@ -34,10 +34,11 @@ export const Content = Styled.div`
     max-width:max-content;
     max-height:max-content;
     span{
-        color:#fff;
+        color:#ff6166;
         margin-bottom:10px;
         width:100%;
-        background:rgba(230,0,0,0.5);
+        background:rgba(255,107,107,0.5);
+        border:1px solid #ff6166;
         display:flex;
         align-items:center;
         justify-content:center;
@@ -61,6 +62,22 @@ export const Content = Styled.div`
             transform:scale(1.1);
         }
     }
+    @media screen and (max-width:1100px) {
+        &{
+            button{
+                margin-top:5%;
+                font-size:2vw;
+                width:100%;
+                height:max-content;
+                padding:5%;
+                &:hover{
+                    box-shadow:1px 1px 5px #31B2Df;
+                    transform:scale(1);
+                }
+            }
+        }
+    }
+
     @media screen and (max-width:768px) {
         &{
             width:100%;
@@ -75,6 +92,9 @@ export const Content = Styled.div`
                 width:100%;
                 height:max-content;
                 padding:4%;
+                &:hover{
+                    transform:scale(1);
+                }
             }
             a{
                 display:flex;
@@ -131,7 +151,7 @@ export const Content = Styled.div`
             width:3vh;
             margin:5px;
         }
-        @media screen and (max-width:1000px) {
+        @media screen and (max-width:1100px) {
             &{
               width:100%;
               input{
@@ -178,6 +198,7 @@ export const ContentLink = Styled.div`
         margin:5%;
         text-align:center;
         &:hover{
+            box-shadow: 2px 2px 15px #61B2Df;
             background:#61B2Df;
             color:#fff;
         }

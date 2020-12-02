@@ -1,8 +1,9 @@
 import React from "react";
 import { Component } from "react";
 import { Content, ContentLink, Title } from "../style";
-import poste from "../../../../assets/poste.svg";
 import api from "../../../../services/api";
+
+import poste from "../../../../assets/poste.svg";
 import user from "../../../../assets/user.svg";
 import key from "../../../../assets/key.svg";
 
