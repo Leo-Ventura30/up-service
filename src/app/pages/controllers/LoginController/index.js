@@ -88,12 +88,8 @@ const LoginController = () => {
         </DivImage>
         <ContainerLogin>
           <Switch>
-            <Route exact path="/">
-              <Signin />
-            </Route>
-            <Route path="/criar/conta">
-              <Signout />
-            </Route>
+            <Route exact path="/" component={() => <Signin />} />
+            <Route path="/criar/conta" component={() => <Signout />} />
             <Route path="/esqueci/senha">config</Route>
           </Switch>
         </ContainerLogin>

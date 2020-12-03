@@ -1,13 +1,16 @@
 import React from "react";
 import { Component } from "react";
+import { withRouter } from "react-router-dom";
+
 import { Content, ContentLink, Title } from "../style";
 import api from "../../../../services/api";
 
 import poste from "../../../../assets/poste.svg";
 import user from "../../../../assets/user.svg";
 import key from "../../../../assets/key.svg";
+import { login } from "../../../../services/auth";
 
-export default class signin extends Component {
+class signin extends Component {
   state = {
     user: "",
     password: "",
@@ -16,15 +19,25 @@ export default class signin extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    this.setState({ error: "" });
-    const response = await api.post("/signin", {
-      user: this.state.user,
-      password: this.state.password,
-    });
-    if (response.data !== true) {
-      this.setState({ error: response.data });
+    const { user, password } = this.state;
+    if (!user || !password) {
+      this.setState({ error: "Preencha todos os dados para o fazer login!" });
+    } else {
+      try {
+        const response = await api.post("/signin", {
+          user: this.state.user,
+          password: this.state.password,
+        });
+        if (response.data !== true) {
+          throw new Error(response.data);
+        } else {
+          login(response.data.token);
+          this.props.history.push("/dashboard");
+        }
+      } catch (error) {
+        this.setState({ error: error.message });
+      }
     }
-    console.log(response.data);
   };
 
   handleChangeUser = (e) => {
@@ -52,7 +65,6 @@ export default class signin extends Component {
               min="1"
               value={this.state.user}
               onChange={this.handleChangeUser}
-              required
             />
           </div>
           <div className="content-input">
@@ -64,7 +76,6 @@ export default class signin extends Component {
               max="50"
               value={this.state.password}
               onChange={this.handleChangePassword}
-              required
             />
           </div>
 
@@ -78,3 +89,5 @@ export default class signin extends Component {
     );
   }
 }
+
+export default withRouter(signin);

@@ -10,7 +10,7 @@ api.interceptors.request.use(async (config) => {
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
-  console.log(config.url + "/tocu");
+  console.log(config);
   return config;
 });
 export default api;
