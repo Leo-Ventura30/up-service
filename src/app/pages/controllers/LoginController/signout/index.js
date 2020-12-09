@@ -1,8 +1,14 @@
 import React from "react";
 import { Component } from "react";
 import { Content, ContentLink, Title } from "../style";
-import poste from "../../../../assets/barbearia.svg";
 import api from "../../../../services/api";
+
+import poste from "../../../../assets/barbearia.svg";
+import commerce from "../../../../assets/store.svg";
+import category from "../../../../assets/category.svg";
+import email from "../../../../assets/email.svg";
+import user from "../../../../assets/user.svg";
+import password from "../../../../assets/key.svg";
 
 export default class signin extends Component {
   state = {
@@ -65,6 +71,7 @@ export default class signin extends Component {
         </Title>
         <form onSubmit={this.handleSubmit} method="POST">
           <div className="content-input">
+            <img width="45px" height="45px" src={commerce} alt="icon" />
             <input
               placeholder="Nome do comércio"
               type="text"
@@ -76,6 +83,7 @@ export default class signin extends Component {
             />
           </div>
           <div className="content-input">
+            <img width="45px" height="45px" src={category} alt="icon" />
             <input
               placeholder="Categoria"
               type="text"
@@ -94,7 +102,9 @@ export default class signin extends Component {
               type="select"
               required
             >
-              <option value="null">UF</option>
+              <option color="#777" value="null">
+                UF
+              </option>
               <option value="SP">SP</option>
             </select>
             <select
@@ -104,11 +114,14 @@ export default class signin extends Component {
               type="select"
               required
             >
-              <option value="null">Município</option>
+              <option color="#777" value="null">
+                Município
+              </option>
               <option value="Santo André">Santo André</option>
             </select>
           </div>
           <div className="content-input">
+            <img width="45px" height="45px" src={email} alt="icon" />
             <input
               placeholder="E-mail"
               type="text"
@@ -120,6 +133,7 @@ export default class signin extends Component {
             />
           </div>
           <div className="content-input">
+            <img width="45px" height="45px" src={user} alt="icon" />
             <input
               placeholder="Usuário"
               type="text"
@@ -131,6 +145,7 @@ export default class signin extends Component {
             />
           </div>
           <div className="content-input">
+            <img width="45px" height="45px" src={password} alt="icon" />
             <input
               placeholder="Senha"
               type="password"

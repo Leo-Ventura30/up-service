@@ -60,7 +60,8 @@ export default function UserComponent() {
         <ListContentStyle>
           <ItemStyle>
             <img src={Picture} alt="pic"></img>
-            <div>talhitão</div>
+            <div>nome</div>
+            <p>number</p>
             <ul>
               <li>12/10</li>
               <li>12:30</li>
@@ -74,7 +75,8 @@ export default function UserComponent() {
           </ItemStyle>
           <ItemStyle>
             <img src={Picture} alt="pic"></img>
-            <div>talhitão</div>
+            <div>nome</div>
+            <p>number</p>
             <ul>
               <li>15/10</li>
               <li>14:30</li>

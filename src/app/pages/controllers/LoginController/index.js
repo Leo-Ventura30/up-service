@@ -72,12 +72,15 @@ const Fot = Styled.footer`
 `;
 const ImageContent = Styled.img`
   width:100%;
-  height:99vh;
+  height:110vh;
   opacity:0.4;
+
   @media screen and (max-width:1000px){
-    width:100%;
+    height:0vh;
+    width:0%;
     opacity:0;
   }
+  
 `;
 const LoginController = () => {
   return (

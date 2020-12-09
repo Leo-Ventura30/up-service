@@ -1,14 +1,15 @@
 import Styled from "styled-components";
 
 export const Container = Styled.div`
-  position:relative;
+    position:relative;
 `;
 export const Content = Styled.div`
   background:#9B9791;
   display:flex;
-  flex-direction: column;
   align-items:center;
-  width:max-content;
+  justify-content:center;
+
+  width:100%;
 `;
 export const ContentImage = Styled.div`
   position:absolute;

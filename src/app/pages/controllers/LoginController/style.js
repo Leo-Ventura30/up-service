@@ -30,7 +30,7 @@ export const Content = Styled.div`
     border-right:3px solid #FF6B6B;
     border-top:3px solid #61B2D9;
     padding:10%;
-    background:rgba(255,255,255,0.1);
+    background:rgba(255,255,255,0.1);   
     max-width:max-content;
     max-height:max-content;
     span{
@@ -121,7 +121,7 @@ export const Content = Styled.div`
             border-radius:10px;
             width:50%;
             margin-top:15px;
-            font-size:1.1vw;
+            font-size:1vw;
             color:#777;
             
             @media screen and (max-width:768px) {
@@ -141,10 +141,11 @@ export const Content = Styled.div`
         border-radius:10px;
         width:100%;
         input{
+            color:#888;
             border:0;
             background:none;
             padding: 3% 2%;
-            font-size:1.5vw;
+            font-size:1.2vw;
             visibility:0;   
         }
         img{
@@ -182,7 +183,7 @@ export const Content = Styled.div`
     }
 `;
 export const ContentLink = Styled.div`
-    margin-top:10%;
+    margin-top:15%;
     max-height:10px;
     display:flex;
     flex-direction:row;
@@ -214,7 +215,5 @@ export const ContentLink = Styled.div`
                 font-size:3vw;
             }
         }
-        
-
     }
 `;
