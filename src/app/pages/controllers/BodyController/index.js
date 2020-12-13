@@ -2,24 +2,27 @@ import React from "react";
 import Styled from "styled-components";
 import Bar from "./VerticalBarController";
 import Section from "./SectionController";
-const BodyStyle = Styled.div`
-  width:100%;
-  opacity:0.9;
-  background:#1A1916;
-  height:800px;
-  max-height:max-content;
-  padding-bottom:5px;
-`;
+
 const DivSectionStyle = Styled.div`
-  padding: 1% 1% 1% 6%;
+  display:flex;
+  width:100%;
+  max-height:max-content;
+  background:#333;
 `;
+const NavStyle = Styled.div`
+  width:15%;
+`
+const ContentStyle = Styled.div`
+  width:85%;
+`;  
 const Body = () => (
-  <BodyStyle>
     <DivSectionStyle>
-      <Section></Section>
+      <NavStyle>
+      </NavStyle>
+      <ContentStyle>
+        <Section/>
+      </ContentStyle>
     </DivSectionStyle>
-    <Bar></Bar>
-  </BodyStyle>
 );
 
 export default Body;

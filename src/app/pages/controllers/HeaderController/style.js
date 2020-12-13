@@ -1,39 +1,20 @@
 import Styled from 'styled-components'
 
-export const HeaderTextStyle = Styled.div`
-  padding-top:10px;
-  background:#1A1916;
-  font-family: 'Chilanka', cursive;
-  opacity:0.9;
-  height:120px;
-  text-align:center;
-  font-size:72px;
-  color:white;
-  div{
-    background:black;
-    &:hover{
-      cursor:pointer;
-      transform:scale(1.1);
-      font-size:76px;
-      color:#fffa;
-    }
-  }
-`;
-export const InitImageStyle = Styled.img`
-  height:70px;
+export const HeaderStyle = Styled.div`
+  background:rgba(0,0,0,0.2);
+  color:#000;
+  font-family:roboto;
+  display:flex;
+  align-item:center;
+  justify-content:center;
+  font-size:6vw;
+  width:100%;
+  cursor:pointer;
   &:hover{
-    animation:balance 0.4s;
-    cursor:pointer;
+    transform:scale(1.1);
   }
 `;
-export const EndImageStyle = Styled.img`
-  height:70px;
-  &:hover{
-    animation:balance 0.4s;
-    cursor:pointer;
-  }
-`;
-export const ImageStyle = Styled.label`
+export const ContentImageStyle = Styled.img`
   @keyframes balance{
     0%{
       transform:rotate(40deg);
@@ -53,5 +34,50 @@ export const ImageStyle = Styled.label`
     100%{
       transform:rotate(0);
     }
+  }
+  width:6vw;
+  cursor:pointer;
+  &:hover{
+    transform:scale(1.1);
+    animation-name: balance;
+    animation-duration: 1s;
+    animation-iteration-count: 2;
+  }
+`;
+
+export const Container = Styled.div`
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:3vw;
+  font-family:roboto;
+  background:#333;
+  margin-bottom:3px;
+`;
+export const Content = Styled.div`
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:2%;
+  background:#555;
+  min-width:60%;
+  max-width:max-content;
+  border-radius:20px;
+`;
+
+export const SairStyle = Styled.label`
+  cursor:pointer;
+  &:hover{
+    color:rgba(230,0,0,0.8);
+  }
+`;
+export const LinkStyle = Styled.a`
+  cursor:pointer;
+  text-decoration:none;
+  color:#fff;
+  margin:2%;
+  &:hover{
+    color:#72f5f7;
+    transform:scale(1.1);
   }
 `;

@@ -1,13 +1,17 @@
 import React from "react";
-
-import "./style.css";
-import { ContentStyle } from "./style";
 import { Route, Switch } from "react-router-dom";
-import UserComponent from "../ComponentsController";
+
+import { ContentStyle,ContentSearch } from "../style";
+import UserComponent from "./ComponentsController";
+
+import Search from "./Search"
 
 const Content = () => {
   return (
     <ContentStyle>
+      <ContentSearch> 
+        <Search/>
+      </ContentSearch>
       <Switch>
         <Route exact path="/dashboard">
           <UserComponent />

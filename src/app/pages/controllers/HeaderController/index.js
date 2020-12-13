@@ -1,21 +1,17 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import logo from '../../../assets/barber.svg';
-import {
-  HeaderTextStyle,
-  ImageStyle,
-  InitImageStyle,
-  EndImageStyle
-} from './style';
+import Menu from './MenuController';
+import {HeaderStyle, ContentImageStyle} from './style';
 
 const Header = ()=> (
-    <HeaderTextStyle>
-      <div>
-      <ImageStyle></ImageStyle> 
-        <InitImageStyle src={logo}></InitImageStyle>
+  <Fragment>
+    <HeaderStyle>
+        <ContentImageStyle className="image-init" src={logo}/>
           Barber Shop
-        <EndImageStyle src={logo}></EndImageStyle>
-        </div>
-    </HeaderTextStyle>
+        <ContentImageStyle className="image-end" src={logo}/>
+    </HeaderStyle>
+    <Menu/>
+  </Fragment> 
 )
   
 export default Header;

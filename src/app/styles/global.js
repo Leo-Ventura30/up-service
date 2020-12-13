@@ -16,6 +16,11 @@ const GlobalStyle = createGlobalStyle`
   ul{
     list-style-type: none;
   }
+  .show {
+    right: 5%;
+    bottom: 0px;
+    display: block !important;
+  } 
 `;
 
 export default GlobalStyle;
