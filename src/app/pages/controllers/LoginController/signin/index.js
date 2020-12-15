@@ -1,5 +1,4 @@
-import React from "react";
-import { Component } from "react";
+import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
 import { Content, ContentLink, Title } from "../style";
@@ -21,7 +20,7 @@ class signin extends Component {
     e.preventDefault();
     const { user, password } = this.state;
     if (!user || !password) {
-      this.setState({ error: "Preencha todos os dados para o fazer login!" });
+      this.setState({ error: "Preencha todos os campos!" });
     } else {
       try {
         const response = await api.post("/signin", {

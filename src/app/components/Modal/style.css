@@ -2,7 +2,7 @@
   background-color: rgb(209, 209, 209);
   display: none;
   border-radius: 15px 15px 0 0;
-  position: fixed;
+  position: fixed !important;
   width: 25%;
   max-height: max-content;
 }
@@ -50,11 +50,11 @@
   color: rgb(207, 252, 255);
   font-size: 20px;
   text-transform: uppercase;
-  background-color: rgb(44, 152, 253);
+  background: rgb(44, 152, 253);
 }
 .button-form:hover {
   color: #fff;
-  box-shadow: 2px 5px rgba(21, 21, 21, 0.7);
+  box-shadow:1px 2px 7px #31B2Df;
   cursor: pointer;
   background-color: rgb(75, 155, 230);
   transform: scale(1.05);

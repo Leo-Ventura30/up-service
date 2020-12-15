@@ -19,7 +19,7 @@ const Content = Styled.div`
 `;
 
 const DivImage = Styled.div`
-  position:absolute;
+  position:fixed;
   width:100%;
 `;
 const ContainerLogin = Styled.div`
@@ -53,7 +53,7 @@ const ContainerLogin = Styled.div`
 
 const ImageContent = Styled.img`
   width:100%;
-  height:110vh;
+  height:50vw;
   opacity:0.4;
 
   @media screen and (max-width:1000px){
@@ -61,7 +61,6 @@ const ImageContent = Styled.img`
     width:0%;
     opacity:0;
   }
-  
 `;
 
 const LoginController = () => {

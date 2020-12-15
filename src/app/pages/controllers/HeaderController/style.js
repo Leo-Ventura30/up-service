@@ -1,17 +1,19 @@
-import Styled from 'styled-components'
+import Styled from "styled-components";
 
 export const HeaderStyle = Styled.div`
   background:rgba(0,0,0,0.2);
-  color:#000;
   font-family:roboto;
   display:flex;
-  align-item:center;
   justify-content:center;
   font-size:6vw;
   width:100%;
+  a{
+    text-decoration:none;
+    color:#000;
+  }
   cursor:pointer;
-  &:hover{
-    transform:scale(1.1);
+  a:hover{
+    transform:scale(1.05);
   }
 `;
 export const ContentImageStyle = Styled.img`

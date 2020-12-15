@@ -2,9 +2,9 @@ import Styled from "styled-components";
 
 export const Fot = Styled.footer`
   margin-top:2px;
-  position:relative;
   max-height:max-content;
   height:20%;
+  width:100%;
   font-family:roboto;
   font-size:1.4vw;
   color:#fff;
