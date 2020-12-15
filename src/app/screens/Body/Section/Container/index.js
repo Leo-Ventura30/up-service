@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import { ContentStyle, ContentSearch } from "../style";
-import UserComponent from "./ComponentsController";
+import UserComponent from "./Content";
 
 import Search from "./Search";
 

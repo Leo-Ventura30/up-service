@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom";
 import { isAuthenticated } from "../services/auth";
 import Footer from "../components/Footer";
-import Login from "../pages/controllers/LoginController";
-import Home from "../pages/controllers/HomeController";
+import Login from "../screens/Login";
+import Home from "../screens/Home";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route

@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
 import { Content, ContentLink, Title } from "../style";
-import api from "../../../../services/api";
+import api from "../../../services/api";
 
-import poste from "../../../../assets/poste.svg";
-import user from "../../../../assets/user.svg";
-import key from "../../../../assets/key.svg";
-import { login } from "../../../../services/auth";
+import poste from "../../../assets/poste.svg";
+import user from "../../../assets/user.svg";
+import key from "../../../assets/key.svg";
+import { login } from "../../../services/auth";
 
 class signin extends Component {
   state = {

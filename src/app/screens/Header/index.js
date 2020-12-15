@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import logo from "../../../assets/barber.svg";
-import Menu from "./MenuController";
+import logo from "../../assets/barber.svg";
+import Menu from "./Menu";
 import { HeaderStyle, ContentImageStyle } from "./style";
 
 const Header = () => (

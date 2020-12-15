@@ -1,14 +1,14 @@
 import React from "react";
 import { Component } from "react";
 import { Content, ContentLink, Title } from "../style";
-import api from "../../../../services/api";
+import api from "../../../services/api";
 
-import poste from "../../../../assets/barbearia.svg";
-import commerce from "../../../../assets/store.svg";
-import category from "../../../../assets/category.svg";
-import email from "../../../../assets/email.svg";
-import user from "../../../../assets/user.svg";
-import password from "../../../../assets/key.svg";
+import poste from "../../../assets/barbearia.svg";
+import commerce from "../../../assets/store.svg";
+import category from "../../../assets/category.svg";
+import email from "../../../assets/email.svg";
+import user from "../../../assets/user.svg";
+import password from "../../../assets/key.svg";
 
 export default class signin extends Component {
   state = {

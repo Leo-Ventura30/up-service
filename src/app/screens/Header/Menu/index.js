@@ -1,18 +1,20 @@
 import React from "react";
-import { logout } from "../../../../services/auth";
-import { Container, Content, SairStyle, LinkStyle } from "../style";
+import { logout } from "../../../services/auth";
+import { Container, Content, SairStyle, LinkStyle, HomeStyle } from "../style";
 
-import Home from "../../../../assets/home.svg";
-import Calendar from "../../../../assets/calendar.svg";
-import Config from "../../../../assets/configuration.svg";
-import Exit from "../../../../assets/exit.svg";
+import Home from "../../../assets/home.svg";
+import Calendar from "../../../assets/calendar.svg";
+import Config from "../../../assets/configuration.svg";
+import Exit from "../../../assets/exit.svg";
 
 const Menu = () => (
   <Container>
     <Content>
       <div>
         <img src={Home} />
-        <LinkStyle href="/dashboard">home</LinkStyle>
+        <HomeStyle className="nav-home" href="/dashboard">
+          home
+        </HomeStyle>
       </div>
       <div>
         <img src={Calendar} width="50px" />

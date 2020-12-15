@@ -53,8 +53,10 @@ export const Container = Styled.div`
   justify-content:center;
   font-size:3vw;
   font-family:roboto;
+  text-transform:uppercase;
   background:#333;
   margin-bottom:3px;
+  
   @media screen and (max-width:768px) {
     &{
       font-size:4vw;
@@ -69,6 +71,7 @@ export const Content = Styled.div`
   margin:2%;
   background:#555;
   border-radius:20px;
+  
   div{
     display:flex;
     flex-direction:row;
@@ -82,6 +85,7 @@ export const Content = Styled.div`
   img{
     max-width:10vw;
     max-height:10vw;
+    cursor:pointer;
   }
   @media screen and (max-width:768px) {
     &{
@@ -98,11 +102,20 @@ export const SairStyle = Styled.label`
     color:rgba(230,0,0,0.8);
   }
 `;
+export const HomeStyle = Styled.label`
+  cursor:pointer;
+  color:rgba(0,0,0,0.8);
+
+  &:hover{
+    color:rgba(0,0,0,0.3);
+  }
+`;
 export const LinkStyle = Styled.a`
   cursor:pointer;
   text-decoration:none;
   color:#fff;
   margin:2%;
+  
   &:hover{
     color:#72f5f7;
   }

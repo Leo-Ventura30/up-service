@@ -1,7 +1,7 @@
 import React from "react";
 import Styled from "styled-components";
-import Bar from "./VerticalBarController";
-import Section from "./SectionController";
+import Bar from "./VerticalBar";
+import Section from "./Section";
 
 const DivSectionStyle = Styled.div`
   display:flex;

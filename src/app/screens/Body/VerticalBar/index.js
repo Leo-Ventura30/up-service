@@ -1,12 +1,13 @@
 import React, { useState, useRef } from "react";
-import Adduser from "../../../../assets/adduser.svg";
-import Configuration from "../../../../assets/configuration.svg";
 import { Link } from "react-router-dom";
-import Exit from "../../../../assets/exit.svg";
-import Home from "../../../../assets/home.svg";
-import Calendar from "../../../../assets/calendar.svg";
-import Modal from "../../../../components/Modal";
 import { BarStyle, LinkBarStyle } from "./style";
+
+import Adduser from "../../../assets/adduser.svg";
+import Configuration from "../../../assets/configuration.svg";
+import Exit from "../../../assets/exit.svg";
+import Home from "../../../assets/home.svg";
+import Calendar from "../../../assets/calendar.svg";
+import Modal from "../../../components/Modal";
 
 const Bar = () => {
   const [dropdown, setDropdown] = useState("");

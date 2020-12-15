@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
 // import img from "../../../assets/barber.jpg";
-import img2 from "../../../assets/barber2.jpg";
+import img2 from "../../assets/barber2.jpg";
 import Styled from "styled-components";
 import Signin from "./signin";
 import Signout from "./signout";

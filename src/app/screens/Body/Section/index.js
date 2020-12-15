@@ -1,5 +1,5 @@
 import React from "react";
-import Content from "./ContentController";
+import Content from "./Container";
 
 const Section = () => <Content />;
 

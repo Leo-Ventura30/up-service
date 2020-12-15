@@ -13,6 +13,7 @@ const Modal = (props) => {
             type="text"
             placeholder="Insira o nome"
           ></input>
+
           <input
             required
             className="input-form"

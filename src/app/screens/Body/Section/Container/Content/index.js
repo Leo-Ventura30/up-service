@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 
-import Picture from "../../../../../../assets/picture.svg";
-import Edit from "../../../../../../assets/edit.svg";
-import Bin from "../../../../../../assets/bin.svg";
+import Picture from "../../../../../assets/picture.svg";
+import Edit from "../../../../../assets/edit.svg";
+import Bin from "../../../../../assets/bin.svg";
 
 import {
   ComponentStyle,

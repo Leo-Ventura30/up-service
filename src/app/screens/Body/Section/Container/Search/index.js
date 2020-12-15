@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
 
-import Modal from "../../../../../../components/Modal";
+import Modal from "../../../../../components/Modal";
 
-import User from "../../../../../../assets/adduser.svg";
-import SearchIcon from "../../../../../../assets/search.svg";
+import User from "../../../../../assets/adduser.svg";
+import SearchIcon from "../../../../../assets/search.svg";
 
 import {
   FormSearchStyle,
