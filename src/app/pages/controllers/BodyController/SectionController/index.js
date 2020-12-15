@@ -1,15 +1,6 @@
 import React from "react";
-import Styled from "styled-components";
 import Content from "./ContentController";
 
-const SectionStyle = Styled.section` 
- 
-`;
-
-const Section = () => (
-  <SectionStyle>
-    <Content></Content>
-  </SectionStyle>
-);
+const Section = () => <Content />;
 
 export default Section;

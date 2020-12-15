@@ -16,7 +16,7 @@ export const Title = Styled.div`
         width:60px;
         max-width:80px;
         max-height:80px;
-        @media screen and (max-width:500px) {
+        @media screen and (max-width:768px) {
             &{
                 width:50px;
             }

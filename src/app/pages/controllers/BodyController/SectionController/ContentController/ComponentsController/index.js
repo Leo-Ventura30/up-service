@@ -70,10 +70,12 @@ function UserComponent() {
               ></ItemIconStyle>
 
               <strong>
-                <p>{e.nome}</p>
+                <p className="content-name">{e.nome}</p>
               </strong>
               <strong>
-                <p>{e.number}</p>
+                <p>
+                  <a href={"http://wa.me/5511" + e.number}>{e.number}</a>
+                </p>
               </strong>
               <p>{e.dia}</p>
               <p>{e.hora}</p>

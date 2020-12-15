@@ -55,6 +55,11 @@ export const Container = Styled.div`
   font-family:roboto;
   background:#333;
   margin-bottom:3px;
+  @media screen and (max-width:768px) {
+    &{
+      font-size:6vw;
+    }
+  }
 `;
 export const Content = Styled.div`
   display:flex;
@@ -65,6 +70,11 @@ export const Content = Styled.div`
   min-width:60%;
   max-width:max-content;
   border-radius:20px;
+  @media screen and (max-width:768px) {
+    &{
+      background:none;
+    }
+  }
 `;
 
 export const SairStyle = Styled.label`

@@ -44,10 +44,15 @@ export const AdduserStyle = Styled.img`
     cursor:pointer;
   }
 `;
-
 export const ComponentStyle = Styled.div`
   width:100%;
   padding:2%;
+  @media screen and (max-width:768px){
+    &{
+      min-height:90vh;
+      max-height:max-content;
+    }
+  }
 `;
 export const ListContentStyle = Styled.ul`
   display:flex;
@@ -56,6 +61,14 @@ export const ListContentStyle = Styled.ul`
   background:rgba(0,0,0,0.3);
   border-radius:20px;
   padding:1%;
+  @media screen and (max-width:768px) {
+    &{
+      flex-direction:row;
+      flex-wrap: wrap;
+      justify-content:center;
+      align-items:center;
+    }
+  }
 `;
 export const ItemStyle = Styled.li`
   display:flex;
@@ -64,12 +77,13 @@ export const ItemStyle = Styled.li`
   justify-content:center;
   align-items:center;
   margin:1%;  
-  min-height:40vh;
+  min-height:10vh;
   max-height:max-content;
   width:18%;
   text-align:center;
   padding:2%;
   border-radius:10px;
+
   &:nth-child(2n+0){
     background:rgba(255,255,255,0.4);
   }
@@ -105,9 +119,57 @@ export const ItemStyle = Styled.li`
     font-size:1.2vw;
     letter-spacing:2px;
     padding:1%;
+    &:nth-child(1){
+      color:#000;
+    }
+    a{
+      font-size:1.3vw;
+      text-decoration:none;
+      color:#111;
+      
+    }
   }
   strong{
+    cursor:pointer;
     width:100%;
+    p:hover,a:hover{
+        transform:scale(1.1);
+        color:#72f5f7;
+      }
+  }
+
+  @media screen and (max-width:768px) {
+    &{
+      width:45%;
+      max-height:max-content;
+      min-height:30vh;
+      border:0;
+      padding:2%;
+    }
+    strong{
+      margin:0;
+    }
+    p{
+      margin-top:10%;
+      border:0;
+      margin:0;
+      font-size:2.5vw;
+      letter-spacing:1px;
+      p:nth-child(1){
+        font-size:4vw;
+      }
+      a{
+        font-size:3vw;
+      }
+    }
+    .content-name{
+      font-size:3vw;
+    }
+    button{
+      margin-top:10%;
+      padding:2%;
+      font-size:2vw;
+    }
   }
 `;
 export const InputStyle = Styled.input`
@@ -116,13 +178,16 @@ export const InputStyle = Styled.input`
 `;
 export const ItemIconStyle = Styled.img`
   width:5vw;
+  @media screen and (max-width:768px) {
+    width:8vw;
+  }
 `;
 export const ContentIconStyle = Styled.div`
   display:flex;
   flex-direction:row;
   align-items:center;
   justify-content:center;
-  margin-top:10%;
+  margin-top:8%;
   width:100%;
   img{
     cursor:pointer;
@@ -131,6 +196,13 @@ export const ContentIconStyle = Styled.div`
   }
   img:hover{
     transform:scale(1.2);
+  }
+  @media screen and (max-width:768px) {
+    &{
+      img{
+        width:4vw;
+      }
+    }
   }
 `;
 

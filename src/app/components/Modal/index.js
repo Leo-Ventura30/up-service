@@ -16,9 +16,10 @@ const Modal = (props) => {
           <input
             required
             className="input-form"
-            type="datetime-local"
-            placeholder="Insira o dia"
+            type="text"
+            placeholder="Insira o numero"
           ></input>
+          <input required className="input-form" type="datetime-local"></input>
           <select id="type-modal" name="type">
             <option>Tipo de serviço</option>
             <option value="Barba">Barba</option>

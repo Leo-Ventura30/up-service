@@ -7,6 +7,7 @@ const DivSectionStyle = Styled.div`
   display:flex;
   width:100%;
   max-height:max-content;
+  
 `;
 const NavStyle = Styled.div`
   width:15%;
