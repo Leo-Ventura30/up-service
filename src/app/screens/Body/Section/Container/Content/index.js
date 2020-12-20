@@ -11,7 +11,11 @@ import {
   ContentIconStyle,
   ItemIconStyle,
 } from "../../style";
-
+function mountLink(user) {
+  const textZap = `Olá ${user.nome}, só passando para confirmar o seu agendamento para o dia ${user.dia} as ${user.hora}`;
+  const linkZap = `https://wa.me/5511${user.number}?text=${textZap}&app_absent=1`;
+  return linkZap;
+}
 function UserComponent() {
   const user = [
     {
@@ -43,11 +47,11 @@ function UserComponent() {
       servico: "Completo",
     },
     {
-      nome: "Leo",
-      number: "998296602",
+      nome: "Talhita",
+      number: "998629594",
       dia: "11/12",
       hora: "12:12",
-      servico: "Completo",
+      servico: "Tosa",
     },
     {
       nome: "Leo",
@@ -57,6 +61,7 @@ function UserComponent() {
       servico: "Completo",
     },
   ];
+
   return (
     <Fragment>
       <ComponentStyle>
@@ -68,18 +73,27 @@ function UserComponent() {
                 src={Picture}
                 alt="pic"
               ></ItemIconStyle>
-
-              <strong>
-                <p className="content-name">{e.nome}</p>
-              </strong>
-              <strong>
-                <p>
-                  <a href={"http://wa.me/5511" + e.number}>{e.number}</a>
-                </p>
-              </strong>
-              <p>{e.dia}</p>
-              <p>{e.hora}</p>
-              <p>{e.servico}</p>
+              <ul>
+                <li>
+                  <p>{e.nome}</p>
+                </li>
+                <li>
+                  <p>
+                    <a href={mountLink(e)} target="_blank">
+                      {e.number}
+                    </a>
+                  </p>
+                </li>
+                <li>
+                  <p>{e.dia}</p>
+                </li>
+                <li>
+                  <p>{e.hora}</p>
+                </li>
+                <li>
+                  <p>{e.servico}</p>
+                </li>
+              </ul>
               <button>Finalizar</button>
               <ContentIconStyle>
                 <img src={Edit} alt="pic"></img>

@@ -12,23 +12,21 @@ const Menu = () => (
     <Content>
       <div>
         <img src={Home} />
-        <HomeStyle className="nav-home" href="/dashboard">
+        <LinkStyle className="nav-home" href="/dashboard">
           home
-        </HomeStyle>
+        </LinkStyle>
       </div>
       <div>
-        <img src={Calendar} width="50px" />
+        <img src={Calendar} />
         <LinkStyle href="*">agenda</LinkStyle>
       </div>
       <div>
-        <img src={Config} width="50px" />
+        <img src={Config} />
         <LinkStyle href="*">configurações</LinkStyle>
       </div>
       <div>
-        <img src={Exit} width="50px" />
-        <LinkStyle onClick={logout()} href="#">
-          <SairStyle>sair</SairStyle>
-        </LinkStyle>
+        <img src={Exit} />
+        <SairStyle>sair</SairStyle>
       </div>
     </Content>
   </Container>

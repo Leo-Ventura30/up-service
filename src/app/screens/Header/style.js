@@ -2,19 +2,30 @@ import Styled from "styled-components";
 
 export const HeaderStyle = Styled.div`
   background:rgba(0,0,0,0.2);
-  font-family:roboto;
+  font-family:chilanka;
   display:flex;
   justify-content:center;
-  font-size:6vw;
+  align-items:center;
+  font-size:7vw;
   width:100%;
+  letter-spacing:10px;
+  cursor:pointer;
   a{
+    margin-top:10px;
     text-decoration:none;
     color:#000;
+    margin-right:3%;
+    margin-left:4%;
   }
-  cursor:pointer;
   a:hover{
     transform:scale(1.05);
   }
+  @media screen and (max-width:768px) {
+    &{
+      font-size:5vw;
+      letter-spacing:5px;
+    }
+  }  
 `;
 export const ContentImageStyle = Styled.img`
   @keyframes balance{
@@ -37,7 +48,7 @@ export const ContentImageStyle = Styled.img`
       transform:rotate(0);
     }
   }
-  width:6vw;
+  width:5vw;
   cursor:pointer;
   &:hover{
     transform:scale(1.1);
@@ -52,14 +63,14 @@ export const Container = Styled.div`
   align-items:center;
   justify-content:center;
   font-size:3vw;
-  font-family:roboto;
+  letter-spacing:3px;
+  font-family:chilanka, roboto;
   text-transform:uppercase;
   background:#333;
-  margin-bottom:3px;
-  
+  margin-bottom:0.1%;
   @media screen and (max-width:768px) {
     &{
-      font-size:4vw;
+      font-size:2vw;
     }
   }
 `;
@@ -67,25 +78,31 @@ export const Content = Styled.div`
   display:flex;
   align-items:center;
   justify-content:center;
-  width:90%;
-  margin:2%;
-  background:#555;
-  border-radius:20px;
-  
+  margin:1%;
   div{
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    margin-left:5%;
+    margin-right:7%;
     &:hover{
-      transform:scale(1.1);
+      transform:scale(1.15);
     }
-  }
-  img{
-    max-width:10vw;
-    max-height:10vw;
-    cursor:pointer;
+    img{
+      width:4vw;
+      cursor:pointer;
+      margin-bottom:1vw;
+      @media screen and (max-width:768px) {
+        &{
+          width:5vw;
+        }
+      }
+    }
+    @media screen and (max-width:768px) {
+      &{
+        margin-right:10%;
+      }
+    }
   }
   @media screen and (max-width:768px) {
     &{
@@ -93,30 +110,15 @@ export const Content = Styled.div`
     }
   }
 `;
-
 export const SairStyle = Styled.label`
   cursor:pointer;
   color:rgba(230,0,0,0.5);
-
   &:hover{
     color:rgba(230,0,0,0.8);
-  }
-`;
-export const HomeStyle = Styled.label`
-  cursor:pointer;
-  color:rgba(0,0,0,0.8);
-
-  &:hover{
-    color:rgba(0,0,0,0.3);
   }
 `;
 export const LinkStyle = Styled.a`
   cursor:pointer;
   text-decoration:none;
   color:#fff;
-  margin:2%;
-  
-  &:hover{
-    color:#72f5f7;
-  }
 `;
