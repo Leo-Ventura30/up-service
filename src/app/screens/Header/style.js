@@ -66,7 +66,7 @@ export const Container = Styled.div`
   letter-spacing:3px;
   font-family:chilanka, roboto;
   text-transform:uppercase;
-  background:#333;
+  background:#777;
   margin-bottom:0.1%;
   @media screen and (max-width:768px) {
     &{
@@ -113,6 +113,7 @@ export const Content = Styled.div`
 export const SairStyle = Styled.label`
   cursor:pointer;
   color:rgba(230,0,0,0.5);
+  font-weight:700;
   &:hover{
     color:rgba(230,0,0,0.8);
   }

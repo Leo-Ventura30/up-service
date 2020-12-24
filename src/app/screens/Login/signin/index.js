@@ -13,6 +13,7 @@ class signin extends Component {
   state = {
     user: "",
     password: "",
+    response: {},
     error: "",
   };
 
@@ -27,10 +28,12 @@ class signin extends Component {
           user: this.state.user,
           password: this.state.password,
         });
-        if (response.data !== true) {
+
+        if (response.data.status !== true) {
           throw new Error(response.data);
         } else {
           login(response.data.token);
+          // this.setState({ response: response.data });
           this.props.history.push("/dashboard");
         }
       } catch (error) {
@@ -48,7 +51,7 @@ class signin extends Component {
   render() {
     return (
       <Content>
-        {this.state.error && <span>{this.state.error}</span>}
+        {this.state.error && <span className="error">{this.state.error}</span>}
 
         <title>Login | Up Barber</title>
         <Title>

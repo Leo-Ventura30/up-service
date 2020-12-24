@@ -19,23 +19,30 @@ export default class signin extends Component {
     email: "",
     user: "",
     password: "",
-    error: "",
+    alert: "",
+    success: "",
   };
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    this.setState({ error: "" });
-    const response = await api.post("/register", {
-      commerce: this.state.commerce,
-      category: this.state.category,
-      uf: this.state.uf,
-      city: this.state.city,
-      email: this.state.email,
-      user: this.state.user,
-      password: this.state.password,
-    });
-    if (response.data !== true) {
-      this.setState({ error: response.data });
+    this.setState({ success: "", alert: "" });
+
+    const { ...datas } = this.state;
+    if (!true) {
+      this.setState({ alert: "Preencha todos os campos!" });
+    } else {
+      try {
+        const response = await api.post("/register", {
+          ...datas,
+        });
+        if (response.data.status !== true) {
+          throw new Error(response.data);
+        } else {
+          this.setState({ success: response.data.alert });
+        }
+      } catch (error) {
+        this.setState({ alert: error.message });
+      }
     }
   };
 
@@ -64,8 +71,10 @@ export default class signin extends Component {
     return (
       <Content>
         <title>Cadastro | Up Barber</title>
-        {this.state.error && <span>{this.state.error}</span>}
-
+        {this.state.alert && <span className="error">{this.state.alert}</span>}
+        {this.state.success && (
+          <span className="success">{this.state.success}</span>
+        )}
         <Title>
           <img src={poste} alt="pic"></img> | Cadastro
         </Title>
@@ -79,7 +88,6 @@ export default class signin extends Component {
               min="1"
               value={this.state.commerce}
               onChange={this.handleChangeCommerce}
-              required
             />
           </div>
           <div className="content-input">
@@ -91,7 +99,6 @@ export default class signin extends Component {
               min="2"
               value={this.state.category}
               onChange={this.handleChangeCategory}
-              required
             />
           </div>
           <div className="content-select">
@@ -100,7 +107,6 @@ export default class signin extends Component {
               value={this.state.uf}
               id="uf"
               type="select"
-              required
             >
               <option color="#777" value="null">
                 UF
@@ -112,7 +118,6 @@ export default class signin extends Component {
               value={this.state.city}
               id="municipio"
               type="select"
-              required
             >
               <option color="#777" value="null">
                 Município
@@ -129,7 +134,6 @@ export default class signin extends Component {
               min="10"
               value={this.state.email}
               onChange={this.handleChangeEmail}
-              required
             />
           </div>
           <div className="content-input">
@@ -141,7 +145,6 @@ export default class signin extends Component {
               min="5"
               value={this.state.user}
               onChange={this.handleChangeUser}
-              required
             />
           </div>
           <div className="content-input">
@@ -153,7 +156,6 @@ export default class signin extends Component {
               max="50"
               value={this.state.password}
               onChange={this.handleChangePassword}
-              required
             />
           </div>
 

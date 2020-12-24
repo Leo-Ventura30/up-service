@@ -34,17 +34,25 @@ export const Content = Styled.div`
     max-width:max-content;
     max-height:max-content;
     span{
-        color:#ff6166;
         margin-bottom:10px;
         width:100%;
-        background:rgba(255,107,107,0.5);
-        border:1px solid #ff6166;
         display:flex;
         align-items:center;
         justify-content:center;
         font-size:1.6vh;
         padding:4%;
         border-radius:10px;
+        max-width:100%;
+    }
+    .error{
+        color:#ff6166;
+        background:rgba(255,107,107,0.5);
+        border:1px solid #ff6166;
+    }
+    .success{
+        color:#00dd00;
+        background:rgba(0,200,0,0.5);
+        border:1px solid #00dd00;
     }
     button{
         text-transform:uppercase;
