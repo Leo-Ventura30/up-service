@@ -33,6 +33,7 @@ class signin extends Component {
           throw new Error(response.data);
         } else {
           login(response.data.token);
+          console.log();
           // this.setState({ response: response.data });
           this.props.history.push("/dashboard");
         }
