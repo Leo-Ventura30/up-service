@@ -24,7 +24,7 @@ class signin extends Component {
       this.setState({ error: "Preencha todos os campos!" });
     } else {
       try {
-        const response = await api.post("/signin", {
+        const response = await api.post("/signin/dashboard", {
           user: this.state.user,
           password: this.state.password,
         });
