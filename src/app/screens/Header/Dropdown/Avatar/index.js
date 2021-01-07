@@ -23,7 +23,7 @@ export default function LetterAvatars() {
 
   return (
     <div className={classes.root}>
-      <Avatar className={classes.orange}>H</Avatar>
+      <Avatar className={classes.purple}>H</Avatar>
     </div>
   );
 }

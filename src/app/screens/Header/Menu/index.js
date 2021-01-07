@@ -8,24 +8,22 @@ import Config from "../../../assets/configuration.svg";
 import Exit from "../../../assets/exit.svg";
 
 const Menu = () => (
-  <Container>
-    <Content>
-      <div>
-        {/* <img src={Home} /> */}
-        <LinkStyle className="nav-home" href="/dashboard">
-          home
-        </LinkStyle>
-      </div>
-      <div>
-        {/* <img src={Calendar} /> */}
-        <LinkStyle href="*">agenda</LinkStyle>
-      </div>
-      <div>
-        {/* <img src={Config} /> */}
-        <LinkStyle href="*">configurações</LinkStyle>
-      </div>
-    </Content>
-  </Container>
+  <Content>
+    <div>
+      {/* <img src={Home} /> */}
+      <LinkStyle className="nav-home" href="/dashboard">
+        home
+      </LinkStyle>
+    </div>
+    <div>
+      {/* <img src={Calendar} /> */}
+      <LinkStyle href="*">agenda</LinkStyle>
+    </div>
+    <div>
+      {/* <img src={Config} /> */}
+      <LinkStyle href="*">configurações</LinkStyle>
+    </div>
+  </Content>
 );
 
 export default Menu;

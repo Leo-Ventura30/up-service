@@ -1,6 +1,7 @@
 import Styled from "styled-components";
 export const ContainerHeader = Styled.div`
-  width:60%;
+
+  width:80%;
   padding:1%;
   display:flex;
   align-items:center;
@@ -15,12 +16,16 @@ export const ContainerHeader = Styled.div`
   }
 `;
 export const ContainerMenu = Styled.div`
-  width:35%;
+  width:40%;
 `;
 export const ContainerDropdown = Styled.div`
+  display:flex;
+  align-items:center;
+  justify-content:center;
   padding:1%;
 `;
 export const HeaderStyle = Styled.div`
+  /* position:fixed; */
   background:#bbb;
   font-family:chilanka;
   display:flex;
@@ -87,6 +92,10 @@ export const Content = Styled.div`
   align-items:center;
   justify-content:center;
   margin:1%;
+  font-size:1vw;
+  letter-spacing:3px;
+  font-family:chilanka, roboto;
+  text-transform:uppercase;
   div{
     display:flex;
     flex-direction:column;
@@ -101,6 +110,8 @@ export const Content = Styled.div`
       @media screen and (max-width:768px) {
         &{
           width:5vw;
+          font-size:2vw;
+
         }
       }
     }

@@ -6,7 +6,7 @@ import Body from "../Body";
 const Home = () => (
   <Fragment>
     <Header />
-    <div />
+    <br />
     <Body />
   </Fragment>
 );

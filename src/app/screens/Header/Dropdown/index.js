@@ -77,7 +77,6 @@ export default function CustomizedMenus() {
           <ListItemText primary="Inbox" />
         </StyledMenuItem>
         <StyledMenuItem>
-          {/* <img src={Exit} /> */}
           <SairStyle>sair</SairStyle>
         </StyledMenuItem>
       </StyledMenu>
