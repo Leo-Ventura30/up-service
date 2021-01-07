@@ -1,15 +1,28 @@
 import React, { Fragment } from "react";
 import logo from "../../assets/barber.svg";
 import Menu from "./Menu";
-import { HeaderStyle, ContentImageStyle } from "./style";
+import Dropdown from "./Dropdown";
+import {
+  HeaderStyle,
+  ContentImageStyle,
+  ContainerHeader,
+  ContainerMenu,
+  ContainerDropdown,
+} from "./style";
 const Header = () => (
   <Fragment>
     <HeaderStyle>
-      <ContentImageStyle className="image-init" src={logo} />
-      <a href="/dashboard">Barber Shop</a>
-      <ContentImageStyle className="image-end" src={logo} />
+      <ContainerHeader>
+        <ContentImageStyle className="image-init" src={logo} />
+        <a href="/dashboard">Barber Shop</a>
+      </ContainerHeader>
+      <ContainerMenu>
+        <Menu />
+      </ContainerMenu>
+      <ContainerDropdown>
+        <Dropdown />
+      </ContainerDropdown>
     </HeaderStyle>
-    <Menu />
   </Fragment>
 );
 

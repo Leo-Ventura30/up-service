@@ -1,29 +1,37 @@
 import Styled from "styled-components";
-
-export const HeaderStyle = Styled.div`
-  background:rgba(0,0,0,0.2);
-  font-family:chilanka;
+export const ContainerHeader = Styled.div`
+  width:60%;
+  padding:1%;
   display:flex;
-  justify-content:center;
   align-items:center;
-  font-size:7vw;
-  width:100%;
-  letter-spacing:10px;
-  cursor:pointer;
   a{
-    margin-top:10px;
     text-decoration:none;
     color:#000;
-    margin-right:3%;
-    margin-left:4%;
+    font-weight:bold;
+    cursor:pointer;
   }
   a:hover{
     transform:scale(1.05);
   }
+`;
+export const ContainerMenu = Styled.div`
+  width:35%;
+`;
+export const ContainerDropdown = Styled.div`
+  padding:1%;
+`;
+export const HeaderStyle = Styled.div`
+  background:#bbb;
+  font-family:chilanka;
+  display:flex;
+  align-items:center;
+  font-size:2vw;
+  width:100%;
+  letter-spacing:4px;
   @media screen and (max-width:768px) {
     &{
-      font-size:5vw;
-      letter-spacing:5px;
+      font-size:2vw;
+      letter-spacing:2px;
     }
   }  
 `;
@@ -48,7 +56,7 @@ export const ContentImageStyle = Styled.img`
       transform:rotate(0);
     }
   }
-  width:5vw;
+  width:2.5vw;
   cursor:pointer;
   &:hover{
     transform:scale(1.1);
@@ -56,18 +64,18 @@ export const ContentImageStyle = Styled.img`
     animation-duration: 1s;
     animation-iteration-count: 2;
   }
+  @media screen and (max-width:768px) {
+    &{
+      visibility:hidden;
+    }
+  }  
 `;
 
 export const Container = Styled.div`
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:3vw;
+  font-size:1vw;
   letter-spacing:3px;
   font-family:chilanka, roboto;
   text-transform:uppercase;
-  background:#777;
-  margin-bottom:0.1%;
   @media screen and (max-width:768px) {
     &{
       font-size:2vw;
@@ -82,8 +90,6 @@ export const Content = Styled.div`
   div{
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    align-items:center;
     margin-right:7%;
     &:hover{
       transform:scale(1.15);
@@ -122,4 +128,10 @@ export const LinkStyle = Styled.a`
   cursor:pointer;
   text-decoration:none;
   color:#fff;
+`;
+
+export const ContentDropdown = Styled.div`
+  button{
+    border-radius:50%;
+  }
 `;

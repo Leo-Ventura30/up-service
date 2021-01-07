@@ -11,22 +11,18 @@ const Menu = () => (
   <Container>
     <Content>
       <div>
-        <img src={Home} />
+        {/* <img src={Home} /> */}
         <LinkStyle className="nav-home" href="/dashboard">
           home
         </LinkStyle>
       </div>
       <div>
-        <img src={Calendar} />
+        {/* <img src={Calendar} /> */}
         <LinkStyle href="*">agenda</LinkStyle>
       </div>
       <div>
-        <img src={Config} />
+        {/* <img src={Config} /> */}
         <LinkStyle href="*">configurações</LinkStyle>
-      </div>
-      <div>
-        <img src={Exit} />
-        <SairStyle>sair</SairStyle>
       </div>
     </Content>
   </Container>
