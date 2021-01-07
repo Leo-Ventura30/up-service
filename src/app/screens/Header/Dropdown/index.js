@@ -1,16 +1,10 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "./Avatar";
 import { SairStyle } from "../style";
-
-// import InboxIcon from "@material-ui/icons/MoveToInbox";
-// import DraftsIcon from "@material-ui/icons/Drafts";
-// import SendIcon from "@material-ui/icons/Send";
 
 const StyledMenu = withStyles({
   paper: {
@@ -36,9 +30,7 @@ const StyledMenuItem = withStyles((theme) => ({
   root: {
     "&:focus": {
       backgroundColor: theme.palette.secondary,
-      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
-        color: theme.palette.secondary,
-      },
+      color: theme.palette.secondary,
     },
   },
 }))(MenuItem);
@@ -68,13 +60,7 @@ export default function CustomizedMenus() {
         onClose={handleClose}
       >
         <StyledMenuItem>
-          <ListItemText primary="Sent mail" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText primary="Drafts" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText primary="Inbox" />
+          <ListItemText primary="Perfil" />
         </StyledMenuItem>
         <StyledMenuItem>
           <SairStyle>sair</SairStyle>

@@ -1,7 +1,7 @@
 import Styled from "styled-components";
 export const ContainerHeader = Styled.div`
 
-  width:80%;
+  width:75%;
   padding:1%;
   display:flex;
   align-items:center;
@@ -16,16 +16,20 @@ export const ContainerHeader = Styled.div`
   }
 `;
 export const ContainerMenu = Styled.div`
-  width:40%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:25%;
 `;
 export const ContainerDropdown = Styled.div`
   display:flex;
   align-items:center;
   justify-content:center;
   padding:1%;
+  margin-right:2%;
 `;
 export const HeaderStyle = Styled.div`
-  /* position:fixed; */
+  position:fixed;
   background:#bbb;
   font-family:chilanka;
   display:flex;

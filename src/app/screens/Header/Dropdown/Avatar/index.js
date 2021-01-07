@@ -6,7 +6,9 @@ import { deepOrange, deepPurple } from "@material-ui/core/colors";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    "& > *": {},
+    justifyContent: "center",
+    alignItems: "center",
+    cursor: "pointer",
   },
   orange: {
     color: theme.palette.getContrastText(deepOrange[500]),
@@ -14,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),
-    backgroundColor: deepPurple[500],
+    backgroundColor: deepPurple[900],
   },
 }));
 
@@ -23,7 +25,9 @@ export default function LetterAvatars() {
 
   return (
     <div className={classes.root}>
-      <Avatar className={classes.purple}>H</Avatar>
+      <Avatar variant="circle" className={classes.purple}>
+        HE
+      </Avatar>
     </div>
   );
 }

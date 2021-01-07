@@ -11,6 +11,8 @@ const DivSectionStyle = Styled.div`
 const NavStyle = Styled.div`
   width:15%;
   background:#333;
+  margin-top:6%;
+
   margin-right:0.1%;
   @media screen and (max-width:768px) {
     &{
@@ -23,6 +25,8 @@ const NavStyle = Styled.div`
 const ContentStyle = Styled.div`
   width:85%;
   background:#333;
+  margin-top:6%;
+
   @media screen and (max-width:768px) {
     &{
       width:100%;
@@ -31,7 +35,7 @@ const ContentStyle = Styled.div`
 `;
 const Body = () => (
   <DivSectionStyle>
-    <NavStyle></NavStyle>
+    <NavStyle />
     <ContentStyle>
       <Section />
     </ContentStyle>
