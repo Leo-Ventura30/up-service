@@ -7,7 +7,7 @@ export const ContainerHeader = Styled.div`
   align-items:center;
   a{
     text-decoration:none;
-    color:#000;
+    color:#fff;
     font-weight:bold;
     cursor:pointer;
   }
@@ -30,7 +30,8 @@ export const ContainerDropdown = Styled.div`
 `;
 export const HeaderStyle = Styled.div`
   position:fixed;
-  background:#bbb;
+  background:#333;
+
   font-family:chilanka;
   display:flex;
   align-items:center;
