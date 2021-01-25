@@ -28,12 +28,11 @@ class signin extends Component {
           user: this.state.user,
           password: this.state.password,
         });
-
-        if (response.data.status !== true) {
+        if (response.data.auth !== true) {
           throw new Error(response.data);
         } else {
           login(response.data.token);
-          console.log();
+          console.log(response.data.token);
           // this.setState({ response: response.data });
           this.props.history.push("/dashboard");
         }

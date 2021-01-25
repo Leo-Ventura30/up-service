@@ -1,9 +1,9 @@
-export const TOKEN_KEY = "@Token";
-export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
-export const getToken = () => localStorage.getItem(TOKEN_KEY);
-export const login = (token) => {
-  localStorage.setItem(TOKEN_KEY, token);
+export const isToken = (token) => token;
+export const isAuthenticated = () => localStorage.getItem(isToken()) !== null;
+export const getToken = () => localStorage.getItem(isToken());
+export const login = (key, token) => {
+  localStorage.setItem(key, token);
 };
 export const logout = () => {
-  localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem(isToken());
 };
