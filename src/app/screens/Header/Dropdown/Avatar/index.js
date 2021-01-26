@@ -25,7 +25,7 @@ export default function LetterAvatars() {
 
   return (
     <div className={classes.root}>
-      <Avatar variant="circle" className={classes.purple}>
+      <Avatar variant="circular" className={classes.purple}>
         HE
       </Avatar>
     </div>

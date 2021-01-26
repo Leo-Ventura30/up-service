@@ -13,7 +13,10 @@ class signin extends Component {
   state = {
     user: "",
     password: "",
-    response: {},
+    response: {
+      employer: {},
+      token: "",
+    },
     error: "",
   };
 
@@ -29,11 +32,15 @@ class signin extends Component {
           password: this.state.password,
         });
         if (response.data.auth !== true) {
-          throw new Error(response.data);
+          throw new Error(response.data.error);
         } else {
-          login(response.data.token);
-          console.log(response.data.token);
-          // this.setState({ response: response.data });
+          login(response.data.token.split(".")[2]);
+          this.setState({
+            response: {
+              employer: response.data.employer,
+              token: response.data.token,
+            },
+          });
           this.props.history.push("/dashboard");
         }
       } catch (error) {
