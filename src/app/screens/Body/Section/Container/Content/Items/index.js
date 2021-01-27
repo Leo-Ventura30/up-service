@@ -65,12 +65,13 @@ export default class extends Component {
       headers: { "x-access-token": localStorage.getItem("token") },
     });
     this.setState({ appointments: response.data.appointments });
+    console.log(this.state.appointments[0]);
   }
   render() {
     return (
       <Fragment>
         {this.state.appointments.map((e) => (
-          <ItemStyle>
+          <ItemStyle key={e.id}>
             <ItemIconStyle
               className="person-pic"
               src={Picture}
@@ -78,23 +79,23 @@ export default class extends Component {
             ></ItemIconStyle>
             <ul>
               <li>
-                <p>{"e.nome"}</p>
+                <p>{e.users_id.name}</p>
               </li>
               <li>
                 <p>
-                  <a href={"mountLink(e)"} target="_blank">
-                    {"e.number"}
+                  <a href={mountLink(e)} target="_blank">
+                    {e.users_id.phone}
                   </a>
                 </p>
               </li>
               <li>
-                <p>{"e.dia"}</p>
+                <p>{e.date.split("T")[0]}</p>
               </li>
               <li>
-                <p>{"e.hora"}</p>
+                <p>{e.date.split("T")[1].split(".")[0]}</p>
               </li>
               <li>
-                <p>{"e.servico"}</p>
+                <p>{e.type}</p>
               </li>
             </ul>
             <button>Finalizar</button>
