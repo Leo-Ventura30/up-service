@@ -34,13 +34,14 @@ class signin extends Component {
         if (response.data.auth !== true) {
           throw new Error(response.data.error);
         } else {
-          login(response.data.token.split(".")[2]);
           this.setState({
             response: {
               employer: response.data.employer,
               token: response.data.token,
             },
           });
+          localStorage.setItem("token", this.state.response.token);
+          localStorage.setItem("datas", this.state.response.employer.commerce);
           this.props.history.push("/dashboard");
         }
       } catch (error) {

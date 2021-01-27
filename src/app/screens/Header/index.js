@@ -14,7 +14,7 @@ const Header = () => (
     <HeaderStyle>
       <ContainerHeader>
         <ContentImageStyle className="image-init" src={logo} />
-        <a href="/dashboard">Barber Shop</a>
+        <a href="/dashboard">{localStorage.getItem("datas")}</a>
       </ContainerHeader>
       <ContainerMenu>
         <Menu />
