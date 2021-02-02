@@ -22,8 +22,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LetterAvatars() {
   const classes = useStyles();
-  const datas = localStorage.getItem["datas"];
-  console.log(localStorage.getItem["datas"]);
   return (
     <div className={classes.root}>
       <Avatar variant="circular" className={classes.purple}>

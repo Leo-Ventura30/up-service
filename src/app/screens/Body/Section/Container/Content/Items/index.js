@@ -7,24 +7,25 @@ import Picture from "../../../../../../assets/picture.svg";
 import Edit from "../../../../../../assets/edit.svg";
 import Bin from "../../../../../../assets/bin.svg";
 import api from "../../../../../../services/api";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default class extends Component {
   state = {
     appointments: [],
   };
+
   async componentDidMount() {
-    if (false == false) {
+    if (localStorage.getItem("token")) {
       const response = await api.get("/dashboard/appointments", {
         headers: { "x-access-token": localStorage.getItem("token") },
       });
       if (response.status == 500) {
-        return <Redirect path="/" to="/" />;
+        useHistory().push("/");
       } else {
         this.setState({ appointments: response.data.appointments });
       }
     } else {
-      return <Redirect path="/" to="/" />;
+      useHistory().push("/");
     }
   }
   render() {
