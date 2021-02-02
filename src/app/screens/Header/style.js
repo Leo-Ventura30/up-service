@@ -1,6 +1,5 @@
 import Styled from "styled-components";
 export const ContainerHeader = Styled.div`
-
   width:75%;
   padding:1%;
   display:flex;
@@ -144,6 +143,9 @@ export const LinkStyle = Styled.a`
   cursor:pointer;
   text-decoration:none;
   color:#fff;
+  &:hover{
+    color:#999;
+  }
 `;
 
 export const ContentDropdown = Styled.div`

@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     cursor: "pointer",
   },
+  hover: {},
   orange: {
     color: theme.palette.getContrastText(deepOrange[500]),
     backgroundColor: deepOrange[500],

@@ -19,7 +19,7 @@ export default class extends Component {
       const response = await api.get("/dashboard/appointments", {
         headers: { "x-access-token": localStorage.getItem("token") },
       });
-      if (response.status == 500) {
+      if (response.status === 500) {
         useHistory().push("/");
       } else {
         this.setState({ appointments: response.data.appointments });
