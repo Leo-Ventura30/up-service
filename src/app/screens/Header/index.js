@@ -9,6 +9,8 @@ import {
   ContainerMenu,
   ContainerDropdown,
 } from "./style";
+
+const handleUpdate = () => {};
 const Header = () => (
   <Fragment>
     <HeaderStyle>

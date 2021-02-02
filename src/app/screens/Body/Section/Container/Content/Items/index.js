@@ -18,8 +18,7 @@ export default class extends Component {
       const response = await api.get("/dashboard/appointments", {
         headers: { "x-access-token": localStorage.getItem("token") },
       });
-      if (response.status === 500) {
-        console.log(0);
+      if (response.status == 500) {
         return <Redirect path="/" to="/" />;
       } else {
         this.setState({ appointments: response.data.appointments });

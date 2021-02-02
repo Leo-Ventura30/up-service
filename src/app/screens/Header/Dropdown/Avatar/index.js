@@ -22,11 +22,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LetterAvatars() {
   const classes = useStyles();
-
+  const datas = localStorage.getItem["datas"];
+  console.log(localStorage.getItem["datas"]);
   return (
     <div className={classes.root}>
       <Avatar variant="circular" className={classes.purple}>
-        HE
+        {localStorage.getItem("datas").substr(0, 2)}
       </Avatar>
     </div>
   );

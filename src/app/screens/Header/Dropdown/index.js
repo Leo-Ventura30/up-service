@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import { withStyles } from "@material-ui/core/styles";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -36,7 +38,8 @@ const StyledMenuItem = withStyles((theme) => ({
 }))(MenuItem);
 
 export default function CustomizedMenus() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const history = useHistory();
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -46,6 +49,11 @@ export default function CustomizedMenus() {
     setAnchorEl(null);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("datas");
+    history.push("/");
+  };
   return (
     <div>
       <div onClick={handleClick}>
@@ -63,7 +71,7 @@ export default function CustomizedMenus() {
           <ListItemText primary="Perfil" />
         </StyledMenuItem>
         <StyledMenuItem>
-          <SairStyle>sair</SairStyle>
+          <SairStyle onClick={handleLogout}>Sair</SairStyle>
         </StyledMenuItem>
       </StyledMenu>
     </div>
