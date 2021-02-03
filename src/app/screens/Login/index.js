@@ -12,6 +12,11 @@ const LoginController = () => {
 
   return (
     <Fragment>
+      {
+        (localStorage.getItem("error") && localStorage.removeItem("token"),
+        localStorage.removeItem("datas"),
+        localStorage.removeItem("error"))
+      }
       {localStorage.getItem("token") && history.push("/dashboard")}
       <ContentLogin>
         <DivImage>

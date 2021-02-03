@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, Fragment } from "react";
 
 import Modal from "../../../../../components/Modal";
 
@@ -32,21 +32,23 @@ export default function Search() {
     }
   };
   return (
-    <FormSearchStyle>
+    <Fragment>
       <Modal className={dropdown} modalRef={modalRef} />
-      <AdduserStyle
-        className="send-search"
-        src={User}
-        alt="pic"
-        onClick={toggleDropdown}
-      />
-      <InputStyle
-        className="send-search"
-        name="search-schedule"
-        type="text"
-        placeholder="Busque um cliente"
-      />
-      <ImageStyle className="send-search" src={SearchIcon} />
-    </FormSearchStyle>
+
+      <FormSearchStyle>
+        <AdduserStyle
+          className="send-search"
+          src={User}
+          alt="pic"
+          onClick={toggleDropdown}
+        />
+        <InputStyle
+          className="send-search"
+          type="text"
+          placeholder="Busque um cliente"
+        />
+        <ImageStyle className="send-search" src={SearchIcon} />
+      </FormSearchStyle>
+    </Fragment>
   );
 }

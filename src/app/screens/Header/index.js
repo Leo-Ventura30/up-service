@@ -10,7 +10,6 @@ import {
   ContainerDropdown,
 } from "./style";
 
-const handleUpdate = () => {};
 const Header = () => (
   <Fragment>
     <HeaderStyle>

@@ -7,30 +7,34 @@ import Picture from "../../../../../../assets/picture.svg";
 import Edit from "../../../../../../assets/edit.svg";
 import Bin from "../../../../../../assets/bin.svg";
 import api from "../../../../../../services/api";
-import { useHistory } from "react-router-dom";
-
+import moment from "moment";
 export default class extends Component {
   state = {
     appointments: [],
+    error: "",
   };
-
   async componentDidMount() {
     if (localStorage.getItem("token")) {
-      const response = await api.get("/dashboard/appointments", {
-        headers: { "x-access-token": localStorage.getItem("token") },
-      });
-      if (response.status === 500) {
-        useHistory().push("/");
-      } else {
-        this.setState({ appointments: response.data.appointments });
-      }
+      api
+        .get("/dashboard/appointments", {
+          headers: { "x-access-token": localStorage.getItem("token") },
+        })
+        .then((response) => {
+          this.setState({ appointments: response.data.appointments });
+        })
+        .catch((error) => {
+          this.setState({ error: error.message });
+          localStorage.setItem("error", this.state.error);
+        });
     } else {
-      useHistory().push("/");
+      this.setState({ error: "Faça o login novamente!" });
+      localStorage.setItem("error", this.state.error);
     }
   }
   render() {
     return (
       <Fragment>
+        {this.state.error && <h1>{this.state.error}</h1>}
         {this.state.appointments.map((e) => (
           <ItemStyle key={e.id}>
             <ItemIconStyle
@@ -50,10 +54,10 @@ export default class extends Component {
                 </p>
               </li>
               <li>
-                <p>{e.date.split("T")[0]}</p>
+                <p>{moment(e.date).format("DD/MM")}</p>
               </li>
               <li>
-                <p>{e.date.split("T")[1].split(".")[0]}</p>
+                <p>{moment(e.date).format("hh:mm")}</p>
               </li>
               <li>
                 <p>{e.type}</p>
