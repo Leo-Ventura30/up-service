@@ -23,10 +23,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LetterAvatars() {
   const classes = useStyles();
+  const verifyDatas = () => {
+    const firstlyLetterCommerce = localStorage.getItem("datas").substr(0, 2);
+    return firstlyLetterCommerce;
+  };
   return (
     <div className={classes.root}>
       <Avatar variant="circular" className={classes.purple}>
-        {localStorage.getItem("datas").substr(0, 2)}
+        {verifyDatas()}
       </Avatar>
     </div>
   );

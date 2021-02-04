@@ -1,5 +1,5 @@
 import React from "react";
-import api from "../../services/api";
+import api from "../../../services/api";
 import "./style.css";
 const Modal = (props) => {
   const { className, modalRef } = props;

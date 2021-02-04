@@ -7,7 +7,7 @@ import Configuration from "../../../assets/configuration.svg";
 import Exit from "../../../assets/exit.svg";
 import Home from "../../../assets/home.svg";
 import Calendar from "../../../assets/calendar.svg";
-import Modal from "../../../components/Modal";
+import Modal from "../../../components/Modal/register";
 
 const Bar = () => {
   const [dropdown, setDropdown] = useState("");

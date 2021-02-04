@@ -11,6 +11,7 @@ import moment from "moment";
 export default class extends Component {
   state = {
     appointments: [],
+    employer: "",
     error: "",
   };
   async componentDidMount() {
@@ -20,21 +21,22 @@ export default class extends Component {
           headers: { "x-access-token": localStorage.getItem("token") },
         })
         .then((response) => {
-          this.setState({ appointments: response.data.appointments });
+          this.setState({
+            appointments: response.data.appointments,
+          });
+          if (!localStorage.getItem("datas")) {
+            this.setState({ error: "Erro undefined" });
+          }
         })
         .catch((error) => {
           this.setState({ error: error.message });
           localStorage.setItem("error", this.state.error);
         });
-    } else {
-      this.setState({ error: "Faça o login novamente!" });
-      localStorage.setItem("error", this.state.error);
     }
   }
   render() {
     return (
       <Fragment>
-        {this.state.error && <h1>{this.state.error}</h1>}
         {this.state.appointments.map((e) => (
           <ItemStyle key={e.id}>
             <ItemIconStyle

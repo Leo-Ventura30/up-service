@@ -2,7 +2,6 @@ import React from "react";
 import Styled from "styled-components";
 import Bar from "./VerticalBar";
 import Section from "./Section";
-
 const DivSectionStyle = Styled.div`
   display:flex;
   width:100%;
@@ -33,6 +32,7 @@ const ContentStyle = Styled.div`
     }
   }
 `;
+
 const Body = () => (
   <DivSectionStyle>
     <NavStyle />

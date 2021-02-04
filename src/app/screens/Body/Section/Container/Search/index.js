@@ -1,6 +1,6 @@
 import React, { useState, useRef, Fragment } from "react";
 
-import Modal from "../../../../../components/Modal";
+import Modal from "../../../../../components/Modal/register";
 
 import User from "../../../../../assets/adduser.svg";
 import SearchIcon from "../../../../../assets/search.svg";
