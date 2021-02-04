@@ -100,7 +100,7 @@ const Modal = (props) => {
             onChange={handleChangeValue}
           />
           <button className="button-form" type="submit">
-            Próximo
+            Agendar
           </button>
         </div>
       </div>

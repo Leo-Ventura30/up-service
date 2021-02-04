@@ -12,6 +12,12 @@ export default class extends Component {
   state = {
     appointments: [],
     employer: "",
+    page: {
+      actual: 1,
+      items: 0,
+      limit: 10,
+      total: 0,
+    },
     error: "",
   };
   async componentDidMount() {
@@ -24,6 +30,8 @@ export default class extends Component {
           this.setState({
             appointments: response.data.appointments,
           });
+          this.mountComponents(this.state.appointments);
+
           if (!localStorage.getItem("datas")) {
             this.setState({ error: "Erro undefined" });
           }
@@ -34,6 +42,33 @@ export default class extends Component {
         });
     }
   }
+  mountComponents(e) {
+    let totalItems = e.length - 1;
+    let totalPage = Math.ceil(totalItems / this.state.page.limit);
+    let actualPage = 1;
+    let items = [];
+    for (
+      var item = 1 + (this.state.page.actual - 1) * this.state.page.limit;
+      item <= actualPage * this.state.page.limit && item <= totalItems;
+      item++
+    ) {
+      console.log(item);
+      items[item - 1] = e[item];
+    }
+    this.setState({
+      page: { actual: actualPage, items: items, limit: 10, total: totalPage },
+    });
+    console.log(this.state.page);
+    // for (
+    //   var item = 1 + (this.state.page.actual - 1) * this.state.page.limit;
+    //   item <= this.state.page.actual * this.state.page.limit &&
+    //   item <= this.state.page.items;
+    //   item++
+    // ) {
+    //   console.log("e");
+    // }
+  }
+
   render() {
     return (
       <Fragment>
