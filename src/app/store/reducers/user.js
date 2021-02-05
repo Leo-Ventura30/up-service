@@ -1,8 +1,8 @@
-INITIAL_STATE = {
+const INITIAL_STATE = {
   error: false,
   text: "",
 };
-const userReducer = (state, action) => {
+const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "USER_SUCCESS":
       return { ...state, error: action.type };

@@ -1,4 +1,6 @@
 import React, { Fragment, Component, useState, useRef } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
 import { ItemStyle, ContentIconStyle, ItemIconStyle } from "../../../style";
 
@@ -9,24 +11,9 @@ import Bin from "../../../../../../assets/bin.svg";
 import api from "../../../../../../services/api";
 import moment from "moment";
 import Popup from "../../../../../../components/Modal/popup";
-export function PopupState(props, event) {
-  const [dropdown = props.text] = useState("");
-  console.log(dropdown);
-  const modalRef = useRef(null);
+import { off, on } from "../../../../../../store/actions/popup";
 
-  if (props.status == false) {
-    return <Popup className={props.class[0]} modalRef={modalRef} />;
-  }
-  console.log(props);
-  return (
-    <Popup
-      className={props.class[1]}
-      modalRef={modalRef}
-      id={props.idAppointment}
-    />
-  );
-}
-export default class Items extends Component {
+class Items extends Component {
   state = {
     appointments: [],
     employer: "",
@@ -36,13 +23,11 @@ export default class Items extends Component {
       limit: 10,
       total: 0,
     },
-    show: false,
-    idClicked: "",
-    class: ["", "show"],
     error: "",
   };
   componentDidMount() {
     if (localStorage.getItem("token")) {
+      console.log(this.props);
       api
         .get("/dashboard/appointments", {
           headers: { "x-access-token": localStorage.getItem("token") },
@@ -66,20 +51,9 @@ export default class Items extends Component {
   render() {
     return (
       <Fragment>
-        <PopupState
-          status={this.state.show}
-          idAppointment={this.state.idClicked}
-          class={this.state.class}
-        />
+        {this.props.show && <Popup className={"show"} />}
         {this.state.appointments.map((e) => (
-          <ItemStyle
-            onClick={(e) => {
-              if (this.state.show && document.body.onclick) {
-                this.setState({ show: false });
-              }
-            }}
-            key={e.id}
-          >
+          <ItemStyle key={e.id}>
             <ItemIconStyle
               className="person-pic"
               src={Picture}
@@ -106,13 +80,9 @@ export default class Items extends Component {
                 <p>{e.type}</p>
               </li>
             </ul>
-            <button
-              onClick={() => this.setState({ show: true, idClicked: e.id })}
-            >
-              Finalizar
-            </button>
+            <button onClick={() => this.props.on()}>Finalizar</button>
             <ContentIconStyle>
-              <img src={Edit} alt="pic"></img>
+              <img onClick={() => this.props.off()} src={Edit} alt="pic"></img>
               <img src={Bin} alt="pic"></img>
             </ContentIconStyle>
           </ItemStyle>
@@ -121,3 +91,12 @@ export default class Items extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  show: state.popup.show,
+});
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ off, on }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Items);
