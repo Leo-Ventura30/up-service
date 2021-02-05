@@ -5,9 +5,6 @@ import { off, on } from "../../../store/actions/popup";
 
 const Popup = (props) => {
   let { className, modalRef, id } = props;
-  const remove = () => {
-    props.className = "ola";
-  };
   return (
     <form id={id} ref={modalRef} className={`${className}`}>
       <label>Deseja mesmo finalizar?</label>

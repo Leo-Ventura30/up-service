@@ -27,7 +27,6 @@ class Items extends Component {
   };
   componentDidMount() {
     if (localStorage.getItem("token")) {
-      console.log(this.props);
       api
         .get("/dashboard/appointments", {
           headers: { "x-access-token": localStorage.getItem("token") },
@@ -36,6 +35,7 @@ class Items extends Component {
           this.setState({
             appointments: response.data.appointments,
           });
+          document.body.addEventListener("click", this.closeDropdown);
 
           if (!localStorage.getItem("datas")) {
             this.setState({ error: "Erro undefined" });
@@ -47,11 +47,17 @@ class Items extends Component {
         });
     }
   }
-
+  closeDropdown = (event) => {
+    if (this.props.show) {
+      event.stopPropagation();
+      this.props.off();
+    }
+  };
   render() {
     return (
       <Fragment>
         {this.props.show && <Popup className={"show"} />}
+
         {this.state.appointments.map((e) => (
           <ItemStyle key={e.id}>
             <ItemIconStyle
