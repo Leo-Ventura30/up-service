@@ -1,19 +1,15 @@
 import React, { Fragment } from "react";
 
-import Items from "./Items/"
+import Items from "./Items/";
 
-import {
-  ComponentStyle,
-  ListContentStyle,
-} from "../../style";
+import { ComponentStyle, ListContentStyle } from "../../style";
 
 function UserComponent() {
-
   return (
     <Fragment>
       <ComponentStyle>
         <ListContentStyle>
-          <Items/>
+          <Items />
         </ListContentStyle>
       </ComponentStyle>
     </Fragment>

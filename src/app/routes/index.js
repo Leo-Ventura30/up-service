@@ -26,7 +26,15 @@ const Routes = () => (
         <PrivateRoute path="/dashboard" component={() => <Home />} />
         {/* <Route path="/dashboard" component={() => <Home />} /> */}
         <Route path="/criar/conta" component={() => <Login />} />
-        <Route path="*" component={() => <h1>Page not found</h1>} />
+        <Route
+          path="*"
+          component={() => (
+            <h1>
+              <a href="/">Voltar para o inicio</a> <br />
+              Page not found
+            </h1>
+          )}
+        />
       </Switch>
     </Fragment>
     <Fragment>

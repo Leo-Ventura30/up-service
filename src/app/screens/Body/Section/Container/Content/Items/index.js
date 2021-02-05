@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from "react";
+import React, { Fragment, Component, useState, useRef } from "react";
 
 import { ItemStyle, ContentIconStyle, ItemIconStyle } from "../../../style";
 
@@ -8,7 +8,25 @@ import Edit from "../../../../../../assets/edit.svg";
 import Bin from "../../../../../../assets/bin.svg";
 import api from "../../../../../../services/api";
 import moment from "moment";
-export default class extends Component {
+import Popup from "../../../../../../components/Modal/popup";
+export function PopupState(props, event) {
+  const [dropdown = props.text] = useState("");
+  console.log(dropdown);
+  const modalRef = useRef(null);
+
+  if (props.status == false) {
+    return <Popup className={""} modalRef={modalRef} />;
+  }
+  return (
+    <Popup
+      className={"show"}
+      modalRef={modalRef}
+      id={props.idAppointment}
+      onClick={event}
+    />
+  );
+}
+export default class Items extends Component {
   state = {
     appointments: [],
     employer: "",
@@ -18,6 +36,8 @@ export default class extends Component {
       limit: 10,
       total: 0,
     },
+    show: false,
+    idClicked: "",
     error: "",
   };
   async componentDidMount() {
@@ -30,7 +50,6 @@ export default class extends Component {
           this.setState({
             appointments: response.data.appointments,
           });
-          this.mountComponents(this.state.appointments);
 
           if (!localStorage.getItem("datas")) {
             this.setState({ error: "Erro undefined" });
@@ -42,36 +61,21 @@ export default class extends Component {
         });
     }
   }
-  mountComponents(e) {
-    let totalItems = e.length - 1;
-    let totalPage = Math.ceil(totalItems / this.state.page.limit);
-    let actualPage = 1;
-    let items = [];
-    for (
-      var item = 1 + (this.state.page.actual - 1) * this.state.page.limit;
-      item <= actualPage * this.state.page.limit && item <= totalItems;
-      item++
-    ) {
-      console.log(item);
-      items[item - 1] = e[item];
+  closeDropdown() {
+    if (!!!this.state.show) {
+      //se clicar fora do modal, ele DESaparece
+      console.log(!!!this.state.show);
+      this.setState((state) => ({ show: false }));
+      document.body.removeEventListener("click", this.closeDropdown);
     }
-    this.setState({
-      page: { actual: actualPage, items: items, limit: 10, total: totalPage },
-    });
-    console.log(this.state.page);
-    // for (
-    //   var item = 1 + (this.state.page.actual - 1) * this.state.page.limit;
-    //   item <= this.state.page.actual * this.state.page.limit &&
-    //   item <= this.state.page.items;
-    //   item++
-    // ) {
-    //   console.log("e");
-    // }
   }
-
   render() {
     return (
       <Fragment>
+        <PopupState
+          status={this.state.show}
+          idAppointment={this.state.idClicked}
+        />
         {this.state.appointments.map((e) => (
           <ItemStyle key={e.id}>
             <ItemIconStyle
@@ -100,7 +104,11 @@ export default class extends Component {
                 <p>{e.type}</p>
               </li>
             </ul>
-            <button>Finalizar</button>
+            <button
+              onClick={() => this.setState({ show: true, idClicked: e.id })}
+            >
+              Finalizar
+            </button>
             <ContentIconStyle>
               <img src={Edit} alt="pic"></img>
               <img src={Bin} alt="pic"></img>

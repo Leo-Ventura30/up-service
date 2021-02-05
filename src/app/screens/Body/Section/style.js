@@ -56,11 +56,32 @@ export const ComponentStyle = Styled.div`
 `;
 export const ListContentStyle = Styled.ul`
   display:flex;
+  overflow: auto;
   flex-direction:row;
   flex-wrap: wrap;
   background:rgba(0,0,0,0.3);
   border-radius:20px;
   padding:1%;
+  max-height:110vh;
+  /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
   @media screen and (max-width:768px) {
     &{
       flex-direction:row;
@@ -84,6 +105,7 @@ export const ItemStyle = Styled.li`
   text-align:center;
   padding:2%;
   border-radius:1000px;
+
   &:nth-child(2n+0){
     background:rgba(255,255,255,0.4);
     color:#000;
@@ -97,7 +119,7 @@ export const ItemStyle = Styled.li`
   }
   button{
     font-size:1vw;
-    margin-top:10%;
+    margin-top:20%;
     width:60%;
     padding:5%;
     border:0;
@@ -114,6 +136,7 @@ export const ItemStyle = Styled.li`
   }
   ul{
     li{
+
       &:nth-child(1){
         font-weight:900;
       }
