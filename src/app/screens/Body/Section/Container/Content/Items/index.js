@@ -15,14 +15,14 @@ export function PopupState(props, event) {
   const modalRef = useRef(null);
 
   if (props.status == false) {
-    return <Popup className={""} modalRef={modalRef} />;
+    return <Popup className={props.class[0]} modalRef={modalRef} />;
   }
+  console.log(props);
   return (
     <Popup
-      className={"show"}
+      className={props.class[1]}
       modalRef={modalRef}
       id={props.idAppointment}
-      onClick={event}
     />
   );
 }
@@ -38,9 +38,10 @@ export default class Items extends Component {
     },
     show: false,
     idClicked: "",
+    class: ["", "show"],
     error: "",
   };
-  async componentDidMount() {
+  componentDidMount() {
     if (localStorage.getItem("token")) {
       api
         .get("/dashboard/appointments", {
@@ -61,23 +62,24 @@ export default class Items extends Component {
         });
     }
   }
-  closeDropdown() {
-    if (!!!this.state.show) {
-      //se clicar fora do modal, ele DESaparece
-      console.log(!!!this.state.show);
-      this.setState((state) => ({ show: false }));
-      document.body.removeEventListener("click", this.closeDropdown);
-    }
-  }
+
   render() {
     return (
       <Fragment>
         <PopupState
           status={this.state.show}
           idAppointment={this.state.idClicked}
+          class={this.state.class}
         />
         {this.state.appointments.map((e) => (
-          <ItemStyle key={e.id}>
+          <ItemStyle
+            onClick={(e) => {
+              if (this.state.show && document.body.onclick) {
+                this.setState({ show: false });
+              }
+            }}
+            key={e.id}
+          >
             <ItemIconStyle
               className="person-pic"
               src={Picture}
