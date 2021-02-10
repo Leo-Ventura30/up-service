@@ -63,25 +63,7 @@ export const ListContentStyle = Styled.ul`
   border-radius:20px;
   padding:1%;
   max-height:110vh;
-  /* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
   @media screen and (max-width:768px) {
     &{
       flex-direction:row;
@@ -106,13 +88,13 @@ export const ItemStyle = Styled.li`
   padding:2%;
   border-radius:1000px;
 
-  &:nth-child(2n+0){
+  /* &:nth-child(2n+0){
     background:rgba(255,255,255,0.4);
     color:#000;
     a{
       color:#000;
     }
-  }
+  } */
   *{
     margin-top:2%;
     font-size:1vw;

@@ -44,7 +44,7 @@ class signin extends Component {
           this.props.history.push("/dashboard");
         }
       } catch (error) {
-        this.setState({ error: error.message });
+        this.setState({ error: "Usuário ou senha invalidos!" });
       }
     }
   };

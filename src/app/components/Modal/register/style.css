@@ -47,11 +47,11 @@
   width: 100%;
   border-radius: 10px;
   height: 40px;
-  border: 0;
-  color: rgb(207, 252, 255);
+  border: 2px solid rgb(44, 152, 253);
+  color: #555;
   font-size: 20px;
   text-transform: uppercase;
-  background: rgb(44, 152, 253);
+
 }
 .button-form:hover {
   color: #fff;

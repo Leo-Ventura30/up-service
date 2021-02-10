@@ -50,7 +50,7 @@ class Items extends Component {
   closeDropdown = (event) => {
     if (this.props.show) {
       event.stopPropagation();
-      this.props.off();
+      // this.props.off();
     }
   };
   render() {
