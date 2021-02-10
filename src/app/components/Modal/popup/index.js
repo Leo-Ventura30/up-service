@@ -3,18 +3,23 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { off, on } from "../../../store/actions/popup";
 import { PopupContent, ButtonContent } from "./style";
+
 const Popup = (props) => {
-  let { className, modalRef, id } = props;
-  function handleClick(e) {
-    e.preventDefault();
-    console.log("O link foi clicado.");
-  }
+  let { className, modalRef, id, onClick } = props;
+
   return (
     <PopupContent>
-      <form id={id} ref={modalRef} className={`${className}`}>
+      <form
+        onSubmit={() => {
+          off();
+        }}
+        id={id}
+        ref={modalRef}
+        className={`${className}`}
+      >
         <label>Deseja mesmo finalizar?</label>
         <ButtonContent>
-          <button onClick={handleClick} className="cancel-button" type="button">
+          <button type="button" onClick={onClick} className="cancel-button">
             Cancelar
           </button>
           <button type="submit">Finalizar</button>

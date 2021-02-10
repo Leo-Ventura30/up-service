@@ -35,7 +35,6 @@ class Items extends Component {
           this.setState({
             appointments: response.data.appointments,
           });
-          document.body.addEventListener("click", this.closeDropdown);
 
           if (!localStorage.getItem("datas")) {
             this.setState({ error: "Erro undefined" });
@@ -48,15 +47,16 @@ class Items extends Component {
     }
   }
   closeDropdown = (event) => {
-    if (this.props.show) {
-      event.stopPropagation();
-      // this.props.off();
-    }
+    event.preventDefault();
+    // this.props.off();
+    console.log(Popup);
   };
   render() {
     return (
       <Fragment>
-        {this.props.show && <Popup className={"show"} />}
+        {this.props.show && (
+          <Popup onClick={this.closeDropdown} className={"show"} />
+        )}
 
         {this.state.appointments.map((e) => (
           <ItemStyle key={e.id}>
