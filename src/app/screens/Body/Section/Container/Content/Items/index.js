@@ -48,8 +48,7 @@ class Items extends Component {
   }
   closeDropdown = (event) => {
     event.preventDefault();
-    // this.props.off();
-    console.log(Popup);
+    this.props.off();
   };
   render() {
     return (

@@ -6,17 +6,9 @@ import { PopupContent, ButtonContent } from "./style";
 
 const Popup = (props) => {
   let { className, modalRef, id, onClick } = props;
-
   return (
     <PopupContent>
-      <form
-        onSubmit={() => {
-          off();
-        }}
-        id={id}
-        ref={modalRef}
-        className={`${className}`}
-      >
+      <form id={id} ref={modalRef} className={`${className}`}>
         <label>Deseja mesmo finalizar?</label>
         <ButtonContent>
           <button type="button" onClick={onClick} className="cancel-button">
