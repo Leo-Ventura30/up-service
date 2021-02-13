@@ -25,7 +25,7 @@ export default class signin extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    this.setState({ success: "", alert: "" });
+    this.setState(() => ({ success: "", alert: "" }));
 
     const { ...datas } = this.state;
     if (!true) {
@@ -35,17 +35,28 @@ export default class signin extends Component {
         const response = await api.post("/register", {
           ...datas,
         });
-        if (response.data.status !== true) {
+        if (!response.data.success) {
           throw new Error(response.data);
-        } else {
-          this.setState({ success: response.data.alert });
         }
+        this.setState({ success: response.data.success });
+        this.clearState();
       } catch (error) {
         this.setState({ alert: error.message });
       }
     }
   };
-
+  clearState() {
+    this.setState(() => ({
+      commerce: "",
+      category: "",
+      uf: "",
+      city: "",
+      email: "",
+      user: "",
+      password: "",
+      alert: "",
+    }));
+  }
   handleChangeCommerce = (e) => {
     this.setState({ commerce: e.target.value });
   };

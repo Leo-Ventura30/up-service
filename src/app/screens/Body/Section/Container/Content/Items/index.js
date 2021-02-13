@@ -50,6 +50,7 @@ class Items extends Component {
   closeDropdown = (event) => {
     event.preventDefault();
     this.props.off();
+    this.setState({ submitting: false });
   };
   render() {
     return (
@@ -91,8 +92,10 @@ class Items extends Component {
               <button
                 onClick={() => {
                   this.props.on();
-                  this.setState({ user: e.users_id.id });
-                  console.log(this.state);
+                  this.setState(() => ({
+                    user: e.users_id.id,
+                    submitting: true,
+                  }));
                 }}
                 disabled={this.state.submitting}
               >
