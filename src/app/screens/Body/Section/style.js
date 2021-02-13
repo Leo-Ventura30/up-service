@@ -224,3 +224,10 @@ export const ContentSearch = Styled.div`
   justify-content:center;
   width:100%;
 `;
+
+export const PopupContentShow = Styled.div`
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+`;

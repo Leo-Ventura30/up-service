@@ -1,4 +1,4 @@
-import React, { Fragment, Component, useState, useRef } from "react";
+import React, { Fragment, Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
@@ -12,11 +12,13 @@ import api from "../../../../../../services/api";
 import moment from "moment";
 import Popup from "../../../../../../components/Modal/popup";
 import { off, on } from "../../../../../../store/actions/popup";
-
+import { PopupContentShow } from "../../../style";
 class Items extends Component {
   state = {
     appointments: [],
+    user: "",
     employer: "",
+    submitting: false,
     page: {
       actual: 1,
       items: 0,
@@ -35,7 +37,6 @@ class Items extends Component {
           this.setState({
             appointments: response.data.appointments,
           });
-
           if (!localStorage.getItem("datas")) {
             this.setState({ error: "Erro undefined" });
           }
@@ -53,45 +54,56 @@ class Items extends Component {
   render() {
     return (
       <Fragment>
-        {this.props.show && (
-          <Popup onClick={this.closeDropdown} className={"show"} />
-        )}
-
-        {this.state.appointments.map((e) => (
-          <ItemStyle key={e.id}>
-            <ItemIconStyle
-              className="person-pic"
-              src={Picture}
-              alt="pic"
-            ></ItemIconStyle>
-            <ul>
-              <li>
-                <p>{e.users_id.name}</p>
-              </li>
-              <li>
-                <p>
-                  <a href={mountLink(e)} target="_blank">
-                    {e.users_id.phone}
-                  </a>
-                </p>
-              </li>
-              <li>
-                <p>{moment(e.date).format("DD/MM")}</p>
-              </li>
-              <li>
-                <p>{moment(e.date).format("hh:mm")}</p>
-              </li>
-              <li>
-                <p>{e.type}</p>
-              </li>
-            </ul>
-            <button onClick={() => this.props.on()}>Finalizar</button>
-            <ContentIconStyle>
-              <img onClick={() => this.props.off()} src={Edit} alt="pic"></img>
-              <img src={Bin} alt="pic"></img>
-            </ContentIconStyle>
-          </ItemStyle>
-        ))}
+        <PopupContentShow>
+          {this.props.show && (
+            <Popup onClick={this.closeDropdown} className={"show-popup"} />
+          )}
+        </PopupContentShow>
+        {this.state.appointments &&
+          this.state.appointments.map((e) => (
+            <ItemStyle key={e.id}>
+              <ItemIconStyle
+                className="person-pic"
+                src={Picture}
+                alt="pic"
+              ></ItemIconStyle>
+              <ul>
+                <li>
+                  <p>{e.users_id.name}</p>
+                </li>
+                <li>
+                  <p>
+                    <a href={mountLink(e)} target="_blank">
+                      {e.users_id.phone}
+                    </a>
+                  </p>
+                </li>
+                <li>
+                  <p>{moment(e.date).format("DD/MM")}</p>
+                </li>
+                <li>
+                  <p>{moment(e.date).format("hh:mm")}</p>
+                </li>
+                <li>
+                  <p>{e.type}</p>
+                </li>
+              </ul>
+              <button
+                onClick={() => {
+                  this.props.on();
+                  this.setState({ user: e.users_id.id });
+                  console.log(this.state);
+                }}
+                disabled={this.state.submitting}
+              >
+                Finalizar
+              </button>
+              <ContentIconStyle>
+                <img src={Edit} alt="pic"></img>
+                <img src={Bin} alt="pic"></img>
+              </ContentIconStyle>
+            </ItemStyle>
+          ))}
       </Fragment>
     );
   }

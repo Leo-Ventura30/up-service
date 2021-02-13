@@ -11,6 +11,7 @@ export const PopupContent = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
+  transform: translatey(100%);
 `;
 
 export const ButtonContent = styled.div`
