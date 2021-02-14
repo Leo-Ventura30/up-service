@@ -1,5 +1,6 @@
-import React from "react";
-import { Component } from "react";
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+
 import { Content, ContentLink, Title } from "../style";
 import api from "../../../services/api";
 
@@ -10,7 +11,7 @@ import email from "../../../assets/email.svg";
 import user from "../../../assets/user.svg";
 import password from "../../../assets/key.svg";
 
-export default class signin extends Component {
+class signin extends Component {
   state = {
     commerce: "",
     category: "",
@@ -19,6 +20,7 @@ export default class signin extends Component {
     email: "",
     user: "",
     password: "",
+
     alert: "",
     success: "",
   };
@@ -26,9 +28,15 @@ export default class signin extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     this.setState(() => ({ success: "", alert: "" }));
+    const { alert, success, ...datas } = this.state;
 
-    const { ...datas } = this.state;
-    if (!true) {
+    if (
+      !datas.commerce ||
+      !datas.category ||
+      !datas.email ||
+      !datas.user ||
+      !datas.password
+    ) {
       this.setState({ alert: "Preencha todos os campos!" });
     } else {
       try {
@@ -39,7 +47,7 @@ export default class signin extends Component {
           throw new Error(response.data);
         }
         this.setState({ success: response.data.success });
-        this.clearState();
+        setTimeout(() => this.clearState(), 1500);
       } catch (error) {
         this.setState({ alert: error.message });
       }
@@ -54,8 +62,8 @@ export default class signin extends Component {
       email: "",
       user: "",
       password: "",
-      alert: "",
     }));
+    this.props.history.push("/");
   }
   handleChangeCommerce = (e) => {
     this.setState({ commerce: e.target.value });
@@ -179,3 +187,5 @@ export default class signin extends Component {
     );
   }
 }
+
+export default withRouter(signin);

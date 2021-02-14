@@ -2,7 +2,12 @@ import React, { Fragment, Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import { ItemStyle, ContentIconStyle, ItemIconStyle } from "../../../style";
+import {
+  ItemStyle,
+  ContentIconStyle,
+  ItemIconStyle,
+  SpanEmpty,
+} from "../../../style";
 
 import mountLink from "../../../../../../services/zap";
 import Picture from "../../../../../../assets/picture.svg";
@@ -16,8 +21,6 @@ import { PopupContentShow } from "../../../style";
 class Items extends Component {
   state = {
     appointments: [],
-    user: "",
-    employer: "",
     submitting: false,
     page: {
       actual: 1,
@@ -25,13 +28,16 @@ class Items extends Component {
       limit: 10,
       total: 0,
     },
+    token: { "x-access-token": localStorage.getItem("token") },
     error: "",
   };
+  idAppointment = "";
   componentDidMount() {
+    console.log(this.state.appointments);
     if (localStorage.getItem("token")) {
       api
         .get("/dashboard/appointments", {
-          headers: { "x-access-token": localStorage.getItem("token") },
+          headers: this.state.token,
         })
         .then((response) => {
           this.setState({
@@ -47,66 +53,90 @@ class Items extends Component {
         });
     }
   }
-  closeDropdown = (event) => {
-    event.preventDefault();
+  closeDropdown = () => {
     this.props.off();
     this.setState({ submitting: false });
+  };
+
+  closeAppointment = (e) => {
+    this.idAppointment = e;
+    this.props.on();
+    console.log(this.props);
+  };
+  finalizeAppointment = () => {
+    api
+      .delete(`/dashboard/appointments/delete/${this.idAppointment}`, {
+        headers: this.state.token,
+      })
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
   };
   render() {
     return (
       <Fragment>
         <PopupContentShow>
-          {this.props.show && (
-            <Popup onClick={this.closeDropdown} className={"show-popup"} />
+          {this.props.show === true && (
+            <Popup
+              onSubmit={this.finalizeAppointment}
+              onClick={this.closeDropdown}
+              className={"show-popup"}
+            />
           )}
         </PopupContentShow>
-        {this.state.appointments &&
-          this.state.appointments.map((e) => (
-            <ItemStyle key={e.id}>
-              <ItemIconStyle
-                className="person-pic"
-                src={Picture}
-                alt="pic"
-              ></ItemIconStyle>
-              <ul>
-                <li>
-                  <p>{e.users_id.name}</p>
-                </li>
-                <li>
-                  <p>
-                    <a href={mountLink(e)} target="_blank">
-                      {e.users_id.phone}
-                    </a>
-                  </p>
-                </li>
-                <li>
-                  <p>{moment(e.date).format("DD/MM")}</p>
-                </li>
-                <li>
-                  <p>{moment(e.date).format("hh:mm")}</p>
-                </li>
-                <li>
-                  <p>{e.type}</p>
-                </li>
-              </ul>
-              <button
+        {this.state.appointments <= 0 && (
+          <SpanEmpty>Não há agendamentos!</SpanEmpty>
+        )}
+        {this.state.appointments.map((e) => (
+          <ItemStyle key={e.id}>
+            <ItemIconStyle
+              className="person-pic"
+              src={Picture}
+              alt="pic"
+            ></ItemIconStyle>
+            <ul>
+              <li>
+                <p>{e.users_id.name}</p>
+              </li>
+              <li>
+                <p>
+                  <a href={mountLink(e)} target="_blank">
+                    {e.users_id.phone}
+                  </a>
+                </p>
+              </li>
+              <li>
+                <p>{moment(e.date).format("DD/MM")}</p>
+              </li>
+              <li>
+                <p>{moment(e.date).format("hh:mm")}</p>
+              </li>
+              <li>
+                <p>{e.type}</p>
+              </li>
+            </ul>
+            <button
+              onClick={() => {
+                this.setState({ submitting: true });
+                this.closeAppointment(e.id);
+              }}
+              disabled={this.state.submitting}
+            >
+              Finalizar
+            </button>
+            <ContentIconStyle>
+              <img disabled={this.state.submitting} src={Edit} alt="pic"></img>
+              <img
                 onClick={() => {
-                  this.props.on();
-                  this.setState(() => ({
-                    user: e.users_id.id,
-                    submitting: true,
-                  }));
+                  this.setState({ submitting: true });
+                  this.closeAppointment(e.id);
                 }}
                 disabled={this.state.submitting}
-              >
-                Finalizar
-              </button>
-              <ContentIconStyle>
-                <img src={Edit} alt="pic"></img>
-                <img src={Bin} alt="pic"></img>
-              </ContentIconStyle>
-            </ItemStyle>
-          ))}
+                src={Bin}
+                alt="pic"
+              ></img>
+            </ContentIconStyle>
+          </ItemStyle>
+        ))}
       </Fragment>
     );
   }

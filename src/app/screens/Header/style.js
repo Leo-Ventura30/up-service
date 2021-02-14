@@ -5,14 +5,17 @@ export const ContainerHeader = Styled.div`
   display:flex;
   align-items:center;
   a{
+    transform:translatey(25%);
     text-decoration:none;
     color:#fff;
     font-weight:bold;
+    text-transform:uppercase;
     cursor:pointer;
+    &:hover{
+      transform:scale(1.01);
+    }
   }
-  a:hover{
-    transform:scale(1.05);
-  }
+  
 `;
 export const ContainerMenu = Styled.div`
   display:flex;
@@ -152,4 +155,11 @@ export const ContentDropdown = Styled.div`
   button{
     border-radius:50%;
   }
+`;
+
+export const ContentLetter = Styled.div`
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transform:translatex(10%);
 `;

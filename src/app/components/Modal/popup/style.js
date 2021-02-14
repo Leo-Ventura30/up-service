@@ -4,6 +4,7 @@ export const PopupContent = styled.div`
   width: 15%;
   min-height: 15%;
   max-height: max-content;
+  padding: 2%;
   background-color: #fff;
   border-radius: 10px;
   display: flex;
@@ -12,6 +13,9 @@ export const PopupContent = styled.div`
   align-items: center;
   position: absolute;
   transform: translatey(100%);
+  label {
+    font-size: 12px;
+  }
 `;
 
 export const ButtonContent = styled.div`

@@ -2,13 +2,16 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import { deepOrange, deepPurple } from "@material-ui/core/colors";
-
+import { ContentLetter } from "../../style";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     cursor: "pointer",
+    textTransform: "uppercase",
+    width: "50px",
+    height: "50px",
   },
   hover: {},
   orange: {
@@ -30,7 +33,7 @@ export default function LetterAvatars() {
   return (
     <div className={classes.root}>
       <Avatar variant="circular" className={classes.purple}>
-        {verifyDatas()}
+        <ContentLetter>{verifyDatas()}</ContentLetter>
       </Avatar>
     </div>
   );

@@ -231,3 +231,12 @@ export const PopupContentShow = Styled.div`
   justify-content:center;
   align-items:center;
 `;
+
+export const SpanEmpty = Styled.span`
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#aaa;
+  font-size:2vw;
+`;
