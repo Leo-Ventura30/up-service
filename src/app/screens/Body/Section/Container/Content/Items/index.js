@@ -61,7 +61,6 @@ class Items extends Component {
   closeAppointment = (e) => {
     this.idAppointment = e;
     this.props.on();
-    console.log(this.props);
   };
   finalizeAppointment = () => {
     api
@@ -70,6 +69,9 @@ class Items extends Component {
       })
       .then((res) => console.log(res))
       .catch((error) => console.log(error));
+  };
+  updateAppointment = () => {
+    api.put().then().catch();
   };
   render() {
     return (

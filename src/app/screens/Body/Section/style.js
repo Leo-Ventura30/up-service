@@ -233,6 +233,7 @@ export const PopupContentShow = Styled.div`
 `;
 
 export const SpanEmpty = Styled.span`
+  min-height:55vh;
   width:100%;
   display:flex;
   justify-content:center;
