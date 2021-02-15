@@ -33,7 +33,6 @@ class Items extends Component {
   };
   idAppointment = "";
   componentDidMount() {
-    console.log(this.state.appointments);
     if (localStorage.getItem("token")) {
       api
         .get("/dashboard/appointments", {
@@ -62,7 +61,7 @@ class Items extends Component {
     this.idAppointment = e;
     this.props.on();
   };
-  finalizeAppointment = () => {
+  deleteAppointment = () => {
     api
       .delete(`/dashboard/appointments/delete/${this.idAppointment}`, {
         headers: this.state.token,
@@ -70,8 +69,17 @@ class Items extends Component {
       .then((res) => console.log(res))
       .catch((error) => console.log(error));
   };
-  updateAppointment = () => {
-    api.put().then().catch();
+  finalizeAppointment = () => {
+    api
+      .put(
+        `/dashboard/appointment/${this.idAppointment}/closing`,
+        { status: 0 },
+        {
+          headers: this.state.token,
+        }
+      )
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
   };
   render() {
     return (
