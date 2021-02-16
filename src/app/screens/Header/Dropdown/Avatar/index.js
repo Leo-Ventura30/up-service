@@ -27,8 +27,12 @@ const useStyles = makeStyles((theme) => ({
 export default function LetterAvatars() {
   const classes = useStyles();
   const verifyDatas = () => {
-    const firstlyLetterCommerce = localStorage.getItem("datas").substr(0, 2);
-    return firstlyLetterCommerce;
+    let letterAvatar = Array(localStorage.getItem("datas"));
+    let firstLetter = letterAvatar[0][0];
+    let secondLetter = letterAvatar[0].split(" ");
+    secondLetter = secondLetter[secondLetter.length - 1][0];
+    let showLetters = firstLetter.concat(secondLetter);
+    return showLetters;
   };
   return (
     <div className={classes.root}>

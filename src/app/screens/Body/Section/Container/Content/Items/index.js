@@ -93,60 +93,56 @@ class Items extends Component {
             />
           )}
         </PopupContentShow>
-        {this.state.appointments <= 0 && (
+        {this.state.appointments < 1 && (
           <SpanEmpty>Não há agendamentos!</SpanEmpty>
         )}
-        {this.state.appointments.map((e) => (
-          <ItemStyle key={e.id}>
-            <ItemIconStyle
-              className="person-pic"
-              src={Picture}
-              alt="pic"
-            ></ItemIconStyle>
-            <ul>
-              <li>
-                <p>{e.users_id.name}</p>
-              </li>
-              <li>
-                <p>
-                  <a href={mountLink(e)} target="_blank">
-                    {e.users_id.phone}
-                  </a>
-                </p>
-              </li>
-              <li>
-                <p>{moment(e.date).format("DD/MM")}</p>
-              </li>
-              <li>
-                <p>{moment(e.date).format("hh:mm")}</p>
-              </li>
-              <li>
-                <p>{e.type}</p>
-              </li>
-            </ul>
-            <button
-              onClick={() => {
-                this.setState({ submitting: true });
-                this.closeAppointment(e.id);
-              }}
-              disabled={this.state.submitting}
-            >
-              Finalizar
-            </button>
-            <ContentIconStyle>
-              <img disabled={this.state.submitting} src={Edit} alt="pic"></img>
-              <img
+        {this.state.appointments &&
+          this.state.appointments.map((e) => (
+            <ItemStyle key={e.id}>
+              <ItemIconStyle
+                className="person-pic"
+                src={Picture}
+                alt="pic"
+              ></ItemIconStyle>
+              <ul>
+                <li>
+                  <p>{e.users_id.name}</p>
+                </li>
+                <li>
+                  <p>
+                    <a href={mountLink(e)} target="_blank">
+                      {e.users_id.phone}
+                    </a>
+                  </p>
+                </li>
+                <li>
+                  <p>{moment(e.date).format("DD/MM")}</p>
+                </li>
+                <li>
+                  <p>{moment(e.date).format("hh:mm")}</p>
+                </li>
+                <li>
+                  <p>{e.type}</p>
+                </li>
+              </ul>
+              <button
                 onClick={() => {
                   this.setState({ submitting: true });
                   this.closeAppointment(e.id);
                 }}
                 disabled={this.state.submitting}
-                src={Bin}
-                alt="pic"
-              ></img>
-            </ContentIconStyle>
-          </ItemStyle>
-        ))}
+              >
+                Finalizar
+              </button>
+              <ContentIconStyle>
+                <img
+                  disabled={this.state.submitting}
+                  src={Edit}
+                  alt="pic"
+                ></img>
+              </ContentIconStyle>
+            </ItemStyle>
+          ))}
       </Fragment>
     );
   }
