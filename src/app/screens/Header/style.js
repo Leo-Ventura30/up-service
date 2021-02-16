@@ -114,23 +114,21 @@ export const Content = Styled.div`
       width:4vw;
       cursor:pointer;
       margin-bottom:1vw;
-      @media screen and (max-width:768px) {
-        &{
-          width:5vw;
-          font-size:2vw;
-
-        }
-      }
+      
     }
     @media screen and (max-width:768px) {
       &{
-        margin-right:10%;
+        margin-right:15%;
+
+    }
       }
     }
   }
   @media screen and (max-width:768px) {
     &{
       background:none;
+      margin-right:50%;
+
     }
   }
 `;
@@ -162,4 +160,21 @@ export const ContentLetter = Styled.div`
   align-items:center;
   justify-content:center;
   transform:translatex(10%);
+  @media screen and (max-width:768px){
+    &{
+      font-size:3vh;
+    }
+  }
+`;
+export const ContentAvatar = Styled.div`
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transform:translatex(10%);
+  @media screen and (max-width:768px){
+    .MuiAvatar-root{
+      width:20px;
+      height:20px;
+    }
+  }
 `;

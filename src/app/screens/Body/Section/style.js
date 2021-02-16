@@ -38,11 +38,11 @@ export const AdduserStyle = Styled.img`
   background:#fff;
   border-radius: 50px 0 0 50px;
   width:5vw;
-  &:hover{
-    transform:scale(1.03);
+  cursor:pointer;
+  &:active{
     background:#7C7C7C;
-    cursor:pointer;
   }
+}
 `;
 export const ComponentStyle = Styled.div`
   width:100%;
@@ -184,6 +184,7 @@ export const InputStyle = Styled.input`
   width:100%;
   font-size:1vw;
   padding:2%;
+  
 `;
 export const ItemIconStyle = Styled.img`
   width:5vw;

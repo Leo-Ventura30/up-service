@@ -5,7 +5,14 @@
   position: fixed !important;
   width: 25%;
   max-height: max-content;
+  
 }
+@media screen and (max-width:768px) {
+  .modal{
+    width: 90%;
+  }
+}
+
 .form-modal {
   background-color: rgb(65, 65, 65);
   border-radius: 10px;
