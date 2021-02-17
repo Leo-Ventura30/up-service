@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
     "moment": "^2.29.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -19,8 +20,8 @@
     "styled-components": "^5.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts start --env.API_URL",
+    "build": "react-scripts build --env.API_URL",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
