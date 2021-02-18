@@ -1,18 +1,32 @@
 import React, { Fragment } from "react";
 import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom";
-import { isAuthenticated } from "../services/auth";
 import Footer from "../components/Footer";
 import Login from "../screens/Login";
 import Home from "../screens/Home";
-
+import api from "../services/api";
+const verifyToken = (token) => {
+  if (!token) return false;
+  api
+    .get(`http://localhost:8080/verify/${token}/key`)
+    .then((res) => {
+      console.log(res.data);
+      if (!res.data.auth) throw new Error(res.data.message);
+    })
+    .catch((err) => {
+      console.log(err.message);
+      localStorage.clear();
+      return false;
+    });
+  return true;
+};
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      localStorage.getItem("token") ? (
+      verifyToken(localStorage.getItem("token")) ? (
         <Component {...props} />
       ) : (
-        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+        <Redirect to="/" path="/" />
       )
     }
   />

@@ -30,6 +30,7 @@ export default function LetterAvatars() {
   const classes = useStyles();
   const verifyDatas = () => {
     let letterAvatar = Array(localStorage.getItem("datas"));
+    if (letterAvatar) return;
     let firstLetter = letterAvatar[0][0];
     let secondLetter = letterAvatar[0].split(" ");
     secondLetter = secondLetter[secondLetter.length - 1][0];

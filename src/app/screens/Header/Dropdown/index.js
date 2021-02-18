@@ -30,7 +30,7 @@ const StyledMenu = withStyles({
 
 const StyledMenuItem = withStyles((theme) => ({
   root: {
-    "&:focus": {
+    "&:hover": {
       backgroundColor: theme.palette.secondary,
       color: theme.palette.secondary,
     },

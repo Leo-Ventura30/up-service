@@ -38,6 +38,7 @@ class signin extends Component {
       !datas.password
     ) {
       this.setState({ alert: "Preencha todos os campos!" });
+      this.clearErrors(2000);
     } else {
       try {
         const response = await api.post("/register", {
@@ -47,12 +48,26 @@ class signin extends Component {
           throw new Error(response.data);
         }
         this.setState({ success: response.data.success });
-        setTimeout(() => this.clearState(), 1500);
+
+        setTimeout(() => this.clearState(), 2500);
       } catch (error) {
-        this.setState({ alert: error.message });
+        this.setState({
+          alert: "Não foi possivel criar usuário! Tente novamente.",
+        });
+        this.clearErrors(2500);
       }
     }
   };
+  clearErrors(miliSeconds, empty = "") {
+    setTimeout(
+      () =>
+        this.setState({
+          alert: empty,
+          success: empty,
+        }),
+      miliSeconds
+    );
+  }
   clearState() {
     this.setState(() => ({
       commerce: "",

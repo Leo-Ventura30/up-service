@@ -39,8 +39,11 @@ export const AdduserStyle = Styled.img`
   border-radius: 50px 0 0 50px;
   width:5vw;
   cursor:pointer;
-  &:active{
+  &:hover{
     background:#7C7C7C;
+  }
+  &:active{
+    border:1px solid #31b2df;
   }
 }
 `;

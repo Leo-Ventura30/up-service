@@ -45,6 +45,10 @@ class signin extends Component {
         }
       } catch (error) {
         this.setState({ error: "Usuário ou senha invalidos!" });
+        setTimeout(
+          () => this.setState({ error: "", user: "", password: "" }),
+          1500
+        );
       }
     }
   };
