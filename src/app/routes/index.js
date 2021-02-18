@@ -7,7 +7,7 @@ import api from "../services/api";
 const verifyToken = (token) => {
   if (!token) return false;
   api
-    .get(`http://localhost:8080/verify/${token}/key`)
+    .get(`/verify/${token}/key`)
     .then((res) => {
       console.log(res.data);
       if (!res.data.auth) throw new Error(res.data.message);
