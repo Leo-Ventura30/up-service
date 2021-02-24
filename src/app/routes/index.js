@@ -3,7 +3,6 @@ import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom";
 import Footer from "../components/Footer";
 import Login from "../screens/Login";
 import Home from "../screens/Home";
-import api from "../services/api";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
