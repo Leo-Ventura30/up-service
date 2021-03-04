@@ -99,32 +99,44 @@ class Items extends Component {
         {this.state.appointments &&
           this.state.appointments.map((e) => (
             <ItemStyle key={e.id}>
-              <ItemIconStyle
-                className="person-pic"
-                src={Picture}
-                alt="pic"
-              ></ItemIconStyle>
-              <ul>
-                <li>
-                  <p>{e.users_id.name}</p>
-                </li>
-                <li>
-                  <p>
-                    <a href={mountLink(e)} target="_blank">
-                      {e.users_id.phone}
-                    </a>
-                  </p>
-                </li>
-                <li>
-                  <p>{moment(e.date).format("DD/MM")}</p>
-                </li>
-                <li>
-                  <p>{moment(e.date).format("hh:mm")}</p>
-                </li>
-                <li>
-                  <p>{e.type}</p>
-                </li>
-              </ul>
+              <div>
+                <ul>
+                  <div>
+                    <div>
+                      <ItemIconStyle
+                        className="person-pic"
+                        src={Picture}
+                        alt="pic"
+                      ></ItemIconStyle>
+                    </div>
+                    <div>
+                      <li>
+                        <p>{e.users_id.name}</p>
+                      </li>
+                      <li>
+                        <p>
+                          <a href={mountLink(e)} target="_blank">
+                            {e.users_id.phone}
+                          </a>
+                        </p>
+                      </li>
+                    </div>
+                  </div>
+                  <div>
+                    <li>
+                      <p>{moment(e.date).format("DD/MM")}</p>
+                    </li>
+                    <li>
+                      <p>{moment(e.date).format("hh:mm")}</p>
+                    </li>
+                  </div>
+                  <div>
+                    <li>
+                      <p>{e.type}</p>
+                    </li>
+                  </div>
+                </ul>
+              </div>
               <button
                 onClick={() => {
                   this.setState({ submitting: true });

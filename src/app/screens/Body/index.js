@@ -23,7 +23,6 @@ const NavStyle = Styled.div`
 `;
 const ContentStyle = Styled.div`
   width:85%;
-  background:#333;
   margin-top:6%;
 
   @media screen and (max-width:768px) {
