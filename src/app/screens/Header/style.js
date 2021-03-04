@@ -33,9 +33,9 @@ export const ContainerDropdown = Styled.div`
 export const HeaderStyle = Styled.div`
   position:fixed;
   background:#333;
-
   font-family:chilanka;
   display:flex;
+  border-radius: 0 0 20px 20px;
   align-items:center;
   font-size:2vw;
   width:100%;

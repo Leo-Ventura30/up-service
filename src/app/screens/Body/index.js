@@ -9,9 +9,9 @@ const DivSectionStyle = Styled.div`
 `;
 const NavStyle = Styled.div`
   width:15%;
-  background:#333;
-  margin-top:6%;
-
+  background:#fff;
+  margin-top:5%;
+  border-radius: 0 20px 20px 0;
   margin-right:0.1%;
   @media screen and (max-width:768px) {
     &{

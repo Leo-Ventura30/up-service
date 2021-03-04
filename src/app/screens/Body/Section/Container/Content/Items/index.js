@@ -101,15 +101,15 @@ class Items extends Component {
             <ItemStyle key={e.id}>
               <div>
                 <ul>
-                  <div>
-                    <div>
+                  <div className="item-header">
+                    <div className="item-pic">
                       <ItemIconStyle
                         className="person-pic"
                         src={Picture}
                         alt="pic"
                       ></ItemIconStyle>
                     </div>
-                    <div>
+                    <div className="item-person">
                       <li>
                         <p>{e.users_id.name}</p>
                       </li>
@@ -121,38 +121,43 @@ class Items extends Component {
                         </p>
                       </li>
                     </div>
+                    <div className="item-day">
+                      <p>{moment(e.date).format("DD")}</p>
+                    </div>
                   </div>
-                  <div>
+                  <div className="item-info">
                     <li>
                       <p>{moment(e.date).format("DD/MM")}</p>
                     </li>
                     <li>
                       <p>{moment(e.date).format("hh:mm")}</p>
                     </li>
-                  </div>
-                  <div>
                     <li>
                       <p>{e.type}</p>
                     </li>
                   </div>
                 </ul>
               </div>
-              <button
-                onClick={() => {
-                  this.setState({ submitting: true });
-                  this.closeAppointment(e.id);
-                }}
-                disabled={this.state.submitting}
-              >
-                Finalizar
-              </button>
-              <ContentIconStyle>
-                <img
+              <div className="item-buttons">
+                <button
+                  onClick={() => {
+                    this.setState({ submitting: true });
+                    this.closeAppointment(e.id);
+                  }}
                   disabled={this.state.submitting}
-                  src={Edit}
-                  alt="pic"
-                ></img>
-              </ContentIconStyle>
+                >
+                  Finalizar
+                </button>
+                <button
+                  onClick={() => {
+                    this.setState({ submitting: true });
+                    this.closeAppointment(e.id);
+                  }}
+                  disabled={this.state.submitting}
+                >
+                  Editar
+                </button>
+              </div>
             </ItemStyle>
           ))}
       </Fragment>
