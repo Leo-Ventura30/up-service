@@ -8,11 +8,11 @@ const DivSectionStyle = Styled.div`
   max-height:max-content;
 `;
 const NavStyle = Styled.div`
-  width:15%;
+  width:17%;
   background:#fff;
   margin-top:5%;
   border-radius: 0 20px 20px 0;
-  margin-right:0.1%;
+  min-height:80vh;
   @media screen and (max-width:768px) {
     &{
       width:0%;
@@ -22,9 +22,9 @@ const NavStyle = Styled.div`
   }
 `;
 const ContentStyle = Styled.div`
-  width:85%;
+  width:83%;
   margin-top:6%;
-
+  
   @media screen and (max-width:768px) {
     &{
       width:100%;
