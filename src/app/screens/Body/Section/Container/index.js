@@ -1,17 +1,12 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import { ContentStyle, ContentSearch } from "../style";
+import { ContentStyle } from "../style";
 import UserComponent from "./Content";
-
-import Search from "./Search";
 
 const Content = () => {
   return (
     <ContentStyle>
-      <ContentSearch>
-        <Search />
-      </ContentSearch>
       <Switch>
         <Route exact path="/dashboard" component={UserComponent} />
         <Route path="/dashboard/calendar">calendar</Route>

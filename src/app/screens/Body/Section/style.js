@@ -3,50 +3,7 @@ import Styled from "styled-components";
 export const ContentStyle = Styled.div` 
   
 `;
-export const FormSearchStyle = Styled.form`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:row;
-  margin:3%;
-  width:40%;
-  .input-form{
-    width:100%;
-    font-size:1vw;
-  }
-  .btn-search{
-    border:0;
-    background:none;
-  }
-  .send-search{
-    border:0;
-    height:3vw;
-  }
-`;
-export const ImageStyle = Styled.img`
-  background:#fff;
-  border-radius: 0 50px 50px 0;
-  width:5vw;
-  &:hover{
-    transform:scale(1.03);
-    background:#7C7C7C;
-    cursor:pointer;
-  }
-`;
 
-export const AdduserStyle = Styled.img`
-  background:#fff;
-  border-radius: 50px 0 0 50px;
-  width:5vw;
-  cursor:pointer;
-  &:hover{
-    background:#7C7C7C;
-  }
-  &:active{
-    border:1px solid #31b2df;
-  }
-}
-`;
 export const ComponentStyle = Styled.div`
   width:100%;
   padding:2%;
@@ -80,7 +37,7 @@ export const ItemStyle = Styled.li`
   border-radius:20px;
   background:#fff;
   width:20%;
-  min-height:15vw;
+  min-height:17vw;
   display:flex;
   flex-direction:column;
   padding:2%;
@@ -96,7 +53,6 @@ export const ItemStyle = Styled.li`
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:2%;
     margin:5%;
   }
   .item-person{
@@ -116,15 +72,17 @@ export const ItemStyle = Styled.li`
   .item-day{
     font-size:3vh;
     color:#333;
+    margin-top:2%;
   }
   .item-info{
     display:flex;
     flex-wrap: wrap;
     justify-content:center;
+    margin:5% 1% 0 1%;
     li{
       background:#eee;
       border-radius:5px;
-      margin:2%;
+      margin:3%;
       padding:5%;
     }
     p{
@@ -137,6 +95,7 @@ export const ItemStyle = Styled.li`
     justify-content:center;
     align-items:center;
     padding:2%;
+    margin: 5% 0 5% 0;
     button{
       margin:2%;
       font-size:2vh;
@@ -159,12 +118,7 @@ export const ItemStyle = Styled.li`
   }
 
 `;
-export const InputStyle = Styled.input`
-  width:100%;
-  font-size:1vw;
-  padding:2%;
-  
-`;
+
 export const ItemIconStyle = Styled.img`
   width:4vw;
   @media screen and (max-width:768px) {
