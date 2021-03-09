@@ -32,11 +32,11 @@ export const ListContentStyle = Styled.ul`
   }
 `;
 export const ContentHeader = Styled.div`
-  background:red;
   margin-left:2%;
-  padding-left:2%;
   font-size:1.5vw;
   font-weight:900;
+  width:20%;
+  opacity:0.8;
 `;
 export const ItemStyle = Styled.li`
   margin:2%;
