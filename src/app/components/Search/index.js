@@ -31,19 +31,20 @@ export default function Search() {
       <Modal className={dropdown} modalRef={modalRef} />
       <FormSearchStyle>
         <div className="content-input">
-          <input type="text" placeholder="Busque um cliente" />
+          <input type="text" placeholder="Digite o numero de telefone" />
         </div>
         <div className="content-icons content-center">
-          <div className="content-add content-center">
-            <img
-              className="content-imgs"
-              src={User}
-              alt="pic"
-              onClick={toggleDropdown}
-            />
+          <div onClick={toggleDropdown} className="content-add content-center">
+            <div>
+              <img className="content-imgs" src={User} alt="pic" />
+            </div>
+            <div>Novo</div>
           </div>
           <div className="content-search content-center">
-            <img className="content-imgs" src={SearchIcon} />
+            <div>
+              <img className="content-imgs" src={SearchIcon} />
+            </div>
+            <div>Pesquisar</div>
           </div>
         </div>
       </FormSearchStyle>
