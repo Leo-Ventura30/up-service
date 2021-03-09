@@ -20,7 +20,6 @@ export const ListContentStyle = Styled.ul`
   flex-direction:row;
   flex-wrap: wrap;
   border-radius:20px;
-  padding:1%;
   max-height:110vh;
 
   @media screen and (max-width:768px) {
@@ -32,8 +31,15 @@ export const ListContentStyle = Styled.ul`
     }
   }
 `;
+export const ContentHeader = Styled.div`
+  background:red;
+  margin-left:2%;
+  padding-left:2%;
+  font-size:1.5vw;
+  font-weight:900;
+`;
 export const ItemStyle = Styled.li`
-  margin:1%;
+  margin:2%;
   border-radius:20px;
   background:#fff;
   width:20%;
@@ -108,12 +114,31 @@ export const ItemStyle = Styled.li`
       &:nth-child(1){
         background:#FFA946;
         color:#fff;
+        &:hover{
+          box-shadow: 1px 2px 7px #FFA946;
+          cursor: pointer;
+          transform: scale(1.05);
+        }
+        &:active{
+          box-shadow: 1px 2px 7px #666;
+          transform: translateY(4px);
+        }
       }
       &:nth-child(2){
         border: 1px solid #FFA946;
         color:#FFA946;
         background:none;
+        &:hover{
+          box-shadow: 1px 2px 7px #FFA946;
+          cursor: pointer;
+          transform: scale(1.05);
+        }
+        &:active{
+          box-shadow: 1px 2px 7px #666;
+          transform: translateY(4px);
+        }
       }
+      
     }
   }
 

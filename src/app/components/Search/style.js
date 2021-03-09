@@ -35,7 +35,6 @@ export const FormSearchStyle = Styled.form`
       width:35%;
       margin-right:5%;
       padding:1%;
-
       cursor:pointer;
       div{
         color:#fff;
@@ -57,10 +56,8 @@ export const FormSearchStyle = Styled.form`
       margin-left:5%;
       padding:1%;
       cursor:pointer;
-      
       div{
         color:#000;
-
       }
       &:hover{
         box-shadow: 1px 2px 7px #000;
