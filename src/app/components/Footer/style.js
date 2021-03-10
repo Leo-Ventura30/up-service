@@ -13,6 +13,7 @@ export const Fot = Styled.footer`
   justify-content:center;
   padding:3%;
   background:rgba(0,0,0,1);
+  border-radius:20px 20px 0 0;
   @media screen and (max-width:768px) {
     &{
       font-size:2.5vw;

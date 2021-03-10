@@ -1,17 +1,25 @@
-import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-export const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) =>
-      localStorage.getItem("user") ? (
-        <Component {...props} />
-      ) : (
-        <Redirect
-          to={{ pathname: "/login", state: { from: props.location } }}
-        />
-      )
-    }
-  />
-);
+import RenovaToken from "./RenovaToken.js";
+import Loading from "./Loading";
+
+const PrivateRoute = ({ children, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={({ location }) => {
+        return RenovaToken() ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location },
+            }}
+          />
+        );
+      }}
+    />
+  );
+};
+export default PrivateRoute;

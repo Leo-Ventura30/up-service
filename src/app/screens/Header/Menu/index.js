@@ -8,9 +8,9 @@ const Menu = () => (
         home
       </LinkStyle>
     </div>
-    <div>
-      <LinkStyle href="*">agenda</LinkStyle>
-    </div>
+    {/* <div>
+      <LinkStyle href="*">serviços</LinkStyle>
+    </div> */}
     <div>
       <LinkStyle href="*">configuraçoes</LinkStyle>
     </div>
