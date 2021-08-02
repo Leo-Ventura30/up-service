@@ -6,8 +6,7 @@ const Modal = (props) => {
   let data = {
     name: null,
     phone: null,
-    uf: null,
-    city: null,
+    endereço:null,
     date: null,
     appointment: {
       type: null,
@@ -33,11 +32,8 @@ const Modal = (props) => {
   const handleChangeName = (e) => {
     data.name = e.target.value;
   };
-  const handleChangeUf = (e) => {
-    data.uf = e.target.value;
-  };
-  const handleChangeCity = (e) => {
-    data.city = e.target.value;
+  const handleChangeEndereço = (e) => {
+    data.endereço = e.target.value;
   };
   const handleChangeDate = (e) => {
     data.date = e.target.value;
@@ -66,20 +62,14 @@ const Modal = (props) => {
             required
             className="input-form"
             type="text"
-            placeholder="Nome e sobrenome"
+            placeholder="Nome"
             onChange={handleChangeName}
           />
           <input
             className="input-form"
             type="text"
-            placeholder="Estado"
-            onChange={handleChangeUf}
-          />
-          <input
-            className="input-form"
-            type="text"
-            placeholder="Cidade"
-            onChange={handleChangeCity}
+            placeholder="Endereço"
+            onChange={handleChangeEndereço}
           />
           <input
             required

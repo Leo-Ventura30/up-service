@@ -68,7 +68,8 @@ class signin extends Component {
         <Title>
           IC | Login
         </Title>
-        <form onSubmit={this.handleSubmit} method="POST">
+        {/* onSubmit={this.handleSubmit} */}
+        <form  method="POST">
           <div className="content-input">
             <img width="45px" height="45px" src={user} alt="icon" />
             <input
