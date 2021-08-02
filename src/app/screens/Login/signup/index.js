@@ -110,9 +110,20 @@ class signin extends Component {
           <span className="success">{this.state.success}</span>
         )}
         <Title>
-          <img src={poste} alt="pic"></img> | Cadastro
+          IC | Cadastro
         </Title>
         <form onSubmit={this.handleSubmit} method="POST">
+          <div className="content-input">
+            <img width="45px" height="45px" src={email} alt="icon" />
+            <input
+              placeholder="E-mail"
+              type="text"
+              max="50"
+              min="10"
+              value={this.state.email}
+              onChange={this.handleChangeEmail}
+            />
+          </div>
           <div className="content-input">
             <img width="45px" height="45px" src={commerce} alt="icon" />
             <input
@@ -135,7 +146,7 @@ class signin extends Component {
               onChange={this.handleChangeCategory}
             />
           </div>
-          <div className="content-select">
+          {/* <div className="content-select">
             <select
               onChange={this.handleChangeUf}
               value={this.state.uf}
@@ -158,18 +169,8 @@ class signin extends Component {
               </option>
               <option value="Santo André">Santo André</option>
             </select>
-          </div>
-          <div className="content-input">
-            <img width="45px" height="45px" src={email} alt="icon" />
-            <input
-              placeholder="E-mail"
-              type="text"
-              max="50"
-              min="10"
-              value={this.state.email}
-              onChange={this.handleChangeEmail}
-            />
-          </div>
+          </div> */}
+          
           <div className="content-input">
             <img width="45px" height="45px" src={user} alt="icon" />
             <input

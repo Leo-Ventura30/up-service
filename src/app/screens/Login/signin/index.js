@@ -66,7 +66,7 @@ class signin extends Component {
 
         <title>Login | Up Barber</title>
         <Title>
-          <img src={poste} alt="pic"></img> | Login
+          IC | Login
         </Title>
         <form onSubmit={this.handleSubmit} method="POST">
           <div className="content-input">
