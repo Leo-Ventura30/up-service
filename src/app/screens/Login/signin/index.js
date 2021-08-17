@@ -62,7 +62,7 @@ class signin extends Component {
   render() {
     return (
       <Content>
-        {this.state.error && <span className="error">{this.state.error}</span>}
+        {/* {this.state.error && <span className="error">{this.state.error}</span>} */}
 
         <title>Login | Up Barber</title>
         <Title>

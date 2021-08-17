@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 const Section = () => {
   const history = useHistory();
   return (
-    <Content>{localStorage.getItem("error") && history.push("/")}</Content>
+    <Content/>
   );
 };
 
