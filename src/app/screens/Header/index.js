@@ -13,10 +13,10 @@ import {
 const Header = () => (
   <Fragment>
     <HeaderStyle>
-      {/* <ContainerHeader>
+      <ContainerHeader>
         <ContentImageStyle className="image-init" src={logo} />
         <a href="/dashboard">{localStorage.getItem("datas")}</a>
-      </ContainerHeader> */}
+      </ContainerHeader>
       <ContainerMenu>
         <Menu />
       </ContainerMenu>

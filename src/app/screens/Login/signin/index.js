@@ -68,8 +68,8 @@ class signin extends Component {
         <Title>
           IC | Login
         </Title>
-        {/* onSubmit={this.handleSubmit} */}
-        <form  method="POST">
+        
+        <form method="POST" onSubmit={this.handleSubmit}>
           <div className="content-input">
             <img width="45px" height="45px" src={user} alt="icon" />
             <input
@@ -80,7 +80,7 @@ class signin extends Component {
               value={this.state.user}
               onChange={this.handleChangeUser}
             />
-          </div>
+        </div>
           <div className="content-input">
             <img width="45px" height="45px" src={key} alt="icon" />
             <input

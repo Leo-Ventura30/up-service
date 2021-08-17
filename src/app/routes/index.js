@@ -22,8 +22,8 @@ const Routes = () => (
     <Fragment>
       <Switch>
         <Route exact path="/" component={() => <Login />} />
-        <PrivateRoute path="/dashboard" component={() => <Home />} />
-        {/* <Route path="/dashboard" component={() => <Home />} /> */}
+        {/* <PrivateRoute path="/dashboard" component={() => <Home />} /> */}
+        <Route path="/dashboard" component={() => <Home />} />
         <Route path="/criar/conta" component={() => <Login />} />
         <Route
           path="*"
