@@ -18,10 +18,7 @@ export const ContainerHeader = Styled.div`
   
 `;
 export const ContainerMenu = Styled.div`
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:25%;
+  margin-right:2%;
 `;
 export const ContainerDropdown = Styled.div`
   display:flex;
@@ -47,41 +44,7 @@ export const HeaderStyle = Styled.div`
     }
   }  
 `;
-export const ContentImageStyle = Styled.img`
-  @keyframes balance{
-    0%{
-      transform:rotate(40deg);
-    }
-    20%{
-      transform:rotate(-40deg);
-    }
-    40%{
-      transform:rotate(40deg);
-    }
-    60%{
-      transform:rotate(-40deg);
-    }
-    80%{
-      transform:rotate(40deg);
-    }
-    100%{
-      transform:rotate(0);
-    }
-  }
-  width:2.5vw;
-  cursor:pointer;
-  &:hover{
-    transform:scale(1.1);
-    animation-name: balance;
-    animation-duration: 1s;
-    animation-iteration-count: 2;
-  }
-  @media screen and (max-width:768px) {
-    &{
-      visibility:hidden;
-    }
-  }  
-`;
+
 
 export const Container = Styled.div`
   font-size:1vw;

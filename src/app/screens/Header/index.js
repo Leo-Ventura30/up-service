@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import logo from "../../assets/barber.svg";
+// import logo from "../../assets/barber.svg";
 import Menu from "./Menu";
 import Dropdown from "./Dropdown";
 import {
@@ -14,7 +14,6 @@ const Header = () => (
   <Fragment>
     <HeaderStyle>
       <ContainerHeader>
-        <ContentImageStyle className="image-init" src={logo} />
         <a href="/dashboard">{localStorage.getItem("datas")}</a>
       </ContainerHeader>
       <ContainerMenu>
