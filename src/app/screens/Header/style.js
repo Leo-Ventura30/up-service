@@ -18,7 +18,7 @@ export const ContainerHeader = Styled.div`
   
 `;
 export const ContainerMenu = Styled.div`
-  margin-right:2 %;
+  margin-right:2%;
 `;
 export const ContainerDropdown = Styled.div`
   display:flex;
