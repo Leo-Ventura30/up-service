@@ -69,7 +69,7 @@ export const Content = Styled.div`
   div{
     display:flex;
     flex-direction:column;
-    margin-right:7%;
+    margin-right:5%;
     &:hover{
       transform:scale(1.15);
     }

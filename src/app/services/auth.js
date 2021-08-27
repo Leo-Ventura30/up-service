@@ -1,11 +1,9 @@
-export const isToken = "token";
-export const isAuthenticated = () => {
-  localStorage.getItem(getToken(isToken) !== null);
-};
-export const getToken = () => localStorage.getItem(isToken);
-export const login = (token) => {
-  localStorage.setItem(isToken, "");
+export const TOKEN_KEY = "@airbnb-Token";
+export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
+export const getToken = () => localStorage.getItem(TOKEN_KEY);
+export const login = token => {
+  localStorage.setItem(TOKEN_KEY, token);
 };
 export const logout = () => {
-  localStorage.removeItem(isToken);
+  localStorage.removeItem(TOKEN_KEY);
 };

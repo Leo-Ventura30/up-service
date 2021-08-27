@@ -94,7 +94,7 @@ class Items extends Component {
           )}
         </PopupContentShow>
         {this.state.appointments < 1 && (
-          <SpanEmpty>Não há agendamentos!</SpanEmpty>
+          <SpanEmpty>Não á nenhum serviço proximo!</SpanEmpty>
         )}
         {this.state.appointments &&
           this.state.appointments.map((e) => (

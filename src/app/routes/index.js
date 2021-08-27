@@ -3,15 +3,16 @@ import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom";
 import Footer from "../components/Footer";
 import Login from "../screens/Login";
 import Home from "../screens/Home";
+import { isAuthenticated } from "../services/auth";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={(props) =>
-      localStorage.getItem("token") ? (
+    render={props =>
+      isAuthenticated() ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/" path="/" />
+        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
       )
     }
   />
@@ -22,8 +23,8 @@ const Routes = () => (
     <Fragment>
       <Switch>
         <Route exact path="/" component={() => <Login />} />
-        {/* <PrivateRoute path="/dashboard" component={() => <Home />} /> */}
-        <Route path="/dashboard" component={() => <Home />} />
+        <PrivateRoute path="/dashboard" component={() => <Home />} />
+        {/* <Route path="/dashboard" component={() => <Home />} /> */}
         <Route path="/criar/conta" component={() => <Login />} />
         <Route
           path="*"

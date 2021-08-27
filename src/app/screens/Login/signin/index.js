@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 
 import { Content, ContentLink, Title } from "../style";
 import api from "../../../services/api";
+import { login } from "../../../services/auth";
 
 import poste from "../../../assets/poste.svg";
 import user from "../../../assets/user.svg";
@@ -26,23 +27,9 @@ class signin extends Component {
       this.setState({ error: "Preencha todos os campos!" });
     } else {
       try {
-        const response = await api.post("/signin/dashboard", {
-          user: this.state.user,
-          password: this.state.password,
-        });
-        if (response.data.auth !== true) {
-          throw new Error(response.data.error);
-        } else {
-          this.setState({
-            response: {
-              employer: response.data.employer,
-              token: response.data.token,
-            },
-          });
-          localStorage.setItem("token", this.state.response.token);
-          localStorage.setItem("datas", this.state.response.employer.commerce);
-          this.props.history.push("/dashboard");
-        }
+        const response = {data:{token:"fuck"}}
+        login(response.data.token)
+        this.props.history.push("/dashboard")
       } catch (error) {
         this.setState({ error: "Usuário ou senha invalidos!" });
         setTimeout(
@@ -62,7 +49,7 @@ class signin extends Component {
   render() {
     return (
       <Content>
-        {/* {this.state.error && <span className="error">{this.state.error}</span>} */}
+        {this.state.error && <span className="error">{this.state.error}</span>}
 
         <title>Login | Up Barber</title>
         <Title>
