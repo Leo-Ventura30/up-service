@@ -27,7 +27,7 @@ class signin extends Component {
       this.setState({ error: "Preencha todos os campos!" });
     } else {
       try {
-        const response = {data:{token:"fuck"}}
+        const response = await api.post('/signin/dashboard')
         login(response.data.token)
         this.props.history.push("/dashboard")
       } catch (error) {
