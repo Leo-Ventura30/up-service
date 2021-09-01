@@ -48,6 +48,27 @@ export default function Search() {
           </div>
         </div>
       </FormSearchStyle>
+      <div>
+        Calendario
+      </div>
+      <div>
+        Meus produtos
+      </div>
+      <div>
+        Minhas vendas
+      </div>
+      <div>
+        Ganhos\perdas
+      </div>
+      <div>
+        Meus clientes
+      </div>
+      <div>
+        Meu negócio
+      </div>
+      <div>
+        Minha conta
+      </div>
     </Fragment>
   );
 }

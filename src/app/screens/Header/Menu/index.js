@@ -9,13 +9,19 @@ const Menu = () => (
       </LinkStyle>
     </div>
     <div>
+      <LinkStyle href="*">produtos</LinkStyle>
+    </div>
+    <div>
+      <LinkStyle href="*">serviços</LinkStyle>
+    </div>
+    <div>
+      <LinkStyle href="*">funcionarios</LinkStyle>
+    </div>
+    <div>
+      <LinkStyle href="*">terceiros</LinkStyle>
+    </div>
+    <div>
       <LinkStyle href="*">faturamento</LinkStyle>
-    </div>
-    <div>
-      <LinkStyle href="*">estoque</LinkStyle>
-    </div>
-    <div>
-      <LinkStyle href="*">configuraçoes</LinkStyle>
     </div>
   </Content>
 );

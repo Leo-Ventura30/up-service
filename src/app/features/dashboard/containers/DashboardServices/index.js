@@ -3,14 +3,18 @@ import styled from 'styled-components'
 
 import { Card, CardHeader, Avatar, CardContent, Typography } from "@material-ui/core"
 
-const PageWrapper = styled`
+
+const PageWrapper = styled.div`
     width:100vh;
     height:100vh;
 `
+const CardProduto = styled(Card)`
+    width: 15vh;
+`
 
-export const dashboardService = () =>
+export const DashboardServicesContainer = () =>
     <PageWrapper>
-        <Card>
+        <CardProduto>
             <CardHeader>
                 <Avatar />
                 Rita
@@ -20,6 +24,7 @@ export const dashboardService = () =>
                 hora xx:xx
                 servico xxxxx x xxxx
                 endereco: xxx xxxxx
+                valor $xx,xx
             </CardContent>
-        </Card>
+        </CardProduto>
     </PageWrapper>

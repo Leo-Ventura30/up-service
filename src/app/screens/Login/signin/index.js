@@ -28,7 +28,7 @@ class signin extends Component {
     } else {
       try {
         const response = await api.post('/signin/dashboard')
-        login(response.data.token)
+        login("fuck")
         this.props.history.push("/dashboard")
       } catch (error) {
         this.setState({ error: "Usuário ou senha invalidos!" });

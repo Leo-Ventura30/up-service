@@ -4,7 +4,8 @@ import Footer from "../components/Footer";
 import Login from "../screens/Login";
 import Home from "../screens/Home";
 import { isAuthenticated } from "../services/auth";
-
+import { DashboardServicesScreen } from "../features/dashboard/screens/DashboardServices";
+import FullCalendar from "../ui/FullCalendar"
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
@@ -26,15 +27,10 @@ const Routes = () => (
         <PrivateRoute path="/dashboard" component={() => <Home />} />
         {/* <Route path="/dashboard" component={() => <Home />} /> */}
         <Route path="/criar/conta" component={() => <Login />} />
-        <Route
-          path="*"
-          component={() => (
-            <h1>
-              <a href="/">Voltar para o inicio</a> <br />
-              Page not found
-            </h1>
-          )}
-        />
+        <Route path="/v2/dashboard" component={() => <DashboardServicesScreen />} />
+        <Route path="/calendar" component={() => <FullCalendar />} />
+        
+        <Redirect to={{pathname:'/'}}/>
       </Switch>
     </Fragment>
     <Fragment>
