@@ -16,23 +16,29 @@ export default function FullCalendarComponent() {
 
   const state = {
     weekendsVisible: true,
-    currentEvents: []
-
+    currentEvents: [],
+    defaultOptions:{locale:'pt-br', year: 'numeric', month: 'numeric', day: 'numeric',  hour:'numeric', minute:'numeric'}
   }
 
   const WrapperCalendar = styled.div`
     display: flex;
     .full-calendar{
-      margin-right: 1vh;
+      margin-right: 2vh;
+    }
+    .next-events{
+      display:flex;
+      justify-content:center;
     } 
   `
   
     
 
-  const toggleDropdown = () => {
+   const toggleDropdown = (event) => {
     //se clicar no botão, modal aparece
+    
     setDropdown("show");
     document.body.addEventListener("click", closeDropdown);
+    handleDateSelect(event)
   };
 
   const closeDropdown = (event) => {
@@ -45,23 +51,21 @@ export default function FullCalendarComponent() {
     }
   };
   const handleDateSelect = (selectInfo) => {
-    const dateFormat = formatDate(selectInfo.startStr,)
+    const dateFormat = formatDate(selectInfo.startStr, state.defaultOptions)
     setData(dateFormat) 
-    toggleDropdown()
-    // let title = prompt('Please enter a new title for your event')
-    // let calendarApi = selectInfo.view.calendar
+    let title = "jack"
+    let calendarApi = selectInfo.view.calendar
 
     // calendarApi.unselect() // clear date selection
-
-    // if (title) {
-    //   calendarApi.addEvent({
-    //     id: createEventId(),
-    //     title,
-    //     start: selectInfo.startStr,
-    //     end: selectInfo.endStr,
-    //     allDay: selectInfo.allDay
-    //   })
-    // }
+    if (title) {
+      calendarApi.addEvent({
+        id: createEventId(),
+        title,
+        start: selectInfo.startStr,
+        end: selectInfo.endStr,
+        allDay: selectInfo.allDay
+      })
+    }
   }
   
     return (
@@ -93,7 +97,7 @@ export default function FullCalendarComponent() {
                 dayMaxEvents={true}
                 weekends={state.weekendsVisible}
                 initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
-                select={handleDateSelect}
+                select={toggleDropdown}
                 // eventContent={renderEventContent} // custom render function
                 // eventClick={handleEventClick}
                 // eventsSet={handleEvents} // called after events are initialized/added/changed/removed
@@ -105,13 +109,11 @@ export default function FullCalendarComponent() {
             />
         </div>
             
-        <div>
-          <div className='demo-app-sidebar-section'>
-            <h2>Serviços restante... {state.currentEvents.length}</h2>
+        <div className={'next-events'}>
+            <h2>Serviços restante {state.currentEvents.length}</h2>
             <ul>
               {state.currentEvents.map(renderSidebarEvent)}
             </ul>
-          </div>
         </div>
       </WrapperCalendar>
         

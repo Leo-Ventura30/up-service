@@ -4,7 +4,7 @@ import "./style.css";
 const Modal = (props) => {
   const { className, modalRef } = props;
   let data = {
-    name: null,
+    name: String,
     phone: null,
     endereço:null,
     date: null,
@@ -13,18 +13,19 @@ const Modal = (props) => {
       value: 0,
     },
   };
-  const submitAppointment = () => {
+  const submitAppointment = (e) => {
+    e.preventDefault()
     console.log(data);
-    api
-      .post("/dashboard/user/create", data, {
-        headers: { "x-access-token": localStorage.getItem("token") },
-      })
-      .then((e) => {
-        console.log(e);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // api
+    //   .post("/dashboard/user/create", data, {
+    //     headers: { "x-access-token": localStorage.getItem("token") },
+    //   })
+    //   .then((e) => {
+    //     console.log(e);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
   const handleChangePhone = (e) => {
     data.phone = e.target.value;
@@ -48,19 +49,17 @@ const Modal = (props) => {
     <form onSubmit={submitAppointment}>
       <div ref={modalRef} className={`${className} modal`}>
         <div className="div-title">Agendar um novo usuário</div>
-        <div>{ console.log(props)}</div>
         <div className="form-modal">
           <input
-            required
             className="input-form"
             type="text"
             placeholder="Numero de Telefone"
             min="9"
             max="11"
             onChange={handleChangePhone}
+            defaultValue={props.data}
           />
           <input
-            required
             className="input-form"
             type="text"
             placeholder="Nome"
@@ -73,7 +72,6 @@ const Modal = (props) => {
             onChange={handleChangeEndereço}
           />
           <input
-            required
             className="input-form"
             type="datetime-local"
             onChange={handleChangeDate}
