@@ -48,6 +48,7 @@ const Modal = (props) => {
     <form onSubmit={submitAppointment}>
       <div ref={modalRef} className={`${className} modal`}>
         <div className="div-title">Agendar um novo usuário</div>
+        <div>{ console.log(props)}</div>
         <div className="form-modal">
           <input
             required
@@ -79,10 +80,7 @@ const Modal = (props) => {
           />
           <select id="type-modal" onChange={handleChangeService}>
             <option>Tipo de serviço</option>
-            <option value="Barba">Barba</option>
-            <option value="Corte">Corte de cabelo</option>
-            <option value="Pacote">Pacote</option>
-          </select>
+          </select> +
           <input
             className="input-form"
             type="text"

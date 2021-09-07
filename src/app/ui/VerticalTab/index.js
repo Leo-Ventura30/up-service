@@ -3,7 +3,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import styled from 'styled-components'
 import { TabPanel } from '../TabPanel';
-import FullCalendar from '../FullCalendar'
+import FullCalendarComponent from '../FullCalendar'
 const INITIAL_ITEMS = ["Próximos serviços","Meu calendário"]
 
 const TabsContainer = styled.div`
@@ -42,7 +42,7 @@ export const VerticalTabs= () => {
                 {INITIAL_ITEMS[0]}...
         </TabPanel> */}
         <TabPanel value={INITIAL_ITEMS[value]} index={INITIAL_ITEMS[0]}>
-            <FullCalendar/>
+            <FullCalendarComponent/>
         </TabPanel>
     </TabsContainer>
   );
