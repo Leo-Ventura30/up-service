@@ -5,6 +5,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import { INITIAL_EVENTS, createEventId } from '../../utils/events'
+import styled from 'styled-components'
 
 export default class DemoApp extends React.Component {
 
@@ -15,17 +16,28 @@ export default class DemoApp extends React.Component {
 
   render() {
     return (
-      <div className='demo-app'>
-        {this.renderSidebar()}
-        <div className='demo-app-main'>
+      <div>
+        {/* {this.renderSidebar()} */}
+        <div>
           <FullCalendar
+            height={'90vh'}
+            viewHeight={"90vh"}
+            locale={'pt-br'}
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             headerToolbar={{
-              left: 'prev,next today',
+              left: 'prev,today,next',
               center: 'title',
               right: 'dayGridMonth,timeGridWeek,timeGridDay'
             }}
-            initialView='dayGridMonth'
+            allDayText='Dia todo'
+            buttonText={{
+              today: 'Hoje',
+              month: 'Mês',
+              week: 'Semana',
+              day: 'Hoje',
+              list: 'Lista'
+            }}
+            initialView='timeGridWeek'
             editable={true}
             selectable={true}
             selectMirror={true}
@@ -47,36 +59,36 @@ export default class DemoApp extends React.Component {
     )
   }
 
-  renderSidebar() {
-    return (
-      <div className='demo-app-sidebar'>
-        <div className='demo-app-sidebar-section'>
-          <h2>Instructions</h2>
-          <ul>
-            <li>Select dates and you will be prompted to create a new event</li>
-            <li>Drag, drop, and resize events</li>
-            <li>Click an event to delete it</li>
-          </ul>
-        </div>
-        <div className='demo-app-sidebar-section'>
-          <label>
-            <input
-              type='checkbox'
-              checked={this.state.weekendsVisible}
-              onChange={this.handleWeekendsToggle}
-            ></input>
-            toggle weekends
-          </label>
-        </div>
-        <div className='demo-app-sidebar-section'>
-          <h2>All Events ({this.state.currentEvents.length})</h2>
-          <ul>
-            {this.state.currentEvents.map(renderSidebarEvent)}
-          </ul>
-        </div>
-      </div>
-    )
-  }
+  // renderSidebar() {
+  //   return (
+  //     <div className='demo-app-sidebar'>
+  //       <div className='demo-app-sidebar-section'>
+  //         <h2>Instructions</h2>
+  //         <ul>
+  //           <li>Select dates and you will be prompted to create a new event</li>
+  //           <li>Drag, drop, and resize events</li>
+  //           <li>Click an event to delete it</li>
+  //         </ul>
+  //       </div>
+  //       <div className='demo-app-sidebar-section'>
+  //         <label>
+  //           <input
+  //             type='checkbox'
+  //             checked={this.state.weekendsVisible}
+  //             onChange={this.handleWeekendsToggle}
+  //           ></input>
+  //           toggle weekends
+  //         </label>
+  //       </div>
+  //       <div className='demo-app-sidebar-section'>
+  //         <h2>All Events ({this.state.currentEvents.length})</h2>
+  //         <ul>
+  //           {this.state.currentEvents.map(renderSidebarEvent)}
+  //         </ul>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   handleWeekendsToggle = () => {
     this.setState({
