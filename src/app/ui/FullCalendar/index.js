@@ -7,70 +7,48 @@ import interactionPlugin from '@fullcalendar/interaction'
 import { INITIAL_EVENTS, createEventId } from '../../utils/events'
 import styled from 'styled-components'
 import Modal from '../../components/Modal/register'
-
-
-export default function FullCalendarComponent() {
-  const [dropdown, setDropdown] = useState("");
-  const [data, setData] = useState("")
-  const modalRef = useRef(null);
-
-  const state = {
-    weekendsVisible: true,
-    currentEvents: [],
-    defaultOptions:{locale:'pt-br', year: 'numeric', month: 'numeric', day: 'numeric',  hour:'numeric', minute:'numeric'}
-  }
-
-  const WrapperCalendar = styled.div`
+const WrapperCalendar = styled.div`
     display: flex;
     .full-calendar{
       margin-right: 2vh;
     }
-    .next-events{
-      display:flex;
-      justify-content:center;
-    } 
   `
-  
-    
 
-   const toggleDropdown = (event) => {
-    //se clicar no botão, modal aparece
-    
-    setDropdown("show");
-    document.body.addEventListener("click", closeDropdown);
-    handleDateSelect(event)
-  };
+export default class FullCalendarComponent extends React.Component {
 
-  const closeDropdown = (event) => {
-    event.stopPropagation();
-    const contain = modalRef.current.contains(event.target);
-    if (!!!contain) {
-      //se clicar fora do modal, ele DESaparece
-      setDropdown("");
-      document.body.removeEventListener("click", closeDropdown);
-    }
-  };
-  const handleDateSelect = (selectInfo) => {
-    const dateFormat = formatDate(selectInfo.startStr, state.defaultOptions)
-    setData(dateFormat) 
-    let title = "jack"
-    let calendarApi = selectInfo.view.calendar
-
-    // calendarApi.unselect() // clear date selection
-    if (title) {
-      calendarApi.addEvent({
-        id: createEventId(),
-        title,
-        start: selectInfo.startStr,
-        end: selectInfo.endStr,
-        allDay: selectInfo.allDay
-      })
-    }
+  state = {
+    title: String(),
+    Description: String(),
+    value: Number(),
+    selectInfo: Object(),
+    currentEvents: Array(),
+    weekendsVisible: true,
+    defaultOptions:{locale:'pt-br', year: 'numeric', month: 'numeric', day: 'numeric',  hour:'numeric', minute:'numeric'},
+    dropdown: '',
+    modalRef: null,
   }
+
+
+  toggleDropdown = (selectInfo) => {
+    this.setState({selectInfo})
+    this.setState({dropdown:'show'})
+    // document.body.addEventListener('click', this.closeDropdown);
+  };
+
+  closeDropdown = (event) => {
+    event.stopPropagation();
+    
+      //se clicar fora do modal, ele DESaparece
+      this.setState({dropdown:''})
+      document.body.removeEventListener('click', this.closeDropdown);
+    
+  };
   
+  
+  render(){
     return (
       <WrapperCalendar>
-        <Modal data={data} className={dropdown} modalRef={modalRef} />
+        <Modal onChange={[this.handleChangeTitle, this.handleChangeDescription]} name={this.state.name} modalRef={this.state.modalRef} className={this.state.dropdown} addEvent={this.handleDateSelect}  />
         <div className={'full-calendar'}>
           <FullCalendar
                 height={'90vh'}
@@ -93,14 +71,17 @@ export default function FullCalendarComponent() {
                 initialView='timeGridWeek'
                 editable={true}
                 selectable={true}
+            
                 selectMirror={true}
                 dayMaxEvents={true}
-                weekends={state.weekendsVisible}
+                weekends={this.state.weekendsVisible}
                 initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
-                select={toggleDropdown}
-                // eventContent={renderEventContent} // custom render function
-                // eventClick={handleEventClick}
-                // eventsSet={handleEvents} // called after events are initialized/added/changed/removed
+                select={this.toggleDropdown}
+                // eventChange={this.handleUpdateEvent} 
+            
+                eventContent={this.renderEventContent} // custom render function
+                eventClick={this.handleEventClick}
+                eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
                 /* you can update a remote database when these fire:
                 eventAdd={function(){}}
                 eventChange={function(){}}
@@ -109,55 +90,91 @@ export default function FullCalendarComponent() {
             />
         </div>
             
-        <div className={'next-events'}>
-            <h2>Serviços restante {state.currentEvents.length}</h2>
+        <div>
+            <h2>Serviços restante {this.state.currentEvents.length}</h2>
             <ul>
-              {state.currentEvents.map(renderSidebarEvent)}
+              {this.state.currentEvents.map(this.renderSidebarEvent)}
             </ul>
         </div>
       </WrapperCalendar>
         
-    )
-  
+    )}
 
- 
+  handleUpdateEvent = (clickInfo) => {
+    if (window.confirm(`Deseja atualizar o evento ${clickInfo.event.title}?`)) {
+      
+    }
+    return false;
+  }
 
-}
- const handleWeekendsToggle = () => {
+  handleChangeTitle = (title) => {
+    console.log(title)
+    this.setState({title})
+  }
+  handleChangeDescription = (description) => {
+    console.log(description)
+
+    this.setState({description})
+  }
+  handleChangeName = (name) => {
+    this.setState({name})
+  }
+
+  handleWeekendsToggle = () => {
     this.setState({
       weekendsVisible: !this.state.weekendsVisible
     })
   }
-
   
-
-  const handleEventClick = (clickInfo) => {
+  handleEventClick = (clickInfo) => {
     if (window.confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
       clickInfo.event.remove()
     }
   }
 
-  const handleEvents = (events) => {
+  handleEvents = (events) => {
     this.setState({
       currentEvents: events
     })
   }
 
-function renderEventContent(eventInfo) {
-  return (
-    <>
-      <b>{eventInfo.timeText}</b>
-      <i>{eventInfo.event.title}</i>
-    </>
-  )
-}
+  handleDateSelect = (event) => {
+    event.preventDefault();
+    let calendarApi = this.state.selectInfo.view.calendar
+   
+    calendarApi.unselect() // clear date selection
+    if (this.state.title) {
+      calendarApi.addEvent({
+        id: createEventId(),
+        title:this.state.title,
+        start: this.state.selectInfo.startStr,
+        end: this.state.selectInfo.endStr,
+        allDay: this.state.selectInfo.allDay
+      })
+    } else {
+      alert('insira um titulo!')
+    }
+  }
+  renderSidebarEvent = (event) => {
+    return (
+      <li key={event.id}>
+        <b>{formatDate(event.start, this.state.defaultOptions)}</b>
+        <i>{event.title}</i>
+      </li>
+    )
+  }
+  renderEventContent = (eventInfo)=>{
+    return (
+      <>
+        <b>{eventInfo.timeText}</b>
+        <i>{eventInfo.event.title}</i>
+      </>
+    )
+  }  
 
-function renderSidebarEvent(event) {
-  return (
-    <li key={event.id}>
-      <b>{formatDate(event.start, {locale:'pt-br', year: 'numeric', month: 'short', day: 'numeric'})}</b>
-      <i>{event.title}</i>
-    </li>
-  )
 }
+ 
+
+
+ 
 
