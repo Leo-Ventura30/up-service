@@ -4,7 +4,7 @@ import Tab from '@material-ui/core/Tab';
 import styled from 'styled-components'
 import { TabPanel } from '../TabPanel';
 import FullCalendarComponent from '../FullCalendar'
-const INITIAL_ITEMS = ["Próximos serviços","Meu calendário"]
+const INITIAL_ITEMS = ["Meu calendário", "Meus clientes" , "Faturamento", "Criar serviço", "Meus serviços", "Adicionar produto", "Estoque", "Adicionar funcionário", "Meus funcionários"]
 
 const TabsContainer = styled.div`
     background:#fff;
@@ -34,14 +34,17 @@ export const VerticalTabs= () => {
         onChange={handleChange}
         className="Tabs-navigation"      
         >
-            {/* <Tab label='Proximos serviços'/>    */}
-            <Tab label='Meu calendario' />
-                
+            {/* <Tab label={INITIAL_ITEMS[0]}/>   
+            <Tab label={INITIAL_ITEMS[1]} /> */}
+             {INITIAL_ITEMS.map(item=><Tab label={item} />)}   
         </Tabs>
         {/* <TabPanel value={INITIAL_ITEMS[value]} index={INITIAL_ITEMS[0]}>
                 {INITIAL_ITEMS[0]}...
         </TabPanel> */}
         <TabPanel value={INITIAL_ITEMS[value]} index={INITIAL_ITEMS[0]}>
+            <FullCalendarComponent/>
+        </TabPanel>
+        <TabPanel value={INITIAL_ITEMS[value]} index={INITIAL_ITEMS[1]}>
             <FullCalendarComponent/>
         </TabPanel>
     </TabsContainer>

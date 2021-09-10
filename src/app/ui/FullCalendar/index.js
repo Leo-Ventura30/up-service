@@ -7,48 +7,45 @@ import interactionPlugin from '@fullcalendar/interaction'
 import { INITIAL_EVENTS, createEventId } from '../../utils/events'
 import styled from 'styled-components'
 import Modal from '../../components/Modal/register'
+
 const WrapperCalendar = styled.div`
-    display: flex;
-    .full-calendar{
-      margin-right: 2vh;
-    }
-  `
+  display: flex;
+  .full-calendar{
+    margin-right: 2vh;
+  }
+`
 
 export default class FullCalendarComponent extends React.Component {
-
   state = {
     title: String(),
-    Description: String(),
+    description: String(),
+    service: String(),
     value: Number(),
     selectInfo: Object(),
+    selectDate:{
+      startDate: String(),
+      endDate: String()
+    },
     currentEvents: Array(),
     weekendsVisible: true,
     defaultOptions:{locale:'pt-br', year: 'numeric', month: 'numeric', day: 'numeric',  hour:'numeric', minute:'numeric'},
     dropdown: '',
-    modalRef: null,
   }
 
-
   toggleDropdown = (selectInfo) => {
-    this.setState({selectInfo})
-    this.setState({dropdown:'show'})
-    // document.body.addEventListener('click', this.closeDropdown);
+    this.setState({dropdown:''})
+    this.setState({selectInfo, selectDate:{ startDate:this.handleFormatDate(selectInfo.startStr), endDate:this.handleFormatDate(selectInfo.endStr)}})
+    this.setState({ dropdown: 'show' })
   };
 
   closeDropdown = (event) => {
-    event.stopPropagation();
-    
-      //se clicar fora do modal, ele DESaparece
-      this.setState({dropdown:''})
-      document.body.removeEventListener('click', this.closeDropdown);
-    
+    this.setState({dropdown:''})
   };
-  
   
   render(){
     return (
       <WrapperCalendar>
-        <Modal onChange={[this.handleChangeTitle, this.handleChangeDescription]} name={this.state.name} modalRef={this.state.modalRef} className={this.state.dropdown} addEvent={this.handleDateSelect}  />
+        {this.state.dropdown && <Modal selectDate={this.state.selectDate} onCloseModal={this.closeDropdown} onChange={this.handleToChange} className={this.state.dropdown} onSubmitAppoitment={this.handleDateSelect}/>}
         <div className={'full-calendar'}>
           <FullCalendar
                 height={'90vh'}
@@ -71,15 +68,13 @@ export default class FullCalendarComponent extends React.Component {
                 initialView='timeGridWeek'
                 editable={true}
                 selectable={true}
-            
                 selectMirror={true}
                 dayMaxEvents={true}
                 weekends={this.state.weekendsVisible}
                 initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
                 select={this.toggleDropdown}
-                // eventChange={this.handleUpdateEvent} 
-            
-                eventContent={this.renderEventContent} // custom render function
+                eventChange={this.handleUpdateEvent} 
+                // eventContent={this.renderEventContent} // custom render function
                 eventClick={this.handleEventClick}
                 eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
                 /* you can update a remote database when these fire:
@@ -91,7 +86,7 @@ export default class FullCalendarComponent extends React.Component {
         </div>
             
         <div>
-            <h2>Serviços restante {this.state.currentEvents.length}</h2>
+            <h2>Serviços restante este mês {this.state.currentEvents.length}</h2>
             <ul>
               {this.state.currentEvents.map(this.renderSidebarEvent)}
             </ul>
@@ -99,25 +94,12 @@ export default class FullCalendarComponent extends React.Component {
       </WrapperCalendar>
         
     )}
-
-  handleUpdateEvent = (clickInfo) => {
-    if (window.confirm(`Deseja atualizar o evento ${clickInfo.event.title}?`)) {
-      
+  
+  handleUpdateEvent = (changeInfo) => {
+    if (!window.confirm(`Deseja atualizar o evento ${changeInfo.event.title}?`)) {
+      changeInfo.revert()
     }
-    return false;
-  }
-
-  handleChangeTitle = (title) => {
-    console.log(title)
-    this.setState({title})
-  }
-  handleChangeDescription = (description) => {
-    console.log(description)
-
-    this.setState({description})
-  }
-  handleChangeName = (name) => {
-    this.setState({name})
+    alert(`evento ${changeInfo.event.title} atualizado para o dia ${this.handleFormatDate(changeInfo.event.startStr)}`)
   }
 
   handleWeekendsToggle = () => {
@@ -140,29 +122,34 @@ export default class FullCalendarComponent extends React.Component {
 
   handleDateSelect = (event) => {
     event.preventDefault();
-    let calendarApi = this.state.selectInfo.view.calendar
-   
-    calendarApi.unselect() // clear date selection
     if (this.state.title) {
-      calendarApi.addEvent({
+      this.addDateSelect(this.state.selectInfo.view.calendar)
+      this.closeDropdown()
+    } else {
+      alert('insira um titulo!')
+    }
+  }
+
+  addDateSelect = (calendarApi) => {
+    calendarApi.addEvent({
         id: createEventId(),
         title:this.state.title,
         start: this.state.selectInfo.startStr,
         end: this.state.selectInfo.endStr,
         allDay: this.state.selectInfo.allDay
       })
-    } else {
-      alert('insira um titulo!')
-    }
   }
+
   renderSidebarEvent = (event) => {
+    console.log(event.end)
     return (
       <li key={event.id}>
-        <b>{formatDate(event.start, this.state.defaultOptions)}</b>
+        <b>{this.handleFormatDate(event.start)} - {this.handleFormatDate(event.end)}</b>
         <i>{event.title}</i>
       </li>
     )
   }
+
   renderEventContent = (eventInfo)=>{
     return (
       <>
@@ -170,8 +157,29 @@ export default class FullCalendarComponent extends React.Component {
         <i>{eventInfo.event.title}</i>
       </>
     )
-  }  
+  }
 
+  handleFormatDate = (date) => {
+    return formatDate(date, this.state.defaultOptions)
+  }
+
+  handleToChange = {
+    handleChangeTitle : (title) => {
+      this.setState({ title })
+    },
+
+    handleChangeDescription : (description) => {
+      this.setState({ description })
+    },
+
+    handleChangeService : (service) => {
+      this.setState({ service })
+    },
+
+    handleChangeValue : (value) => {
+      this.setState({ value })
+    }
+  }
 }
  
 

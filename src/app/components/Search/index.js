@@ -28,7 +28,7 @@ export default function Search() {
   };
   return (
     <Fragment>
-      <Modal className={dropdown} modalRef={modalRef} />
+      {/* <Modal className={dropdown} modalRef={modalRef} /> */}
       <FormSearchStyle>
         <div className="content-input">
           <input type="text" placeholder="Digite o numero de telefone" />
