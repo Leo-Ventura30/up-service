@@ -1,10 +1,9 @@
 import React from "react";
 // import api from "../../../services/api";
 import "./style.css";
-export default function Modal(props) {
-  const { className, onSubmitAppoitment, onChange, onCloseModal, selectDate } = props;
+export const Modal = ({ className, onSubmitAppoitment, onChange, onCloseModal, selectDate}) => {
   const { handleChangeTitle, handleChangeDescription, handleChangeService, handleChangeValue } = onChange
-  console.log(selectDate)
+
   return (
     <form onSubmit={onSubmitAppoitment}>
       <div className={`${className} modal`}>
@@ -13,20 +12,22 @@ export default function Modal(props) {
           <div>Agendar um novo usuário</div>
         </div>
         <div className="form-modal">
-          <input
-            className="input-form"
-            type="text"
-            placeholder="Data inicio"
-            onChange={event => handleChangeTitle(event.target.value)}
-            defaultValue={selectDate.startDate}
-          />
-          <input
-            className="input-form"
-            type="text"
-            placeholder="Data final"
-            onChange={event => handleChangeTitle(event.target.value)}
-            defaultValue={selectDate.endDate}
-          />
+          <div>
+            <input
+              className="input-form"
+              type="text"
+              placeholder="Data Ex.:dia/mes/ano"
+              defaultValue={selectDate.startDate}
+              disabled
+            />
+            <input
+              className="input-form"
+              type="text"
+              placeholder="Horário Ex.:horas:minutos"
+              defaultValue={selectDate.endDate}
+              disabled
+            />
+          </div>
           <input
             className="input-form"
             type="text"

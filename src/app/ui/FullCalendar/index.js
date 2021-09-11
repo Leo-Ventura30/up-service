@@ -6,7 +6,7 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import { INITIAL_EVENTS, createEventId } from '../../utils/events'
 import styled from 'styled-components'
-import Modal from '../../components/Modal/register'
+import { Modal } from '../../components/Modal/register'
 
 const WrapperCalendar = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ export default class FullCalendarComponent extends React.Component {
     selectInfo: Object(),
     selectDate:{
       startDate: String(),
-      endDate: String()
+      endDate: String(),
     },
     currentEvents: Array(),
     weekendsVisible: true,
@@ -34,18 +34,33 @@ export default class FullCalendarComponent extends React.Component {
 
   toggleDropdown = (selectInfo) => {
     this.setState({dropdown:''})
-    this.setState({selectInfo, selectDate:{ startDate:this.handleFormatDate(selectInfo.startStr), endDate:this.handleFormatDate(selectInfo.endStr)}})
+    this.setState({
+      selectInfo,
+      selectDate: {
+        startDate: this.handleFormatDate(selectInfo.startStr, selectInfo.allDay),
+        endDate: this.handleFormatDate(selectInfo.endStr, selectInfo.allDay),
+      }
+    })
     this.setState({ dropdown: 'show' })
   };
 
-  closeDropdown = (event) => {
+  closeDropdown = () => {
     this.setState({dropdown:''})
   };
   
   render(){
     return (
       <WrapperCalendar>
-        {this.state.dropdown && <Modal selectDate={this.state.selectDate} onCloseModal={this.closeDropdown} onChange={this.handleToChange} className={this.state.dropdown} onSubmitAppoitment={this.handleDateSelect}/>}
+        {
+          this.state.dropdown &&
+          <Modal
+            selectDate={this.state.selectDate}
+            onCloseModal={this.closeDropdown}
+            onChange={this.handleToChange}
+            className={this.state.dropdown}
+            onSubmitAppoitment={this.handleDateSelect}
+          />
+        }
         <div className={'full-calendar'}>
           <FullCalendar
                 height={'90vh'}
@@ -86,9 +101,9 @@ export default class FullCalendarComponent extends React.Component {
         </div>
             
         <div>
-            <h2>Serviços restante este mês {this.state.currentEvents.length}</h2>
+            <h2>Serviços restante este mês - {this.state.currentEvents.length}</h2>
             <ul>
-              {this.state.currentEvents.map(this.renderSidebarEvent)}
+              {this.state.currentEvents.map(this.renderSidebarEvent).sort((a,b)=> new Date(a.date)- new Date(b.date))}
             </ul>
         </div>
       </WrapperCalendar>
@@ -96,10 +111,11 @@ export default class FullCalendarComponent extends React.Component {
     )}
   
   handleUpdateEvent = (changeInfo) => {
-    if (!window.confirm(`Deseja atualizar o evento ${changeInfo.event.title}?`)) {
+    if (!window.confirm(`Deseja atualizar o serviço ${changeInfo.event.title} para o dia ${this.handleFormatDate(changeInfo.event.startStr)}?`)) {
       changeInfo.revert()
+    } else {
+      alert(`Serviço ${changeInfo.event.title} atualizado para o dia ${this.handleFormatDate(changeInfo.event.startStr)}`)
     }
-    alert(`evento ${changeInfo.event.title} atualizado para o dia ${this.handleFormatDate(changeInfo.event.startStr)}`)
   }
 
   handleWeekendsToggle = () => {
@@ -109,7 +125,7 @@ export default class FullCalendarComponent extends React.Component {
   }
   
   handleEventClick = (clickInfo) => {
-    if (window.confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
+    if (window.confirm(`Deseja mesmo deletar o serviço ${clickInfo.event.title} no dia ${this.handleFormatDate(clickInfo.event.startStr)}?`)) {
       clickInfo.event.remove()
     }
   }
@@ -141,10 +157,9 @@ export default class FullCalendarComponent extends React.Component {
   }
 
   renderSidebarEvent = (event) => {
-    console.log(event.end)
     return (
       <li key={event.id}>
-        <b>{this.handleFormatDate(event.start)} - {this.handleFormatDate(event.end)}</b>
+        <b>{this.handleFormatDate(event.start, event.allDay).replace('/'+event.start.getFullYear(), '')} - {this.handleCompareDate(event.start, event.end).replace('/'+event.start.getFullYear(), '')} </b>
         <i>{event.title}</i>
       </li>
     )
@@ -159,7 +174,19 @@ export default class FullCalendarComponent extends React.Component {
     )
   }
 
-  handleFormatDate = (date) => {
+  handleCompareDate = (start, end) => {
+    if (end) {
+      if (start.getDay() === end.getDay()) {
+        return (end.getMinutes().length<=4 ?(end.getHours()+':'+end.getMinutes()+'0'):(end.getHours()+':'+end.getMinutes()))
+      } else {
+        return this.handleFormatDate(end)
+      }
+    }
+    return ''
+  }
+
+  handleFormatDate = (date, allDay, event) => {
+    if(allDay) return formatDate(date, this.state.defaultOptions).split(" ")[0]
     return formatDate(date, this.state.defaultOptions)
   }
 

@@ -10,10 +10,11 @@ const TabsContainer = styled.div`
     display:flex;
     height:100vh;
     max-height:115vh;
-    // max-width:45vh;
-    // width:40vh;
     .Tabs-navigation{
-        border-right: 1px solid #aaa
+        border-right: 1px solid #aaa;
+    }
+    .PrivateTabIndicator-colorSecondary-3{
+        background-color: #16f;
     }
 
 ` 
@@ -35,11 +36,8 @@ export const DashboardServicesContainer = ({value, handleChange, initial_items})
         {/* <TabPanel value={INITIAL_ITEMS[value]} index={INITIAL_ITEMS[0]}>
                 {INITIAL_ITEMS[0]}...
         </TabPanel> */}
-        <TabPanel value={initial_items[value]} index={initial_items[0]}>
-            <FullCalendarComponent/>
-        </TabPanel>
-        <TabPanel value={initial_items[value]} index={initial_items[1]}>
-            <FullCalendarComponent/>
+        <TabPanel children={<FullCalendarComponent/>} value={initial_items[value]} index={initial_items[0]}/>
+        <TabPanel value={initial_items[value]} index={initial_items.indexOf()}>
         </TabPanel>
     </TabsContainer>
   );

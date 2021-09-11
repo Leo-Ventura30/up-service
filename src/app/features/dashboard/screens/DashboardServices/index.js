@@ -5,7 +5,7 @@ const INITIAL_ITEMS = ["Meu calendário", "Meus clientes" , "Faturamento", "Cria
 export const DashboardServicesScreen = () => {
     const [value, setValue] = useState(0);
     const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+      setValue(newValue);
+    };
     return <DashboardServicesContainer value={value} initial_items={INITIAL_ITEMS} handleChange={handleChange} />
 }

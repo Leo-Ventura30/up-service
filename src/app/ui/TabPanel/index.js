@@ -7,15 +7,9 @@ export const TabPanel= (props)=> {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`vertical-tabpanel-${index}`}
-      aria-labelledby={`vertical-tab-${index}`}
-      {...other}
-    >
+    <div>
       {value === index && (
-        <Box p={3}>
+        <Box p={2}>
           <Typography>{children}</Typography>
         </Box>
       )}
