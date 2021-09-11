@@ -29,16 +29,13 @@ export const DashboardServicesContainer = ({value, handleChange, initial_items})
         onChange={handleChange}
         className="Tabs-navigation"      
         >
-            {/* <Tab label={INITIAL_ITEMS[0]}/>   
-            <Tab label={INITIAL_ITEMS[1]} /> */}
              {initial_items.map(item=><Tab label={item} />)}   
         </Tabs>
-        {/* <TabPanel value={INITIAL_ITEMS[value]} index={INITIAL_ITEMS[0]}>
-                {INITIAL_ITEMS[0]}...
-        </TabPanel> */}
+          {/* {initial_items.map((item, key) => 
+            <TabPanel children={<FullCalendarComponent/>} value={initial_items[key]}/>
+          )} */}
         <TabPanel children={<FullCalendarComponent/>} value={initial_items[value]} index={initial_items[0]}/>
-        <TabPanel value={initial_items[value]} index={initial_items.indexOf()}>
-        </TabPanel>
+        
     </TabsContainer>
   );
 }

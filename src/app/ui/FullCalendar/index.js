@@ -28,7 +28,7 @@ export default class FullCalendarComponent extends React.Component {
     },
     currentEvents: Array(),
     weekendsVisible: true,
-    defaultOptions:{locale:'pt-br', year: 'numeric', month: 'numeric', day: 'numeric',  hour:'numeric', minute:'numeric'},
+    defaultOptions:{locale:'pt-br', year: 'numeric', month: 'numeric', day: 'numeric',  hour:'2-digit', minute:'2-digit'},
     dropdown: '',
   }
 
@@ -63,47 +63,50 @@ export default class FullCalendarComponent extends React.Component {
         }
         <div className={'full-calendar'}>
           <FullCalendar
-                height={'90vh'}
-                aspectRatio={0.5}
-                locale={'pt-br'}
-                plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-                headerToolbar={{
-                  left: 'prev,today,next',
-                  center: 'title',
-                  right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                }}
-                allDayText='Dia todo'
-                buttonText={{
-                  today: 'Hoje',
-                  month: 'Mês',
-                  week: 'Semana',
-                  day: 'Hoje',
-                  list: 'Lista'
-                }}
-                initialView='timeGridWeek'
-                editable={true}
-                selectable={true}
-                selectMirror={true}
-                dayMaxEvents={true}
-                weekends={this.state.weekendsVisible}
-                initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
-                select={this.toggleDropdown}
-                eventChange={this.handleUpdateEvent} 
-                // eventContent={this.renderEventContent} // custom render function
-                eventClick={this.handleEventClick}
-                eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
-                /* you can update a remote database when these fire:
-                eventAdd={function(){}}
-                eventChange={function(){}}
-                eventRemove={function(){}}
-                */
-            />
+            height={'90vh'}
+            aspectRatio={0.5}
+            locale={'pt-br'}
+            slotDuration={'00:05:00'}
+            slotLabelInterval={'00:05'}
+            slotLabelFormat={this.state.defaultOptions}
+            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+            headerToolbar={{
+              left: 'prev,today,next',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            }}
+            allDayText='Dia todo'
+            buttonText={{
+              today: 'Hoje',
+              month: 'Mês',
+              week: 'Semana',
+              day: 'Hoje',
+              list: 'Lista'
+            }}
+            initialView='timeGridWeek'
+            editable={true}
+            selectable={true}
+            selectMirror={true}
+            dayMaxEvents={true}
+            weekends={this.state.weekendsVisible}
+            initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
+            select={this.toggleDropdown}
+            eventChange={this.handleUpdateEvent} 
+            // eventContent={this.renderEventContent} // custom render function
+            eventClick={this.handleEventClick}
+            eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
+            /* you can update a remote database when these fire:
+            eventAdd={function(){}}
+            eventChange={function(){}}
+            eventRemove={function(){}}
+            */
+          />
         </div>
             
         <div>
             <h2>Serviços restante este mês - {this.state.currentEvents.length}</h2>
             <ul>
-              {this.state.currentEvents.map(this.renderSidebarEvent).sort((a,b)=> new Date(a.date)- new Date(b.date))}
+              {this.state.currentEvents.map(this.renderSidebarEvent)}
             </ul>
         </div>
       </WrapperCalendar>
@@ -159,7 +162,7 @@ export default class FullCalendarComponent extends React.Component {
   renderSidebarEvent = (event) => {
     return (
       <li key={event.id}>
-        <b>{this.handleFormatDate(event.start, event.allDay).replace('/'+event.start.getFullYear(), '')} - {this.handleCompareDate(event.start, event.end).replace('/'+event.start.getFullYear(), '')} </b>
+        <b>{this.handleCompareDate(event.start, event.end, event.allDay).replaceAll('/'+event.start.getFullYear(),'')} </b>
         <i>{event.title}</i>
       </li>
     )
@@ -174,20 +177,22 @@ export default class FullCalendarComponent extends React.Component {
     )
   }
 
-  handleCompareDate = (start, end) => {
-    if (end) {
-      if (start.getDay() === end.getDay()) {
-        return (end.getMinutes().length<=4 ?(end.getHours()+':'+end.getMinutes()+'0'):(end.getHours()+':'+end.getMinutes()))
-      } else {
-        return this.handleFormatDate(end)
+  handleCompareDate = (start, end, allDay) => {
+    if (!allDay) {
+      if (start.getDay() == end.getDay()) {
+        return (`${this.handleFormatDate(start, allDay)} - ${this.handleFormatDate(end, allDay).split(" ")[1]}`)
       }
     }
-    return ''
+    return (`${this.handleFormatDate(start, allDay)} - ${this.handleFormatDate(end, allDay)}`)
   }
 
-  handleFormatDate = (date, allDay, event) => {
-    if(allDay) return formatDate(date, this.state.defaultOptions).split(" ")[0]
-    return formatDate(date, this.state.defaultOptions)
+  handleFormatDate = (date, allDay) => {
+    let auxDate = ''
+    if (allDay) { auxDate = formatDate(date, this.state.defaultOptions).split(" ")[0] }
+    else {
+      auxDate = formatDate(date, this.state.defaultOptions)
+    }
+    return auxDate
   }
 
   handleToChange = {
