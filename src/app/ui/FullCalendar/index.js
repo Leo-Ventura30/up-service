@@ -68,7 +68,12 @@ export default class FullCalendarComponent extends React.Component {
             locale={'pt-br'}
             slotDuration={'00:05:00'}
             slotLabelInterval={'00:05'}
-            slotLabelFormat={this.state.defaultOptions}
+            slotLabelFormat={[
+              { hour:'2-digit', minute:'2-digit' },
+            ]}
+            dayHeaderFormat={
+              { weekday: 'short', day: 'numeric', omitCommas: true }
+            }
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             headerToolbar={{
               left: 'prev,today,next',
