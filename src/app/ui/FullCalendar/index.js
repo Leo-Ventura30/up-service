@@ -1,5 +1,5 @@
 
-import React,{useState, useRef} from 'react'
+import React, { useState, useRef } from 'react'
 import FullCalendar, { formatDate } from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
@@ -10,9 +10,10 @@ import { Modal } from '../../components/Modal/register'
 
 const WrapperCalendar = styled.div`
   display: flex;
-  .full-calendar{
-    margin-right: 2vh;
-  }
+  // .full-calendar{
+  //   width:100%;
+  //   margin-right: 2vh;
+  // }
 `
 
 export default class FullCalendarComponent extends React.Component {
@@ -63,11 +64,9 @@ export default class FullCalendarComponent extends React.Component {
         }
         <div className={'full-calendar'}>
           <FullCalendar
-            height={'90vh'}
-            aspectRatio={0.5}
             locale={'pt-br'}
             slotDuration={'00:05:00'}
-            slotLabelInterval={'00:05'}
+            slotLabelInterval={'00:10'}
             slotLabelFormat={[
               { hour:'2-digit', minute:'2-digit' },
             ]}
@@ -75,20 +74,28 @@ export default class FullCalendarComponent extends React.Component {
               { weekday: 'short', day: 'numeric', omitCommas: true }
             }
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+            titleFormat={
+              {dateStyle:'short'}
+            }
             headerToolbar={{
-              left: 'prev,today,next',
+              left: 'dayGridMonth,timeGridWeek,timeGridDay',
               center: 'title',
-              right: 'dayGridMonth,timeGridWeek,timeGridDay'
+              right: 'prev,today,next'
             }}
             allDayText='Dia todo'
             buttonText={{
               today: 'Hoje',
               month: 'Mês',
               week: 'Semana',
-              day: 'Hoje',
+              day: 'Dia',
               list: 'Lista'
             }}
             initialView='timeGridWeek'
+            views= {{
+              listDay: { buttonText: 'list day' },
+              listWeek: { buttonText: 'list week' },
+              listMonth: { buttonText: 'list month' }}
+            }
             editable={true}
             selectable={true}
             selectMirror={true}
