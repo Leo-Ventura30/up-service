@@ -1,6 +1,5 @@
 import React from "react";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+import { Tabs, Tab, Divider } from "@material-ui/core/";
 import styled from "styled-components";
 import { TabPanel } from "../../../../ui/TabPanel";
 import FullCalendarComponent from "../../../../ui/FullCalendar";
@@ -37,12 +36,12 @@ export const DashboardServicesContainer = ({
       <TabPanel
         children={<FullCalendarComponent />}
         value={initial_items[value]}
-        index={initial_items[0]}
+        index={initial_items[1]}
       />
       <TabPanel
         children={<CardItemContent />}
         value={initial_items[value]}
-        index={initial_items[3]}
+        index={initial_items[0]}
       />
     </TabsContainer>
   );
