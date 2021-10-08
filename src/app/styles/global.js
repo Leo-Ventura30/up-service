@@ -16,14 +16,6 @@ const GlobalStyle = createGlobalStyle`
   ul{
     list-style-type: none;
   }
-  .show-popup{
-    display: block !important;
-  }
-  .show {
-    right: 5%;
-    bottom: 0px;
-    display: block !important;
-  } 
 `;
 
 export default GlobalStyle;

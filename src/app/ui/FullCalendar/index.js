@@ -8,11 +8,8 @@ import styled from "styled-components";
 import { Modal } from "../../components/Modal/register";
 
 const WrapperCalendar = styled.div`
-  display: flex;
-  // .full-calendar{
-  //   width:100%;
-  //   margin-right: 2vh;
-  // }
+  display: block;
+  // width: 100%;
 `;
 
 export default class FullCalendarComponent extends React.Component {
@@ -70,56 +67,57 @@ export default class FullCalendarComponent extends React.Component {
             onSubmitAppoitment={this.handleDateSelect}
           />
         )}
-        <div className={"full-calendar"}>
-          <FullCalendar
-            locale={"pt-br"}
-            slotDuration={"00:05:00"}
-            slotLabelInterval={"00:10"}
-            slotLabelFormat={[{ hour: "2-digit", minute: "2-digit" }]}
-            dayHeaderFormat={{
-              weekday: "short",
-              day: "numeric",
-              omitCommas: true,
-            }}
-            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-            titleFormat={{ dateStyle: "short" }}
-            headerToolbar={{
-              left: "dayGridMonth,timeGridWeek,timeGridDay",
-              center: "title",
-              right: "prev,today,next",
-            }}
-            allDayText="Dia todo"
-            buttonText={{
-              today: "Hoje",
-              month: "Mês",
-              week: "Semana",
-              day: "Dia",
-              list: "Lista",
-            }}
-            initialView="timeGridWeek"
-            views={{
-              listDay: { buttonText: "list day" },
-              listWeek: { buttonText: "list week" },
-              listMonth: { buttonText: "list month" },
-            }}
-            editable={true}
-            selectable={true}
-            selectMirror={true}
-            dayMaxEvents={true}
-            weekends={this.state.weekendsVisible}
-            initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
-            select={this.toggleDropdown}
-            eventChange={this.handleUpdateEvent}
-            // eventContent={this.renderEventContent} // custom render function
-            eventClick={this.handleEventClick}
-            eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
-            /* you can update a remote database when these fire:
+
+        <FullCalendar
+          height={"95vh"}
+          locale={"pt-br"}
+          nowIndicator={true}
+          slotDuration={"00:05:00"}
+          slotLabelInterval={"00:10"}
+          slotLabelFormat={[{ hour: "2-digit", minute: "2-digit" }]}
+          dayHeaderFormat={{
+            weekday: "short",
+            day: "numeric",
+            omitCommas: true,
+          }}
+          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+          titleFormat={{ dateStyle: "short" }}
+          headerToolbar={{
+            left: "dayGridMonth,timeGridWeek,timeGridDay",
+            center: "title",
+            right: "prev,today,next",
+          }}
+          allDayText="Dia todo"
+          buttonText={{
+            today: "Hoje",
+            month: "Mês",
+            week: "Semana",
+            day: "Dia",
+            list: "Lista",
+          }}
+          initialView="timeGridWeek"
+          views={{
+            listDay: { buttonText: "list day" },
+            listWeek: { buttonText: "list week" },
+            listMonth: { buttonText: "list month" },
+          }}
+          editable={true}
+          selectable={true}
+          selectMirror={true}
+          dayMaxEvents={true}
+          weekends={this.state.weekendsVisible}
+          initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
+          select={this.toggleDropdown}
+          eventChange={this.handleUpdateEvent}
+          // eventContent={this.renderEventContent} // custom render function
+          eventClick={this.handleEventClick}
+          eventsSet={this.handleEvents} // called after events are initialized/added/changed/removed
+          /* you can update a remote database when these fire:
             eventAdd={function(){}}
             eventChange={function(){}}
             eventRemove={function(){}}
             */
-          />
-        </div>
+        />
 
         <div>
           <h2>

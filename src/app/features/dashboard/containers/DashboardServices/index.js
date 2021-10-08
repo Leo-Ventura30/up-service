@@ -34,14 +34,15 @@ export const DashboardServicesContainer = ({
         ))}
       </Tabs>
       <TabPanel
+        style={{ width: "100vh" }}
         children={<FullCalendarComponent />}
         value={initial_items[value]}
-        index={initial_items[1]}
+        index={initial_items[0]}
       />
       <TabPanel
         children={<CardItemContent />}
         value={initial_items[value]}
-        index={initial_items[0]}
+        index={initial_items[1]}
       />
     </TabsContainer>
   );
