@@ -2,12 +2,12 @@ import React from "react";
 import { Tabs, Tab, Divider } from "@material-ui/core/";
 import styled from "styled-components";
 import { TabPanel } from "../../../../ui/TabPanel";
-import FullCalendarComponent from "../../../../ui/FullCalendar";
-import { CardItemContent } from "../../../../ui/CardItems";
+import FullCalendarComponent from "../../../../components/FullCalendar";
+import { TableItemsContent } from "../../../../ui/TableItems";
 const TabsContainer = styled.div`
   background: #fff;
   display: flex;
-  min-height: 100vh;
+  min-height: 80vw;
   .Tabs-navigation {
     border-right: 1px solid #aaa;
   }
@@ -34,15 +34,14 @@ export const DashboardServicesContainer = ({
         ))}
       </Tabs>
       <TabPanel
-        style={{ width: "100vh" }}
         children={<FullCalendarComponent />}
         value={initial_items[value]}
-        index={initial_items[0]}
+        index={initial_items[1]}
       />
       <TabPanel
-        children={<CardItemContent />}
+        children={<TableItemsContent />}
         value={initial_items[value]}
-        index={initial_items[1]}
+        index={initial_items[0]}
       />
     </TabsContainer>
   );
