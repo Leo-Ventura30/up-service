@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom";
-import Footer from "../components/Footer";
 import { isAuthenticated } from "../services/auth";
-import { DashboardServicesScreen } from "../features/dashboard/screens/DashboardServices";
-import FullCalendar from "../components/FullCalendar";
+import { DashboardServicesScreen } from "../features/dashboard/screens/DashboardServicesScreen";
+import { HomeServicesScreen } from "../features/home/screens/HomeServicesScreen"
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
@@ -17,26 +17,25 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 );
 
-const Routes = () => (
+const Routes = () => {
+  
+  return(
+  
   <BrowserRouter>
-    <Fragment>
-      <Switch>
-        {/* <Route exact path="/" component={() => <Login />} />
+     
+    <Switch>
+      {/* <Route exact path="/" component={() => <Login />} />
         <PrivateRoute path="/dashboard" component={() => <Home />} />
         <Route path="/criar/conta" component={() => <Login />} /> */}
-        <Route
-          path="/v2/dashboard"
-          component={() => <DashboardServicesScreen />}
-        />
-        <Route path="/calendar" component={() => <FullCalendar />} />
+      <Route path="/v2/home" component={()=><HomeServicesScreen/>}/>
 
-        <Redirect to={{ pathname: "/" }} />
-      </Switch>
-    </Fragment>
-    <Fragment>
-      <Footer />
-    </Fragment>
-  </BrowserRouter>
-);
+      <Route
+        path="/v2/dashboard"
+        component={() => <DashboardServicesScreen />}
+      />
+      <Redirect to={{ pathname: "/v2/home" }} />          
+    </Switch>
+  </BrowserRouter>)
+};
 
 export default Routes;

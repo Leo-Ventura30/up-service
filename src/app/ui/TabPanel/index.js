@@ -1,24 +1,37 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-
+import { Box, Paper, Typography } from "@material-ui/core/";
+import { Stack } from "@mui/material";
+import { NestedModal } from "../Modal";
 export const TabPanel = (props) => {
-  const { children, value, index, ...other } = props;
+  const { content, value, index, titlePanel, textBtn, textSubTitle, fields, handleFunction } = props;
 
   return (
     <div>
       {value === index && (
-        <Box
-          style={{
-            padding: "2%",
-            minWidth: "80vw",
-            width: "85vw",
-            maxWidth: "90vw",
-          }}
-          p={2}
-        >
-          <Typography>{children}</Typography>
-        </Box>
+        <>
+          <Box width={"90vw"} p={2}>
+            <Paper
+              style={{ padding: "2%" }}
+              elevation={2}
+              children={
+                <>
+                  <Stack
+                    direction={{ xs: "column", sm: "row" }}
+                    justifyContent="space-between"
+                  >
+                    <Stack justifyContent="center">
+                      <Typography variant="h4" children={titlePanel} />
+                      <Typography variant="caption" children={textSubTitle} />
+                    </Stack>
+
+                    <NestedModal textBtn={textBtn} dataTypes={fields} handleFunction={handleFunction} />
+                  </Stack>
+                </>
+              }
+            />
+            <Paper elevation={2} children={content} />
+          </Box>
+        </>
       )}
     </div>
   );

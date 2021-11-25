@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import FullCalendar, { formatDate } from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -13,16 +13,16 @@ const WrapperCalendar = styled.div`
 
 export default class FullCalendarComponent extends React.Component {
   state = {
-    title: String(),
-    description: String(),
-    service: String(),
-    value: Number(),
-    selectInfo: Object(),
+    title: "",
+    description: "",
+    service: "",
+    value: 0,
+    selectInfo: {},
     selectDate: {
-      startDate: String(),
-      endDate: String(),
+      startDate: "",
+      endDate: "",
     },
-    currentEvents: Array(),
+    currentEvents: [],
     weekendsVisible: true,
     defaultOptions: {
       locale: "pt-br",
@@ -218,7 +218,7 @@ export default class FullCalendarComponent extends React.Component {
 
   handleCompareDate = (start, end, allDay) => {
     if (!allDay) {
-      if (start.getDay() == end.getDay()) {
+      if (start.getDay() === end.getDay()) {
         return `${this.handleFormatDate(start, allDay)} - ${
           this.handleFormatDate(end, allDay).split(" ")[1]
         }`;

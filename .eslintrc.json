@@ -4,7 +4,7 @@
     "jest": true,
     "es6":false
   },
-  "extends": ["react-app","airbnb"],
+  "extends": ["react-app"],
   "plugins":["import", "jsx-a11y","react"],
   "rules":{
     "react/jsx-filename-extension":["error", { "extensions": [".js", ".jsx"] }],

@@ -7,9 +7,6 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     outline:0;
   }
-  #MuiBox-root,#MuiBox-root-6{
-    width:100%;
-  }
   body{
     background: #ddd;
     text-rendering: optimizeLegibility !important;
